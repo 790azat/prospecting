@@ -21,6 +21,8 @@ def load_cache():
 def main():
     with open("data/businesses.csv", encoding="utf-8") as fh:
         biz = list(csv.DictReader(fh))
+    if not biz:
+        raise SystemExit("data/businesses.csv пустой")
     cache = load_cache()
     fresh = lambda r: (TODAY - datetime.date.fromisoformat(r["checked"])).days < 30
     todo = sorted({b["website"] for b in biz if b["website"] and not (b["website"] in cache and fresh(cache[b["website"]]))})[:MAX_NEW]

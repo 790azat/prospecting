@@ -2,7 +2,12 @@
 """Собирает бизнесы Армении из OpenStreetMap (Overpass API) в data/businesses.csv."""
 import csv, json, os, sys, time, urllib.parse, urllib.request
 
-ENDPOINTS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"]
+# Армения = relation 364066, area id = 3600000000 + 364066
+ENDPOINTS = [
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.private.coffee/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter",
+]
 
 # (ключ, значение, категория по-русски)
 KINDS = [
@@ -21,24 +26,28 @@ FIELDS = ["osm_id", "name", "name_en", "name_ru", "category", "city", "street", 
           "website", "instagram", "facebook", "telegram", "email", "lat", "lon"]
 
 
-def query():
-    parts = "".join(f'nwr["{k}"="{v}"]["name"](area.am);' for k, v, _ in KINDS)
-    return f'[out:json][timeout:180];area["ISO3166-1"="AM"][admin_level=2]->.am;({parts});out center tags;'
+def query(kinds):
+    parts = "".join(f'nwr["{k}"="{v}"]["name"](area.am);' for k, v, _ in kinds)
+    return f'[out:json][timeout:120];area(id:3600364066)->.am;({parts});out center tags;'
 
 
-def fetch():
-    data = urllib.parse.urlencode({"data": query()}).encode()
+def fetch(kinds):
+    """Один небольшой запрос; пустой ответ с remark считаем ошибкой и пробуем другое зеркало."""
+    data = urllib.parse.urlencode({"data": query(kinds)}).encode()
     last = None
     for attempt in range(3):
         for url in ENDPOINTS:
             try:
                 req = urllib.request.Request(url, data=data, headers={"User-Agent": "evnweb-prospecting/1.0"})
-                with urllib.request.urlopen(req, timeout=240) as r:
-                    return json.load(r)["elements"]
+                with urllib.request.urlopen(req, timeout=180) as r:
+                    js = json.load(r)
+                if js.get("remark") and not js.get("elements"):
+                    raise RuntimeError(js["remark"][:200])
+                return js["elements"]
             except Exception as e:
                 last = e
-                print(f"{url}: {e}", file=sys.stderr)
-        time.sleep(30)
+                print(f"  {url}: {e}", file=sys.stderr)
+        time.sleep(20)
     raise SystemExit(f"Overpass недоступен: {last}")
 
 
@@ -51,7 +60,16 @@ def first(t, *keys):
 
 def main():
     rows = {}
-    for el in fetch():
+    elements = []
+    groups = {}
+    for kind in KINDS:
+        groups.setdefault(kind[2], []).append(kind)
+    for cat, kinds in groups.items():
+        got = fetch(kinds)
+        print(f"{cat}: {len(got)}")
+        elements += got
+        time.sleep(3)
+    for el in elements:
         t = el.get("tags", {})
         cat = next((c for k, v, c in KINDS if t.get(k) == v), "")
         c = el.get("center", el)
@@ -69,6 +87,8 @@ def main():
             "email": first(t, "email", "contact:email"),
             "lat": c.get("lat", ""), "lon": c.get("lon", ""),
         }
+    if not rows:
+        raise SystemExit("Overpass вернул 0 бизнесов, старые данные не трогаю")
     os.makedirs("data", exist_ok=True)
     with open("data/businesses.csv", "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, FIELDS)
