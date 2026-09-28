@@ -27,7 +27,21 @@ def fetch(url, timeout=15):
 SOCIAL = ("facebook.com", "fb.com", "fb.me", "instagram.com", "booking.com", "airbnb.", "tripadvisor.", "t.me/", "linktr.ee", "wa.me/")
 
 
-def why(e):
+def dns_status(host):
+    """NXDOMAIN по Google DNS-over-HTTPS: 'dead', 'alive' или 'unknown'."""
+    import json
+    try:
+        q = urllib.request.Request(f"https://dns.google/resolve?name={host}&type=A", headers={"User-Agent": UA})
+        with urllib.request.urlopen(q, timeout=10) as r:
+            js = json.load(r)
+        if js.get("Status") == 3:
+            return "dead"
+        return "alive" if js.get("Answer") else "dead"
+    except Exception:
+        return "unknown"
+
+
+def why(e, url=""):
     """Причина, по которой сайт не открылся; score None = непонятно (защита от ботов), не считаем лидом."""
     import socket
     if isinstance(e, urllib.error.HTTPError):
@@ -36,16 +50,19 @@ def why(e):
         return 85, f"сайт выдаёт ошибку HTTP {e.code}"
     r = getattr(e, "reason", e)
     if isinstance(r, socket.gaierror):
-        return 100, "домен не работает (не продлён или не настроен)"
+        if dns_status(urlparse(url).hostname or "") == "dead":
+            return 100, "домен не работает (не продлён или не настроен)"
+        return None, "сервер проверки не смог открыть сайт, проверить вручную"
     if isinstance(r, ssl.SSLError):
         return 90, "сертификат HTTPS сломан (браузер пугает посетителей)"
-    if isinstance(r, (TimeoutError, socket.timeout)) or isinstance(e, TimeoutError):
-        return 90, "сайт не отвечает (таймаут)"
-    return 90, f"сайт не открывается ({type(r).__name__})"
+    # таймауты и обрывы могут быть проблемой сервера проверки, а не сайта
+    return None, f"сайт не ответил серверу проверки ({type(r).__name__}), проверить вручную"
 
 
 def audit(url):
     """Возвращает (score 0-100 или None, [проблемы], итоговый url)."""
+    if ".business.site" in url.lower():
+        return 100, ["сайт на Google business.site, Google отключил такие сайты в 2024: ссылка ведёт в пустоту"], url
     if any(x in url.lower() for x in SOCIAL):
         return 100, ["своего сайта нет, вместо него ссылка на соцсеть/агрегатор"], url
     if not re.match(r"https?://", url, re.I):
@@ -54,13 +71,15 @@ def audit(url):
     try:
         final, status, html, secs, size = fetch(url)
     except Exception as e:
-        first_score, first_why = why(e)
+        first_score, first_why = why(e, url)
         try:
             final, status, html, secs, size = fetch(re.sub(r"^https://", "http://", url, flags=re.I))
             if first_score and "сертификат" in first_why:
                 score, problems = 30, [first_why]
         except Exception as e2:
-            s2, w2 = why(e2)
+            s2, w2 = why(e2, url)
+            if first_score is None and s2 is None:
+                return None, [first_why], url
             if first_score is None or s2 is None:
                 return None, [first_why if first_score is None else w2], url
             return (first_score, [first_why], url) if "сертификат" in first_why or "домен" in first_why else (s2, [w2], url)
