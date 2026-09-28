@@ -24,19 +24,46 @@ def fetch(url, timeout=15):
         return r.geturl(), r.status, body.decode(r.headers.get_content_charset() or "utf-8", "replace"), time.time() - t, len(body)
 
 
+SOCIAL = ("facebook.com", "fb.com", "fb.me", "instagram.com", "booking.com", "airbnb.", "tripadvisor.", "t.me/", "linktr.ee", "wa.me/")
+
+
+def why(e):
+    """Причина, по которой сайт не открылся; score None = непонятно (защита от ботов), не считаем лидом."""
+    import socket
+    if isinstance(e, urllib.error.HTTPError):
+        if e.code in (401, 403, 429, 503):
+            return None, f"сайт не пускает бота (HTTP {e.code}), проверить вручную"
+        return 85, f"сайт выдаёт ошибку HTTP {e.code}"
+    r = getattr(e, "reason", e)
+    if isinstance(r, socket.gaierror):
+        return 100, "домен не работает (не продлён или не настроен)"
+    if isinstance(r, ssl.SSLError):
+        return 90, "сертификат HTTPS сломан (браузер пугает посетителей)"
+    if isinstance(r, (TimeoutError, socket.timeout)) or isinstance(e, TimeoutError):
+        return 90, "сайт не отвечает (таймаут)"
+    return 90, f"сайт не открывается ({type(r).__name__})"
+
+
 def audit(url):
-    if not re.match(r"https?://", url):
+    """Возвращает (score 0-100 или None, [проблемы], итоговый url)."""
+    if any(x in url.lower() for x in SOCIAL):
+        return 100, ["своего сайта нет, вместо него ссылка на соцсеть/агрегатор"], url
+    if not re.match(r"https?://", url, re.I):
         url = "https://" + url
     problems, score = [], 0
     try:
         final, status, html, secs, size = fetch(url)
-    except ssl.SSLError:
-        return 90, ["сертификат HTTPS сломан (браузер пугает посетителей)"], url
     except Exception as e:
+        first_score, first_why = why(e)
         try:
-            final, status, html, secs, size = fetch(url.replace("https://", "http://", 1))
-        except Exception:
-            return 100, [f"сайт не открывается ({type(e).__name__})"], url
+            final, status, html, secs, size = fetch(re.sub(r"^https://", "http://", url, flags=re.I))
+            if first_score and "сертификат" in first_why:
+                score, problems = 30, [first_why]
+        except Exception as e2:
+            s2, w2 = why(e2)
+            if first_score is None or s2 is None:
+                return None, [first_why if first_score is None else w2], url
+            return (first_score, [first_why], url) if "сертификат" in first_why or "домен" in first_why else (s2, [w2], url)
     low = html.lower()
 
     def add(points, text):
@@ -49,7 +76,7 @@ def audit(url):
     if 'name="viewport"' not in low and "name=viewport" not in low:
         add(25, "не адаптирован под телефон (нет viewport)")
     years = [int(y) for y in re.findall(r"(?:©|&copy;|copyright)\s*(?:\d{4}\s*[-–]\s*)?((?:19|20)\d{2})", low)]
-    if years and max(years) <= YEAR - 3:
+    if years and max(years) <= YEAR - 4:
         add(15, f"в подвале © {max(years)}: сайт давно не обновляли")
     m = re.search(r"jquery[.-]?(\d)\.(\d+)", low)
     if m and (int(m.group(1)), int(m.group(2))) < (1, 12):
@@ -80,7 +107,7 @@ def main():
     arg = sys.argv[1]
     if arg.startswith("http") or ("." in arg and not arg.endswith(".csv")):
         s, p, f = audit(arg)
-        print(f"{f}\nscore {s}\n- " + "\n- ".join(p or ["проблем не найдено"])); return
+        print(f"{f}\nscore {s if s is not None else '?'}\n- " + "\n- ".join(p or ["проблем не найдено"])); return
     with open(arg, newline="", encoding="utf-8-sig") as fh:
         rows = list(csv.reader(fh))
     header, rows = rows[0], rows[1:]
@@ -91,9 +118,9 @@ def main():
             s, p, f = 100, ["сайта нет"], ""
         else:
             s, p, f = audit(url)
-        print(f"[{i}/{len(rows)}] {s:3d}  {row[0]}")
-        out.append(row + [s, "; ".join(p), f])
-    out.sort(key=lambda r: -r[len(header)])
+        print(f"[{i}/{len(rows)}] {s if s is not None else '?':>3}  {row[0]}")
+        out.append(row + ["" if s is None else s, "; ".join(p), f])
+    out.sort(key=lambda r: -(r[len(header)] or 0))
     with open("audit_result.csv", "w", newline="", encoding="utf-8-sig") as fh:
         w = csv.writer(fh)
         w.writerow(header + ["score", "problems", "final_url"])

@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from site_audit import audit
 
 CACHE = "data/audit_cache.csv"      # сайт -> оценка; перепроверяем раз в 30 дней
-MAX_NEW = int(os.environ.get("MAX_NEW_AUDITS", "400"))
+MAX_NEW = int(os.environ.get("MAX_NEW_AUDITS", "800"))
 TODAY = datetime.date.today()
 
 
@@ -33,7 +33,7 @@ def main():
             s, p, f = audit(url)
         except Exception as e:
             s, p, f = 100, [f"ошибка проверки ({type(e).__name__})"], url
-        return {"website": url, "score": s, "problems": "; ".join(p), "final_url": f, "checked": TODAY.isoformat()}
+        return {"website": url, "score": "" if s is None else s, "problems": "; ".join(p), "final_url": f, "checked": TODAY.isoformat()}
 
     with ThreadPoolExecutor(16) as ex:
         for r in ex.map(run, todo):
@@ -50,9 +50,10 @@ def main():
             if not contact:
                 continue
             leads.append({**b, "lead_type": "нет сайта", "score": 100, "problems": "сайта нет"})
-        elif b["website"] in cache and int(cache[b["website"]]["score"]) >= 40:
+        elif b["website"] in cache and cache[b["website"]]["score"] != "" and int(cache[b["website"]]["score"]) >= 40:
             a = cache[b["website"]]
-            leads.append({**b, "lead_type": "устаревший сайт", "score": a["score"], "problems": a["problems"]})
+            kind = "нет сайта" if "соцсеть" in a["problems"] else "устаревший сайт"
+            leads.append({**b, "lead_type": kind, "score": a["score"], "problems": a["problems"]})
     prio = {"отель": 0, "гостевой дом": 0, "ресторан": 1, "кафе": 1, "супермаркет": 2}
     leads.sort(key=lambda r: (prio.get(r["category"], 3), -int(r["score"]), r["name"]))
     fields = list(biz[0].keys()) + ["lead_type", "score", "problems"]
