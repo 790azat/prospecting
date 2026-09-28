@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Собирает бизнесы Армении из OpenStreetMap (Overpass API) в data/businesses.csv."""
-import csv, json, sys, time, urllib.parse, urllib.request
+import csv, json, os, sys, time, urllib.parse, urllib.request
 
 ENDPOINTS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"]
 
@@ -69,6 +69,7 @@ def main():
             "email": first(t, "email", "contact:email"),
             "lat": c.get("lat", ""), "lon": c.get("lon", ""),
         }
+    os.makedirs("data", exist_ok=True)
     with open("data/businesses.csv", "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, FIELDS)
         w.writeheader()
