@@ -1,0 +1,59 @@
+name: telegram-outreach
+
+on:
+  schedule:
+    - cron: "30 6 * * 1-6"   # 10:30 по Еревану, пн-сб
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "send_code / sign_in / run / status"
+        default: status
+      code:
+        description: "Код входа из Telegram (для sign_in)"
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: telegram-outreach
+  cancel-in-progress: false
+
+jobs:
+  tg:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      PYTHONUNBUFFERED: "1"
+      TG_API_ID: ${{ secrets.TG_API_ID }}
+      TG_API_HASH: ${{ secrets.TG_API_HASH }}
+      TG_2FA: ${{ secrets.TG_2FA }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q telethon==1.* cryptography
+      - name: Check secrets
+        run: |
+          [ -n "$TG_API_ID" ] && [ -n "$TG_API_HASH" ] || { echo "::error::Добавьте секреты TG_API_ID и TG_API_HASH"; exit 1; }
+      - name: Telegram
+        env:
+          MODE: ${{ github.event.inputs.mode || 'run' }}
+          CODE: ${{ github.event.inputs.code }}
+        run: |
+          [ -n "$CODE" ] && echo "::add-mask::$CODE"
+          case "$MODE" in
+            sign_in) python scripts/tg_outreach.py sign_in "$CODE" ;;
+            send_code|run|status) python scripts/tg_outreach.py "$MODE" ;;
+            *) echo "unknown mode $MODE"; exit 1 ;;
+          esac
+      - name: Save state
+        if: always()
+        run: |
+          git config user.name "prospecting-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/tg
+          git diff --cached --quiet && exit 0
+          git commit -m "tg: $(date -u +%F) ${{ github.event.inputs.mode || 'run' }}"
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
