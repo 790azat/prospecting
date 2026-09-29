@@ -71,12 +71,6 @@ def client(session=''):
                           lang_code='ru', system_lang_code='ru')
 
 
-def with_video(text):
-    """В очереди текст предлагает прислать видео. Раз видео уходит сразу следом, говорим «прикладываю»."""
-    text = text.replace('Կարող եմ ուղարկել կարճ տեսանյութ', 'Կցում եմ կարճ տեսանյութ')
-    return text.replace('Могу прислать короткое видео', 'Прикладываю короткое видео')
-
-
 class Video:
     """Первая отправка загружает файл, дальше пересылаем уже загруженный документ."""
     def __init__(self, lang):
@@ -173,8 +167,8 @@ async def run():
     save_queue(rows)
     sent, no_tg, had_chat, stop_reason = [], 0, 0, ''
     video, video_sent = Video(LANG), 0
-    if not video.ok():
-        print('Видео не найдено, отправляю только текст:', video.path)
+    if not video.ok():   # текст ссылается на видео ниже, без него не отправляем
+        sys.exit(f'Нет видео {video.path}, рассылка не запущена.')
     tries_day = st.setdefault('tries', {})
     tries = tries_day.get(today, 0)   # проверки номеров за день, с учётом запасных запусков
     day_cap = min(limit_for(day_no), MAX_PER_DAY) * 3
@@ -201,8 +195,6 @@ async def run():
                 r['status'], r['data'], r['tg_id'] = 'uzhe_byla_perepiska', today, str(user.id)
                 had_chat += 1; save_queue(rows); continue
             text = r['tekst_hy'] if LANG == 'hy' else r['tekst_ru']
-            if video.ok():
-                text = with_video(text)
             async with c.action(user, 'typing'):
                 await asyncio.sleep(random.uniform(4, 9))
             await c.send_message(user, text)
