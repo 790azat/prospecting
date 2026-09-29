@@ -3,6 +3,7 @@ name: telegram-outreach
 on:
   schedule:
     - cron: "30 6 * * 1-6"   # 10:30 по Еревану, пн-сб
+    - cron: "20 7-12 * * 1-6"  # запасные запуски: GitHub иногда пропускает расписание; дневной лимит считается в state.json
   workflow_dispatch:
     inputs:
       mode:
