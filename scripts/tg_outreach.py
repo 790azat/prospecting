@@ -137,6 +137,8 @@ async def run():
     days = st.setdefault('days', {})
     day_no = len([d for d in days if d != today]) + 1
     limit = min(limit_for(day_no), MAX_PER_DAY) - days.get(today, 0)
+    if days.get(today) and limit <= 0:
+        print('Сегодняшний лимит уже отправлен'); return
 
     c = client(load_session()); await c.connect()
     if not await c.is_user_authorized():
