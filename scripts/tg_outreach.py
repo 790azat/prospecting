@@ -7,10 +7,10 @@
   status           - проверить сессию и вывести счётчики без отправки
 
 Безопасность аккаунта: лимит по дням (10/15/20, не больше 25), только пн-сб 10:30-18:30 по Еревану,
-паузы 4-10 минут, только текст, без повторов. При PeerFlood/FloodWait рассылка встаёт на 3 дня.
+паузы 4-10 минут, текст и следом основное видео (data/tg/video), без повторов. При PeerFlood/FloodWait рассылка встаёт на 3 дня.
 Сессия хранится в репозитории только в зашифрованном виде (ключ из секрета TG_API_HASH).
 """
-import asyncio, base64, csv, datetime as dt, hashlib, json, os, random, sys
+import asyncio, base64, csv, datetime as dt, hashlib, json, os, random, re, sys
 from pathlib import Path
 
 from cryptography.fernet import Fernet
@@ -19,6 +19,7 @@ from telethon.sessions import StringSession
 
 ROOT = Path(__file__).resolve().parent.parent / 'data' / 'tg'
 QUEUE, STATE, SESSION = ROOT / 'queue.csv', ROOT / 'state.json', ROOT / 'session.enc'
+VIDEO_DIR = ROOT / 'video'   # после текста отправляем основное видео EVNWEB на языке сообщения
 PHONE = os.environ.get('TG_PHONE') or '+37493401179'
 LANG = os.environ.get('TG_LANG') or 'hy'          # язык первого сообщения: hy или ru
 YEREVAN = dt.timezone(dt.timedelta(hours=4))
@@ -68,6 +69,30 @@ def client(session=''):
     return TelegramClient(StringSession(session), int(os.environ['TG_API_ID']), os.environ['TG_API_HASH'],
                           device_model='EVNWEB', system_version='Linux', app_version='1.0',
                           lang_code='ru', system_lang_code='ru')
+
+
+def with_video(text):
+    """В очереди текст предлагает прислать видео. Раз видео уходит сразу следом, говорим «прикладываю»."""
+    text = text.replace('Կարող եմ ուղարկել կարճ տեսանյութ', 'Կցում եմ կարճ տեսանյութ')
+    return text.replace('Могу прислать короткое видео', 'Прикладываю короткое видео')
+
+
+class Video:
+    """Первая отправка загружает файл, дальше пересылаем уже загруженный документ."""
+    def __init__(self, lang):
+        self.path, self.thumb = VIDEO_DIR / f'evnweb-{lang}.mp4', VIDEO_DIR / f'oblozhka-{lang}.jpg'
+        self.media = None
+
+    def ok(self):
+        return self.path.exists()
+
+    async def send(self, c, user):
+        if self.media is None:
+            msg = await c.send_file(user, str(self.path), supports_streaming=True,
+                                    thumb=str(self.thumb) if self.thumb.exists() else None)
+            self.media = msg.media
+        else:
+            await c.send_file(user, self.media)
 
 
 def now():
@@ -147,6 +172,9 @@ async def run():
     replies = await check_replies(c, rows)
     save_queue(rows)
     sent, no_tg, had_chat, stop_reason = [], 0, 0, ''
+    video, video_sent = Video(LANG), 0
+    if not video.ok():
+        print('Видео не найдено, отправляю только текст:', video.path)
     tries_day = st.setdefault('tries', {})
     tries = tries_day.get(today, 0)   # проверки номеров за день, с учётом запасных запусков
     day_cap = min(limit_for(day_no), MAX_PER_DAY) * 3
@@ -173,6 +201,8 @@ async def run():
                 r['status'], r['data'], r['tg_id'] = 'uzhe_byla_perepiska', today, str(user.id)
                 had_chat += 1; save_queue(rows); continue
             text = r['tekst_hy'] if LANG == 'hy' else r['tekst_ru']
+            if video.ok():
+                text = with_video(text)
             async with c.action(user, 'typing'):
                 await asyncio.sleep(random.uniform(4, 9))
             await c.send_message(user, text)
@@ -180,6 +210,16 @@ async def run():
             sent.append(r)
             days[today] = days.get(today, 0) + 1
             save_queue(rows); save_state(st)
+            if video.ok():
+                await asyncio.sleep(random.uniform(3, 7))
+                try:
+                    async with c.action(user, 'video'):
+                        await video.send(c, user)
+                    video_sent += 1
+                except (errors.PeerFloodError, errors.FloodWaitError):
+                    raise
+                except Exception as e:
+                    print('Видео не отправлено:', type(e).__name__, e)
             print(f'{len(sent)}/{limit} отправлено: {r["nazvanie"]} ({r["kategoriya"]})')
         except (errors.PeerFloodError, errors.FloodWaitError) as e:
             wait = getattr(e, 'seconds', 0)
@@ -196,7 +236,7 @@ async def run():
 
     save_queue(rows); save_state(st)
     left = len([r for r in rows if r['status'] == ''])
-    lines = [f'EVNWEB рассылка {today}: отправлено {len(sent)} из {limit}.']
+    lines = [f'EVNWEB рассылка {today}: отправлено {len(sent)} из {limit}, с видео {video_sent}.']
     if sent: lines.append('Кому: ' + ', '.join(r['nazvanie'] for r in sent))
     if no_tg or had_chat: lines.append(f'Нет в Telegram: {no_tg}. Уже была переписка (пропущено): {had_chat}.')
     if replies:

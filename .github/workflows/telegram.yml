@@ -34,7 +34,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -q telethon==1.* cryptography
+      - run: pip install -q telethon==1.* cryptography hachoir
       - name: Check secrets
         run: |
           [ -n "$TG_API_ID" ] && [ -n "$TG_API_HASH" ] || { echo "::error::Добавьте секреты TG_API_ID и TG_API_HASH"; exit 1; }
