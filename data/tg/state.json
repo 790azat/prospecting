@@ -2,5 +2,7 @@
  "login": "2026-09-28T20:04:17.352257+04:00",
  "days": {
   "2026-09-29": 10
- }
+ },
+ "stopped": true,
+ "stopped_reason": "2026-09-29: Telegram spam limit (only mutual contacts), stopped at Azat request"
 }
