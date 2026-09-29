@@ -2,7 +2,7 @@ name: daily-prospecting
 
 on:
   schedule:
-    - cron: "0 4 * * *"   # 08:00 по Еревану
+    - cron: "0 22 * * *"   # 02:00 по Еревану: GitHub запускает расписание с опозданием на несколько часов, к утру данные готовы
   workflow_dispatch:
 
 permissions:
