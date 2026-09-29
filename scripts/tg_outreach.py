@@ -147,17 +147,19 @@ async def run():
     replies = await check_replies(c, rows)
     save_queue(rows)
     sent, no_tg, had_chat, stop_reason = [], 0, 0, ''
-    tries = 0
+    tries_day = st.setdefault('tries', {})
+    tries = tries_day.get(today, 0)   # проверки номеров за день, с учётом запасных запусков
+    day_cap = min(limit_for(day_no), MAX_PER_DAY) * 3
     todo = [r for r in rows if r['status'] == '']
     todo.sort(key=lambda r: (int(r['den'] or 999), int(r['prioritet'] or 9)))
     print(f'День рассылки №{day_no}, лимит на сегодня {limit}, в очереди {len(todo)}, новых ответов {len(replies)}')
 
     for r in todo:
-        if len(sent) >= limit or tries >= limit * 3:
+        if len(sent) >= limit or tries >= day_cap:
             break
         if now().time() > dt.time(18, 30):
             stop_reason = 'закончилось рабочее время'; break
-        tries += 1
+        tries += 1; tries_day[today] = tries
         try:
             res = await c(functions.contacts.ImportContactsRequest([types.InputPhoneContact(
                 client_id=random.randrange(1 << 62), phone=r['nomer'], first_name=r['nazvanie'][:60], last_name='')]))
