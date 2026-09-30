@@ -84,6 +84,8 @@ def audit(url):
                 return None, [first_why if first_score is None else w2], url
             return (first_score, [first_why], url) if "сертификат" in first_why or "домен" in first_why else (s2, [w2], url)
     low = html.lower()
+    if "suspendedpage" in final.lower() or "account suspended" in low[:5000]:
+        return 95, ["хостинг отключил сайт (не оплачен), вместо сайта заглушка"], final
 
     def add(points, text):
         nonlocal score

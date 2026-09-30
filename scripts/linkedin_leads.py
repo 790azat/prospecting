@@ -33,8 +33,6 @@ def guesses(c):
     slug = c["linkedin"].rstrip("/").rsplit("/", 1)[-1].lower()
     words = [w for w in re.findall(r"[a-z0-9]+", c["name"].lower()) if w not in STOP]
     bases = {slug, slug.replace("-", ""), "".join(words), "-".join(words)}
-    if words:
-        bases.add(words[0])
     bases = {b for b in bases if len(b) >= 4 and not b.isdigit()}
     return [f"{b}.{tld}" for b in sorted(bases) for tld in ("am", "com")]
 
@@ -51,7 +49,7 @@ def find_site(c):
                     return host  # домен живой, но сервер проверки не открыл: пусть аудит решает, не считаем «сайта нет»
                 continue
             low = html.lower()
-            if words and any(w in low for w in words) and not re.search(r"domain (is )?for sale|parked|buy this domain", low):
+            if words and all(w in low for w in words) and not re.search(r"domain (is )?for sale|parked|buy this domain", low):
                 return final
             break
     return ""
