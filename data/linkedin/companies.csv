@@ -1,81 +1,81 @@
 linkedin,name,category,city,website,socials,status,evidence,found,guessed
-https://www.linkedin.com/company/digitallhr,DigitalHR Agency,HR-агентство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/hirenet-armenia,HireNet HRM outsourcing,HR-агентство,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/magnus-hr,Magnus HR,HR-агентство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/quickstaffing,QuickStaffing HR,HR-агентство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/tanger-llc,Tanger Recruitment company,HR-агентство,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/vgrecruiting,VG Recruiting Agency,HR-агентство,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/meettal,meettal,HR-агентство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/digitallhr,DigitalHR Agency,HR-агентство,,,,unknown,"поиск: only rocketreach profile (email fmt digitalhr.ru, unverified)",2026-09-30,2026-09-30
+https://www.linkedin.com/company/hirenet-armenia,HireNet HRM outsourcing,HR-агентство,Ереван,hirenet.am,"['https://www.facebook.com/HireNet.HRM/', 'https://www.instagram.com/hirenet/']",own_site,"поиск: hirenet.am contact page; also spyur, fb",2026-09-30,2026-09-30
+https://www.linkedin.com/company/magnus-hr,Magnus HR,HR-агентство,,magnus-hr.co,['https://www.facebook.com/MagnusHumanResources/'],own_site,поиск: magnus-hr.co Why Magnus page,2026-09-30,2026-09-30
+https://www.linkedin.com/company/quickstaffing,QuickStaffing HR,HR-агентство,,,['https://www.facebook.com/people/QuickStaffing-Agency/61561765942885/'],no_site,"поиск: fb, job.am, staff.am; email domain quickstaffing.co seen on zoominfo",2026-09-30,2026-09-30
+https://www.linkedin.com/company/tanger-llc,Tanger Recruitment company,HR-агентство,Ереван,tanger.am,,own_site,поиск: tanger.am recruitment agency site,2026-09-30,2026-09-30
+https://www.linkedin.com/company/vgrecruiting,VG Recruiting Agency,HR-агентство,Ереван,,['https://www.facebook.com/vgrecruitingagency/'],no_site,"поиск: fb, telegram, spyur (VG-WORK.AM) only",2026-09-30,2026-09-30
+https://www.linkedin.com/company/meettal,meettal,HR-агентство,,meettal.com,['https://www.facebook.com/meettalents/'],own_site,поиск: meettal.com tech recruitment agency,2026-09-30,2026-09-30
 https://www.linkedin.com/company/ecomotors-am,EcoMotors.am,автосалон,,https://ecomotors.am,,own_site,domain in company name (not search-verified),2026-09-30,
-https://www.linkedin.com/company/energy-motors-llc-armenia,Energy Motors LLC,автосалон,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/fine-cars-of-armenia,Fine Cars of Armenia,автосалон,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/energy-motors-llc-armenia,Energy Motors LLC,автосалон,,,,no_site,поиск: spyur slug energy-motors = MG Motor Armenia; no own site in results,2026-09-30,2026-09-30
+https://www.linkedin.com/company/fine-cars-of-armenia,Fine Cars of Armenia,автосалон,Ереван,finecars.am,['https://www.instagram.com/finecars.am/'],own_site,поиск: finecars.am About Us FCA,2026-09-30,2026-09-30
 https://www.linkedin.com/company/autofan-ac,Autofan,автосервис,,https://autofan.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/agrotech-armenia,Agrotech Armenia,агро,,https://agrotech.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/akgpharmacy,AKG Pharmacy,аптека,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/akgpharmacy,AKG Pharmacy,аптека,Ереван,,['https://www.facebook.com/AKGpharmacy/'],no_site,"поиск: spyur, yandex, glovo, fb only",2026-09-30,2026-09-30
 https://www.linkedin.com/company/alfapharm,Alfa Pharm,аптека,Ереван,https://www.alfapharm.am/,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/eapteka-am,Eapteka.am,аптека,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/archstudio-architecture-interior-design,ArchStudio Architecture/Interior design,архитектура,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/cubitstudio,Cubit Architecture and Design Studio,архитектура,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/daap-architecture-studio,Daap Architecture Studio,архитектура,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/project-architecture-&-construction,PROJECT Architecture & Construction,архитектура,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/379-brewing-company,379 Brewing Company,бар,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/eapteka-am,Eapteka.am,аптека,Ереван,eapteka.am,,own_site,поиск: eapteka.am site in results (name is the domain),2026-09-30,2026-09-30
+https://www.linkedin.com/company/archstudio-architecture-interior-design,ArchStudio Architecture/Interior design,архитектура,Ереван,,,unknown,поиск: no matching ArchStudio result,2026-09-30,2026-09-30
+https://www.linkedin.com/company/cubitstudio,Cubit Architecture and Design Studio,архитектура,,cubit.am,['https://www.facebook.com/cubitstudio/'],own_site,поиск: cubit.am Architectural studio,2026-09-30,2026-09-30
+https://www.linkedin.com/company/daap-architecture-studio,Daap Architecture Studio,архитектура,,daap.archi,['https://www.instagram.com/daap.archi/'],own_site,поиск: daap.archi Daap Architecture Studio Yerevan,2026-09-30,2026-09-30
+https://www.linkedin.com/company/project-architecture-&-construction,PROJECT Architecture & Construction,архитектура,Ереван,,,no_site,поиск: only construction.am directory listing,2026-09-30,2026-09-30
+https://www.linkedin.com/company/379-brewing-company,379 Brewing Company,бар,,379beer.am,['https://www.facebook.com/379brewingcompany/'],own_site,поиск: 379beer.am 379 Beer,2026-09-30,2026-09-30
 https://www.linkedin.com/company/dargett,Dargett,бар,Ереван,http://dargett.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/wine-republic-yerevan,Wine Republic Yerevan,бар,Ереван,winerepublic.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/dors-craft-beer-kitchen,dors craft beer & kitchen,бар,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/alpha-accounting-armenia,Alpha Accounting,бухгалтерия,,https://alphaaccounting.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/paradigma-armenia-accounting-consulting-and-research-company,"Paradigma Armenia Accounting, Consulting and Research",бухгалтерия,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/ivet-medical,iVet Medical,ветклиника,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/-armenia-wine-factory-llc,"""Armenia Wine"" Winery and Vineyards",вино,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/dors-craft-beer-kitchen,dors craft beer & kitchen,бар,Ереван,,['https://www.facebook.com/dors.craftbeerandkitchen/'],no_site,"поиск: tripadvisor, spyur, fb; only a page on barsoumiangroup.com",2026-09-30,2026-09-30
+https://www.linkedin.com/company/alpha-accounting-armenia,Alpha Accounting,бухгалтерия,,alphaaccounting.am,,own_site,поиск: alphaaccounting.am accounting services Armenia,2026-09-30,2026-09-30
+https://www.linkedin.com/company/paradigma-armenia-accounting-consulting-and-research-company,"Paradigma Armenia Accounting, Consulting and Research",бухгалтерия,,,,no_site,"поиск: yell.am, armeniayp, spyur-type directories only",2026-09-30,2026-09-30
+https://www.linkedin.com/company/ivet-medical,iVet Medical,ветклиника,Ереван,ivetmedical.com,,own_site,поиск: ivetmedical.com vet equipment supplier (Yerevan contact page; verify Armenian),2026-09-30,2026-09-30
+https://www.linkedin.com/company/-armenia-wine-factory-llc,"""Armenia Wine"" Winery and Vineyards",вино,,armeniawine.am,,own_site,поиск: armeniawine.am Armenia Wine,2026-09-30,2026-09-30
 https://www.linkedin.com/company/wineworks-cjsc,WineWorks CJSC,вино,,http://wineworks.am/cgi-sys/suspendedpage.cgi,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/britishschool,British International School of Armenia,детсад/школа,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/cis-armenia,CIS Armenia (Cambridge) International School,детсад/школа,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/european-school-in-armenia,European School in Armenia,детсад/школа,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/leadershipschoolam,Leadership School Armenia,детсад/школа,Ереван,https://www.leadershipschool.am/en/index.php,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/apaven,APAVEN,доставка,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/barekam,BLS LLC,доставка,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/britishschool,British International School of Armenia,детсад/школа,Ереван,bis.am,['https://www.facebook.com/BritishInternationalSchoolofArmenia/'],own_site,поиск: bis.am BISA,2026-09-30,2026-09-30
+https://www.linkedin.com/company/cis-armenia,CIS Armenia (Cambridge) International School,детсад/школа,Ереван,ciscambridge.com,['https://www.facebook.com/acisarmenia/'],own_site,поиск: ciscambridge.com Cis Yerevan,2026-09-30,2026-09-30
+https://www.linkedin.com/company/european-school-in-armenia,European School in Armenia,детсад/школа,Ереван,europeanschool.am,"['https://www.facebook.com/European.school.armenia/', 'https://www.instagram.com/european_school_in_armenia/']",own_site,поиск: europeanschool.am,2026-09-30,2026-09-30
+https://www.linkedin.com/company/leadershipschoolam,Leadership School Armenia,детсад/школа,Ереван,leadershipschool.am,"['https://www.facebook.com/LeadershipSchoolAM/', 'https://www.instagram.com/leadershipschool.am/']",own_site,поиск: leadershipschool.am,2026-09-30,2026-09-30
+https://www.linkedin.com/company/apaven,APAVEN,доставка,,apaven.com,,own_site,поиск: apaven.com freight forwarding Armenia,2026-09-30,2026-09-30
+https://www.linkedin.com/company/barekam,BLS LLC,доставка,,barekam.am,['https://www.facebook.com/BLSBarekamLogisticService/'],own_site,поиск: barekam.am / bls.am Barekam Logistic Service,2026-09-30,2026-09-30
 https://www.linkedin.com/company/cargo-travel-armenia-transportation-logistics,Cargo Travel Armenia,доставка,,https://cargotravel.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/global-logistics-llc,Global Logistics LLC,доставка,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/international-logistics-group-llc-armenia,International Logistics Group LLC Armenia,доставка,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/global-logistics-llc,Global Logistics LLC,доставка,,,,no_site,поиск: only spyur 'Global Logistics' freight forwarding listing,2026-09-30,2026-09-30
+https://www.linkedin.com/company/international-logistics-group-llc-armenia,International Logistics Group LLC Armenia,доставка,,interlogistics.am,,own_site,поиск: interlogistics.am (Logistics.am) About Us,2026-09-30,2026-09-30
 https://www.linkedin.com/company/umaks-llc,UMAKS,доставка,,https://www.umaks.am/am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/harsupesa.am,Harsupesa.am Armenian Wedding Planner,ивент-агентство,,https://harsupesa.am,,own_site,domain in company name (not search-verified),2026-09-30,
-https://www.linkedin.com/company/skillevents,Skill Event Marketing Company,ивент-агентство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/we-design---wedding-planner-armenia,WE Design Wedding Planner Armenia,ивент-агентство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/skillevents,Skill Event Marketing Company,ивент-агентство,,skill.am,['https://www.facebook.com/skilleventmarketing/'],own_site,поиск: skill.am SKILL EVENT MARKETING COMPANY,2026-09-30,2026-09-30
+https://www.linkedin.com/company/we-design---wedding-planner-armenia,WE Design Wedding Planner Armenia,ивент-агентство,,wedesignwedding.com,"['https://www.instagram.com/wedesignwedding/', 'https://www.facebook.com/p/WE-Design-Wedding-100064100646268/']",own_site,поиск: wedesignwedding.com,2026-09-30,2026-09-30
 https://www.linkedin.com/company/weddingarmenia,Wedding Armenia,ивент-агентство,,wedding.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/om-shanti-yoga-studio,Om Shanti Yoga Studio,йога,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/sahaja-yoga-armenia,Sahaja Yoga Armenia,йога,,https://sahajayoga.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/coffee-house-company,Coffee House Company,кафе,Ереван,https://coffeehouse.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/groundzeroam,Ground Zero Specialty Café,кафе,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/alpha-food-service,Alpha Food Service,кейтеринг,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/canapea-catering,Canapea Catering,кейтеринг,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/astghik-medical-center,"""Astghik"" Medical Center",клиника,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/a-b-med,A.B. MED,клиника,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/arabkir-joint-medical-centre,ARABKIR Joint Medical Centre,клиника,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/om-shanti-yoga-studio,Om Shanti Yoga Studio,йога,Ереван,,,unknown,поиск: no Yerevan Om Shanti result (omshantiyoga.org is unrelated),2026-09-30,2026-09-30
+https://www.linkedin.com/company/sahaja-yoga-armenia,Sahaja Yoga Armenia,йога,,sahajayogaarmenia.wordpress.com,,own_site,поиск: free-hosted site on wordpress.com / yolasite; spyur listing,2026-09-30,2026-09-30
+https://www.linkedin.com/company/coffee-house-company,Coffee House Company,кафе,Ереван,coffeehouse.am,['https://www.facebook.com/coffeehouseyerevan/'],own_site,поиск: coffeehouse.am Coffee House Company,2026-09-30,2026-09-30
+https://www.linkedin.com/company/groundzeroam,Ground Zero Specialty Café,кафе,Ереван,,"['https://www.facebook.com/GroundZeroAM/', 'https://www.instagram.com/ground_zero_specialty_coffee/']",no_site,"поиск: fb, ig, tripadvisor, yandex only",2026-09-30,2026-09-30
+https://www.linkedin.com/company/alpha-food-service,Alpha Food Service,кейтеринг,,,['https://www.facebook.com/AlphaFoodServiceLLC/'],no_site,"поиск: spyur, staff.am, pages.am, fb; no own domain in results",2026-09-30,2026-09-30
+https://www.linkedin.com/company/canapea-catering,Canapea Catering,кейтеринг,Ереван,canapea.am,"['https://www.facebook.com/canapea.yerevan/', 'https://www.instagram.com/canapea_catering/']",own_site,поиск: canapea.am Canapea Catering,2026-09-30,2026-09-30
+https://www.linkedin.com/company/astghik-medical-center,"""Astghik"" Medical Center",клиника,Ереван,mcastghik.com,['https://www.facebook.com/astghikmedicalcenter/'],own_site,поиск: mcastghik.com Astghik Medical Center,2026-09-30,2026-09-30
+https://www.linkedin.com/company/a-b-med,A.B. MED,клиника,Ереван,abmed.am,['https://www.facebook.com/ABMedlab.y/'],own_site,поиск: abmed.am A.B.MED Advanced Diagnostics,2026-09-30,2026-09-30
+https://www.linkedin.com/company/arabkir-joint-medical-centre,ARABKIR Joint Medical Centre,клиника,Ереван,arabkirmc.am,,own_site,поиск: arabkirmc.am Arabkir JMC,2026-09-30,2026-09-30
 https://www.linkedin.com/company/avanta-clinics,Avanta Clinics,клиника,Ереван,http://avantaclinics.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/bestlifemc,Best Life Medical Center,клиника,Ереван,https://www.bestlife.am/,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/davidyants-primary-healthcare-centers,Davidyants Primary Healthcare Centers,клиника,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/endovision-medical-center,Endovision Medical Center,клиника,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/erebounimedicalcenter,Erebouni Medical Center,клиника,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/bestlifemc,Best Life Medical Center,клиника,Ереван,bestlife.am,['https://www.facebook.com/bestlifemc/'],own_site,поиск: bestlife.am Best Life Medical Center,2026-09-30,2026-09-30
+https://www.linkedin.com/company/davidyants-primary-healthcare-centers,Davidyants Primary Healthcare Centers,клиника,Ереван,davclinic.am,,own_site,поиск: davclinic.am Davidyants Polyclinics,2026-09-30,2026-09-30
+https://www.linkedin.com/company/endovision-medical-center,Endovision Medical Center,клиника,Ереван,,['https://www.facebook.com/endovision.mc/'],no_site,"поиск: spyur, doctors.am, bestofarmenia, fb only",2026-09-30,2026-09-30
+https://www.linkedin.com/company/erebounimedicalcenter,Erebouni Medical Center,клиника,Ереван,erebunimed.com,,own_site,поиск: erebunimed.com Erebuni Medical Center,2026-09-30,2026-09-30
 https://www.linkedin.com/company/helios-medical-center-armenia,Helios Medical Center Armenia,клиника,Ереван,https://helios.am/hy/,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/lavanda-clinic,Lavanda Clinic,клиника,Ереван,https://www.lavanda.am/hy,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/mhs-mental-health-service,MHS Mental Health Service,клиника,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/avagyanmed,Medical Center after Vladimir Avagyan,клиника,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/mkrtchyan-mental-care-clinic,Mkrtchyan Mental Care Clinic,клиника,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/mhs-mental-health-service,MHS Mental Health Service,клиника,Ереван,,"['https://www.facebook.com/MHSYerevan', 'https://www.instagram.com/mhs.mentalhealthservice/']",no_site,"поиск: fb, ig, yandex; email domain mhs.am seen on zoominfo but no site result",2026-09-30,2026-09-30
+https://www.linkedin.com/company/avagyanmed,Medical Center after Vladimir Avagyan,клиника,Ереван,avagyanmed.am,['https://www.facebook.com/AvagyanMed/'],own_site,поиск: avagyanmed.am,2026-09-30,2026-09-30
+https://www.linkedin.com/company/mkrtchyan-mental-care-clinic,Mkrtchyan Mental Care Clinic,клиника,Ереван,mmcc.am,['https://www.facebook.com/mkrtchyanmentalcareclinic/'],own_site,поиск: mmcc.am MMCC,2026-09-30,2026-09-30
 https://www.linkedin.com/company/nairimedicalcenter,Nairi Medical Center,клиника,Ереван,nairi.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/vardanants-cim,Vardanants Center for Innovative Medicine,клиника,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/vardanants-cim,Vardanants Center for Innovative Medicine,клиника,Ереван,vardanants.am,,own_site,поиск: vardanants.am Vardanants CIM,2026-09-30,2026-09-30
 https://www.linkedin.com/company/wigmoreclinic,Wigmore Clinic,клиника,Ереван,https://wigmore.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/adwise%e2%84%a2-business-and-legal-consulting,ADWISE Business & Legal Consulting,консалтинг,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/ae-consulting-armenia,AE Consulting Armenia,консалтинг,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/business-solutions-llc-armenian,Business Solutions LLC,консалтинг,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/gsc-llc,General Standard Consulting LLC (GSC),консалтинг,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/helix-consulting-llc,Helix Consulting LLC,консалтинг,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/ideal-team-group-armenia,Ideal Team Group Armenia,консалтинг,,https://idealteam.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/jurisdiction-armenia-registrations-fostering-office-cjsc,Jurisdiction Armenia Registrations Fostering Office CJSC,консалтинг,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/kmg-consulting-armenia,KMG Consulting Armenia,консалтинг,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/adwise%e2%84%a2-business-and-legal-consulting,ADWISE Business & Legal Consulting,консалтинг,,adwise.am,['https://www.facebook.com/adwiseconsult/'],own_site,поиск: adwise.am ADWISE Business & Legal Consulting,2026-09-30,2026-09-30
+https://www.linkedin.com/company/ae-consulting-armenia,AE Consulting Armenia,консалтинг,,aeconsulting.co,['https://www.facebook.com/AEARMENIA/'],own_site,поиск: aeconsulting.co; staff emails @aeconsulting.co,2026-09-30,2026-09-30
+https://www.linkedin.com/company/business-solutions-llc-armenian,Business Solutions LLC,консалтинг,,,['https://www.facebook.com/p/Business-Solutions-100089580424899/'],no_site,"поиск: staff.am, yandex, fb only",2026-09-30,2026-09-30
+https://www.linkedin.com/company/gsc-llc,General Standard Consulting LLC (GSC),консалтинг,Ереван,,,unknown,"поиск: only GSC security-systems importer (gsc-armenia.am), not clearly this consultancy",2026-09-30,2026-09-30
+https://www.linkedin.com/company/helix-consulting-llc,Helix Consulting LLC,консалтинг,,helix.am,['https://www.facebook.com/HelixConsulting/'],own_site,поиск: helix.am titled Helix IT consulting Armenia,2026-09-30,2026-09-30
+https://www.linkedin.com/company/ideal-team-group-armenia,Ideal Team Group Armenia,консалтинг,,idealteam.am,['https://www.instagram.com/idealteamgroup/'],own_site,поиск: idealteam.am ITG Salesforce,2026-09-30,2026-09-30
+https://www.linkedin.com/company/jurisdiction-armenia-registrations-fostering-office-cjsc,Jurisdiction Armenia Registrations Fostering Office CJSC,консалтинг,,,,unknown,поиск: no relevant results,2026-09-30,2026-09-30
+https://www.linkedin.com/company/kmg-consulting-armenia,KMG Consulting Armenia,консалтинг,Ереван,kmg.am,['https://www.facebook.com/kmgconsult/'],own_site,поиск: kmg.am KMG Consulting,2026-09-30,2026-09-30
 https://www.linkedin.com/company/step-consulting-yerevan,STEP Consulting LLC,консалтинг,Ереван,https://www.stepconsulting.am/,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/sandoyan-management-consulting,Sandoyan Management Consulting,консалтинг,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/beauteconcept,Beauté Concept by CSHP Paris,косметология,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/elix-clinic-armenia,Elix Clinic,косметология,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/hotel-dilijan-resort,Hotel Dilijan Resort,курорт,Дилижан,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/sandoyan-management-consulting,Sandoyan Management Consulting,консалтинг,Ереван,,,no_site,поиск: only spyur listing,2026-09-30,2026-09-30
+https://www.linkedin.com/company/beauteconcept,Beauté Concept by CSHP Paris,косметология,Ереван,beaute.am,"['https://www.facebook.com/beauteconceptcshp/', 'https://www.instagram.com/beaute.concept.cshp/']",own_site,поиск: beaute.am Beauté Concept clinic Yerevan,2026-09-30,2026-09-30
+https://www.linkedin.com/company/elix-clinic-armenia,Elix Clinic,косметология,Ереван,elixclinic.am,['https://www.facebook.com/p/Elix-Clinic-100068178051467/'],own_site,поиск: elixclinic.am (dental/aesthetic clinic Yerevan),2026-09-30,2026-09-30
+https://www.linkedin.com/company/hotel-dilijan-resort,Hotel Dilijan Resort,курорт,Дилижан,hoteldilijan.am,,own_site,поиск: hoteldilijan.am official site Dilijan Resort & Spa,2026-09-30,2026-09-30
 https://www.linkedin.com/company/logist,Fairyland Logistics,логистика,,logist.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/transimpexllc,Transimpex LLC,логистика,,https://transimpex.am/hy/,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/amcg-agency,AMCG Agency,маркетинг,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
@@ -94,137 +94,137 @@ https://www.linkedin.com/company/qwertyllc,QWERTY Digital Marketing Agency,ма�
 https://www.linkedin.com/company/wedo-armenia,WEDO Creative Solutions Armenia,маркетинг,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
 https://www.linkedin.com/company/gevorgyans,Gevorgyan's Premium Furniture,мебель,,https://gevorgyans.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/living-s-group,Living's Group,мебель,,https://livings.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/online-furniture-armenia,Online Furniture Armenia,мебель,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/akcern-holding,AKCERN Holding,недвижимость,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/online-furniture-armenia,Online Furniture Armenia,мебель,,,,unknown,поиск: only generic furniture stores; no match,2026-09-30,2026-09-30
+https://www.linkedin.com/company/akcern-holding,AKCERN Holding,недвижимость,Ереван,akcern.am,['https://www.facebook.com/AKCERN/'],own_site,поиск: akcern.am Akcern real estate,2026-09-30,2026-09-30
 https://www.linkedin.com/company/bars-real-estate,BARS LLC,недвижимость,,https://bars.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/estate-am,Estate.am,недвижимость,Ереван,https://estate.am,,own_site,domain in company name (not search-verified),2026-09-30,
-https://www.linkedin.com/company/kentron-real-estate-agency,KENTRON Real Estate Agency,недвижимость,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/artuyt,Artuyt,одежда,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/kentron-real-estate-agency,KENTRON Real Estate Agency,недвижимость,Ереван,real-estate.am,['https://www.facebook.com/realestatearmenia.am/'],own_site,поиск: real-estate.am titled Kentron Real Estate Agency,2026-09-30,2026-09-30
+https://www.linkedin.com/company/artuyt,Artuyt,одежда,,artuyt.com,['https://www.instagram.com/artuyt.am/'],own_site,поиск: artuyt.com / am.artuyt.com brand shop,2026-09-30,2026-09-30
 https://www.linkedin.com/company/online-armenian-store,Online Armenian Store,одежда,,onlinearmenianstore.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/lumiere-optics-llc,Lumiere Optics LLC,оптика,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/berlin-art-hotel,Berlin ART Hotel,отель,Гюмри,https://berlinarthotel.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
+https://www.linkedin.com/company/lumiere-optics-llc,Lumiere Optics LLC,оптика,Ереван,lumiere.am,['https://www.facebook.com/Lumiere.am/'],own_site,поиск: lumiere.am Lumiere optical Yerevan,2026-09-30,2026-09-30
+https://www.linkedin.com/company/berlin-art-hotel,Berlin ART Hotel,отель,Гюмри,berlinarthotel.am,['https://www.facebook.com/BerlinARThotel/'],own_site,поиск: berlinarthotel.am official,2026-09-30,2026-09-30
 https://www.linkedin.com/company/central-hotel-yerevan,Central Hotel Yerevan,отель,Ереван,central.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/diamond-house-hotel-yerevan,Diamond Hotel Yerevan,отель,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/diamond-house-hotel-yerevan,Diamond Hotel Yerevan,отель,Ереван,,['https://www.facebook.com/DiamondHotelYerevan/'],no_site,поиск: only booking/tripadvisor/OTA pages + fb,2026-09-30,2026-09-30
 https://www.linkedin.com/company/dilijan-inn-hotel,Dilijan Inn Hotel and Restaurant,отель,Дилижан,https://dilijaninn.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/elysium-gallery-hotel-yerevan,Elysium Gallery Hotel Yerevan,отель,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/felinger-collection-hotel-spa,Felinger Collection Hotel & Spa,отель,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/golden-palace-hotel-yerevan,Golden Palace Hotel Yerevan,отель,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/elysium-gallery-hotel-yerevan,Elysium Gallery Hotel Yerevan,отель,Ереван,elysiumgalleryhotel.com,['https://www.facebook.com/ElysiumGalleryHotel/'],own_site,поиск: elysiumgalleryhotel.com official website,2026-09-30,2026-09-30
+https://www.linkedin.com/company/felinger-collection-hotel-spa,Felinger Collection Hotel & Spa,отель,Ереван,felingerhotel.com,['https://www.facebook.com/p/Felinger-Collection-Hotel-Spa-100092995540975/'],own_site,поиск: felingerhotel.com FELINGER HOTEL,2026-09-30,2026-09-30
+https://www.linkedin.com/company/golden-palace-hotel-yerevan,Golden Palace Hotel Yerevan,отель,Ереван,goldenpalacehotel.am,,own_site,поиск: goldenpalacehotel.am official website,2026-09-30,2026-09-30
 https://www.linkedin.com/company/grand-hotel-yerevan,Grand Hotel Yerevan,отель,Ереван,https://market.name.am/grand.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/hayasa-hotel-yerevan,Hayasa Hospitality Group,отель,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/median-hotel-yerevan,Median Hotel,отель,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/opera-suite-hotel,Opera Suite Hotel,отель,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/hayasa-hotel-yerevan,Hayasa Hospitality Group,отель,Ереван,hayasahotels.com,['https://www.facebook.com/hayasahotelyerevan/'],own_site,поиск: hayasahotels.com official site,2026-09-30,2026-09-30
+https://www.linkedin.com/company/median-hotel-yerevan,Median Hotel,отель,Ереван,medianhotel.am,,own_site,поиск: medianhotel.am official website,2026-09-30,2026-09-30
+https://www.linkedin.com/company/opera-suite-hotel,Opera Suite Hotel,отель,Ереван,operasuitehotel.com,,own_site,поиск: operasuitehotel.com official website,2026-09-30,2026-09-30
 https://www.linkedin.com/company/paris-hotel-yerevan,Paris Hotel Yerevan,отель,Ереван,https://paris.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/republicahotel-yerevan,Republica Hotel Yerevan,отель,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/armenia-tour-am-armt,Stay Inn Apartments,отель,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/sportcenterhotel,Tsaghkadzor Sport Center & Hotel,отель,Цахкадзор,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/tufenkian-heritage-hotels,Tufenkian Heritage Hotels,отель,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/republicahotel-yerevan,Republica Hotel Yerevan,отель,Ереван,republicahotel.am,"['https://www.facebook.com/republicahotel/', 'https://www.instagram.com/republicayerevan/']",own_site,поиск: republicahotel.am official site,2026-09-30,2026-09-30
+https://www.linkedin.com/company/armenia-tour-am-armt,Stay Inn Apartments,отель,Ереван,stayinn.am,['https://www.facebook.com/stayinnapartmentsinyerevan/'],own_site,поиск: stayinn.am rental apartments Yerevan,2026-09-30,2026-09-30
+https://www.linkedin.com/company/sportcenterhotel,Tsaghkadzor Sport Center & Hotel,отель,Цахкадзор,sportcenterhotel.com,['https://www.instagram.com/sportcenterhotel/'],own_site,поиск: sportcenterhotel.com official,2026-09-30,2026-09-30
+https://www.linkedin.com/company/tufenkian-heritage-hotels,Tufenkian Heritage Hotels,отель,Ереван,tufenkianheritage.com,['https://www.facebook.com/TufenkianHeritageHotels/'],own_site,поиск: tufenkianheritage.com official,2026-09-30,2026-09-30
 https://www.linkedin.com/company/vayk-hotel,Vayk Hotel,отель,,vayk.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/yerevanplacehotel,Yerevan Place Hotel,отель,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/sweet-house-armenian-chocolates,Sweet House Armenian Chocolates,пекарня,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/lta-llc-translation-and-localization-services,LTA LLC Translation and Localization Services,переводы,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/yerevanplacehotel,Yerevan Place Hotel,отель,Ереван,yerevanplace.com,,own_site,поиск: yerevanplace.com official website,2026-09-30,2026-09-30
+https://www.linkedin.com/company/sweet-house-armenian-chocolates,Sweet House Armenian Chocolates,пекарня,,,,unknown,поиск: no Sweet House match; only unrelated chocolate sites,2026-09-30,2026-09-30
+https://www.linkedin.com/company/lta-llc-translation-and-localization-services,LTA LLC Translation and Localization Services,переводы,,,,unknown,"поиск: LTA LLC results are Kosovo/Albania agencies, no Armenian match",2026-09-30,2026-09-30
 https://www.linkedin.com/company/3d-print-armenia,3D Print Armenia,производство,,https://3d-print.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/alex-retail-company-llc,Alex Retail Company LLC,производство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/alex-retail-company-llc,Alex Retail Company LLC,производство,,alexyvn.com,,own_site,"поиск: alexyvn.com (ALEX YVN clothing, Alex Retail Company per spyur)",2026-09-30,2026-09-30
 https://www.linkedin.com/company/bestgrouparmenia,Best Group LLC,производство,Ереван,best.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/elina-clothing-factory,Elina Clothing Factory,производство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/factory-production,Factory Production,производство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/elina-clothing-factory,Elina Clothing Factory,производство,,elina.am,"['https://www.facebook.com/elinaarmenia/', 'https://www.instagram.com/elina_armenia/']",own_site,поиск: elina.am Elina Armenian clothing brand,2026-09-30,2026-09-30
+https://www.linkedin.com/company/factory-production,Factory Production,производство,,,['https://www.facebook.com/factoryprod/'],no_site,поиск: only spyur/staff.am/fb,2026-09-30,2026-09-30
 https://www.linkedin.com/company/imex-group-armenia,IMEX GROUP,производство,,imex.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/light-affect,Light Affect,производство,Ереван,https://lightaffect.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/megafood-llc,Megafood LLC,производство,,https://megafood.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/prime-llc-armenia,PRIME LLC Armenia (3D jewelry manufacturing),производство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/smart-production,Smart Production LLC,производство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/aregi-premium-products,Aregi Premium Products,производство еды,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/prime-llc-armenia,PRIME LLC Armenia (3D jewelry manufacturing),производство,,,['https://www.facebook.com/pprimejewelry/'],no_site,"поиск: only data aggregators, spyur, fb",2026-09-30,2026-09-30
+https://www.linkedin.com/company/smart-production,Smart Production LLC,производство,,,['https://web.facebook.com/SmartProductionLLC/'],no_site,поиск: only spyur/armproduct/clutch/fb,2026-09-30,2026-09-30
+https://www.linkedin.com/company/aregi-premium-products,Aregi Premium Products,производство еды,,aregi.com,,own_site,поиск: aregi.com Aregi dried fruit,2026-09-30,2026-09-30
 https://www.linkedin.com/company/food-depot-llc,Food Depot LLC,производство еды,,https://fooddepot.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/margaryan-business-group,Margaryan Business Group,производство еды,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/premierfoods-llc,Premier Foods LLC,производство еды,,https://premierfoods.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/premium-ingredients-llc,Premium Ingredients LLC,производство еды,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/proshyan,Proshyan Brandy Factory,производство еды,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/yerevan-chocolate-company,Yerevan Chocolate Company,производство еды,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/margaryan-business-group,Margaryan Business Group,производство еды,,mbgroup.am,"['https://www.facebook.com/margaryan.business.group/', 'https://www.instagram.com/margaryan_business_group/']",own_site,поиск: mbgroup.am MARGARYAN BUSINESS GROUP,2026-09-30,2026-09-30
+https://www.linkedin.com/company/premierfoods-llc,Premier Foods LLC,производство еды,,premierfoods.am,['https://www.facebook.com/premierfoods.am/'],own_site,поиск: premierfoods.am Premier Foods,2026-09-30,2026-09-30
+https://www.linkedin.com/company/premium-ingredients-llc,Premium Ingredients LLC,производство еды,,ingredients.am,['https://www.facebook.com/PremiumIngredientsArmenia/'],own_site,поиск: ingredients.am titled Premium Ingredients LLC,2026-09-30,2026-09-30
+https://www.linkedin.com/company/proshyan,Proshyan Brandy Factory,производство еды,,proshyan.am,,own_site,поиск: proshyan.am Proshyan Brandy Factory,2026-09-30,2026-09-30
+https://www.linkedin.com/company/yerevan-chocolate-company,Yerevan Chocolate Company,производство еды,Ереван,ycc.am,,own_site,поиск: ycc.am Yerevan Chocolate Company CJSC,2026-09-30,2026-09-30
 https://www.linkedin.com/company/car-sharing-yerevan-economy-car-rental-in-yerevan,Car Sharing Yerevan,прокат авто,Ереван,carsharing.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/energycararmenia,Energy Car Armenia,прокат авто,,https://energycar.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/englishwithlaura,English with Laura,репетиторство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/englishwithlaura,English with Laura,репетиторство,,englishwithlaura.com,['https://www.facebook.com/EngwithLaura/'],own_site,поиск: englishwithlaura.com language center Yerevan,2026-09-30,2026-09-30
 https://www.linkedin.com/company/figaro-restaurant-group,Figaro Restaurant Group,ресторан,Ереван,https://figaro.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/foodrepublic,Food Republic LLC,ресторан,,https://www.foodrepublic.am/,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/foodpark-by-downtown,FoodPark by Downtown,ресторан,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/foodrepublic,Food Republic LLC,ресторан,,foodrepublic.am,['https://www.instagram.com/food_republic_yerevan/'],own_site,поиск: foodrepublic.am Food Republic Yerevan,2026-09-30,2026-09-30
+https://www.linkedin.com/company/foodpark-by-downtown,FoodPark by Downtown,ресторан,Ереван,foodpark.am,"['https://www.facebook.com/foodparkbydowntown', 'https://www.instagram.com/foodpark_by_downtown/']",own_site,поиск: foodpark.am FOODPARK BY DOWNTOWN,2026-09-30,2026-09-30
 https://www.linkedin.com/company/genacvale,Genacvale,ресторан,Ереван,https://genacvale.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/indian-mehak-restaurant,Indian Mehak Restaurant,ресторан,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/los-pueblos-authentic-mexican-restaurant,Los Pueblos Authentic Mexican Restaurant,ресторан,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/pizzatashirllc,Pizza Tashir,ресторан,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/indian-mehak-restaurant,Indian Mehak Restaurant,ресторан,Ереван,,"['https://www.facebook.com/indianmehak/', 'https://www.instagram.com/indianmehak_yerevan/']",no_site,поиск: tripadvisor/happycow/menufyy + fb/ig only,2026-09-30,2026-09-30
+https://www.linkedin.com/company/los-pueblos-authentic-mexican-restaurant,Los Pueblos Authentic Mexican Restaurant,ресторан,Ереван,,['https://www.facebook.com/Lospueblosyerevan/'],no_site,поиск: tripadvisor/spyur/placejoys + fb only,2026-09-30,2026-09-30
+https://www.linkedin.com/company/pizzatashirllc,Pizza Tashir,ресторан,Ереван,,,no_site,поиск: tripadvisor/spyur/yandex/2gis only; no own domain in results,2026-09-30,2026-09-30
 https://www.linkedin.com/company/santafe-cafe-and-restaurant,Santafe Cafe and Restaurant,ресторан,,http://santafe.am/cgi-sys/suspendedpage.cgi,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/pandok-yerevan,Tavern Yerevan,ресторан,Ереван,pandokyerevan.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/the-horeca-llc,The HoReCa LLC,ресторан,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/yeremyan-projects,Yeremyan Projects,ресторан,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/white-castle-clinic,"Dental Medical Clinic ""White Castle""",стоматология,Ереван,https://whitecastle.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/elva-dental-cliinic,ELVA Dental Clinic,стоматология,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/the-horeca-llc,The HoReCa LLC,ресторан,Ереван,thehoreca.com,"['https://www.facebook.com/thehoreca/', 'https://www.instagram.com/thehoreca_llc/']",own_site,поиск: thehoreca.com The Horeca LLC kitchen equipment,2026-09-30,2026-09-30
+https://www.linkedin.com/company/yeremyan-projects,Yeremyan Projects,ресторан,Ереван,yeremyanprojects.com,['https://www.facebook.com/YeremyanProjects/'],own_site,поиск: yeremyanprojects.com official,2026-09-30,2026-09-30
+https://www.linkedin.com/company/white-castle-clinic,"Dental Medical Clinic ""White Castle""",стоматология,Ереван,whitecastle.am,,own_site,поиск: whitecastle.am dental clinic Yerevan,2026-09-30,2026-09-30
+https://www.linkedin.com/company/elva-dental-cliinic,ELVA Dental Clinic,стоматология,Ереван,,['https://www.facebook.com/elvadent/'],no_site,поиск: spyur/pages.am + fb only,2026-09-30,2026-09-30
 https://www.linkedin.com/company/modern-implant-medicine,Modern Implant Medicine,стоматология,Ереван,https://www.mim.am/,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/prime-insurance-brokers-llc,Prime Insurance Brokers LLC,страхование,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/aabconstruction,AAB Construction,строительство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/ar-&-ar-design-construction-llc,Ar & Ar Design Construction LLC,строительство,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/care-building-llc,Care Building Services LLC,строительство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/prime-insurance-brokers-llc,Prime Insurance Brokers LLC,страхование,,prime-insurance.com,,own_site,поиск: prime-insurance.com Prime Insurance Brokers,2026-09-30,2026-09-30
+https://www.linkedin.com/company/aabconstruction,AAB Construction,строительство,,aabconstruction.com,['https://www.instagram.com/aab_construction/'],own_site,поиск: aabconstruction.com official,2026-09-30,2026-09-30
+https://www.linkedin.com/company/ar-&-ar-design-construction-llc,Ar & Ar Design Construction LLC,строительство,Ереван,ar-ar.am,,own_site,поиск: ar-ar.am AR & AR Design Construction,2026-09-30,2026-09-30
+https://www.linkedin.com/company/care-building-llc,Care Building Services LLC,строительство,,cbs-construction.am,['https://www.facebook.com/constructionCBS/'],own_site,поиск: cbs-construction.am about page,2026-09-30,2026-09-30
 https://www.linkedin.com/company/elite-group-armenia-,Elite Group Armenia,строительство,,elite.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/exterior-group-llc,Exterior Group LLC,строительство,,https://exterior.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/gravity-llc-international,Gravity LLC,строительство,,gravity.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/hez-nez-llc,HEZ & NEZ LLC,строительство,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/haekshin-construction-company,Haekshin Construction Company,строительство,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/movsesyan-and-parners-construction,Movsesyan and Partners Construction,строительство,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/hez-nez-llc,HEZ & NEZ LLC,строительство,Ереван,heznez.com,"['https://www.instagram.com/s.oliverarmenia/', 'https://www.facebook.com/s.Oliveryerevan/']",own_site,поиск: heznez.com Home - Hez&Nez,2026-09-30,2026-09-30
+https://www.linkedin.com/company/haekshin-construction-company,Haekshin Construction Company,строительство,Ереван,haekshin.am,['https://www.facebook.com/HAEKSHINConstructionCompany/'],own_site,поиск: haekshin.am,2026-09-30,2026-09-30
+https://www.linkedin.com/company/movsesyan-and-parners-construction,Movsesyan and Partners Construction,строительство,Ереван,movsesyan.am,['https://www.facebook.com/movsesyanpartners.am/'],own_site,поиск: movsesyan.am Construction & More,2026-09-30,2026-09-30
 https://www.linkedin.com/company/yerevan-steel,Yerevan Steel,строительство,Ереван,https://steel.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/sas-group-armenia,SAS Group Armenia,супермаркет,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/sas-group-armenia,SAS Group Armenia,супермаркет,,sasgroup.am,,own_site,поиск: sasgroup.am + sas.am,2026-09-30,2026-09-30
 https://www.linkedin.com/company/yerevan-city,Yerevan City,супермаркет,Ереван,city.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/print-city-armenia,Print City Armenia,типография,,https://printcity.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/printing-am,Printing.am,типография,Ереван,https://printing.am,,own_site,domain in company name (not search-verified),2026-09-30,
 https://www.linkedin.com/company/amtravel,AMTravel,турагентство,,https://amtravel.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/arara-tour---travel-to-armenia,Arara Tour,турагентство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/armentour,Armen Tour LLC,турагентство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/armenia-holidays,Armenia Holidays DMC,турагентство,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/armenia-travel,Armenia Travel,турагентство,,https://armeniatravel.am/en,,own_site,нашёлся по домену,2026-09-30,2026-09-30
+https://www.linkedin.com/company/arara-tour---travel-to-armenia,Arara Tour,турагентство,,araratour.com,['https://www.facebook.com/araratour/'],own_site,поиск: araratour.com Arara Tour,2026-09-30,2026-09-30
+https://www.linkedin.com/company/armentour,Armen Tour LLC,турагентство,,armeniatour.com,['https://www.facebook.com/armentour/'],own_site,поиск: armeniatour.com Armen Tour LLC,2026-09-30,2026-09-30
+https://www.linkedin.com/company/armenia-holidays,Armenia Holidays DMC,турагентство,Ереван,armeniaholidays.com,['https://www.instagram.com/armeniaholidays/'],own_site,поиск: armeniaholidays.com title Armenia Holidays,2026-09-30,2026-09-30
+https://www.linkedin.com/company/armenia-travel,Armenia Travel,турагентство,,armeniatravel.am,,own_site,поиск: armeniatravel.am Discover with Armenia Travel (likely match),2026-09-30,2026-09-30
 https://www.linkedin.com/company/best-travel-armenia,Best Travel Armenia,турагентство,,besttravel.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/bluebell-tour-travel-agency,BlueBell Tour & Travel Agency,турагентство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/esi-dmc-armenia,ESI DMC Armenia,турагентство,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/horizon-travel-tour-operator,Horizon Travel Tour Operator & DMC,турагентство,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/je-voyage-tour-agency,Je Voyage Tour Operator,турагентство,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/bluebell-tour-travel-agency,BlueBell Tour & Travel Agency,турагентство,,bluebelltour.com,"['https://www.facebook.com/bluebell.travel/', 'https://www.instagram.com/bluebell.travel/']",own_site,поиск: bluebelltour.com Bluebell Travel Armenia,2026-09-30,2026-09-30
+https://www.linkedin.com/company/esi-dmc-armenia,ESI DMC Armenia,турагентство,Ереван,dmcarmenia.com,"['https://www.instagram.com/armeniadmc/', 'https://www.facebook.com/ESIDMCArmenia/']",own_site,"поиск: dmcarmenia.com (ESI DMC Armenia, ig armeniadmc)",2026-09-30,2026-09-30
+https://www.linkedin.com/company/horizon-travel-tour-operator,Horizon Travel Tour Operator & DMC,турагентство,Ереван,horizontravelarmenia.com,['https://www.facebook.com/horizonarmenia/'],own_site,поиск: horizontravelarmenia.com tour operator site (also horizon-travel.org),2026-09-30,2026-09-30
+https://www.linkedin.com/company/je-voyage-tour-agency,Je Voyage Tour Operator,турагентство,Ереван,jevoyage.am,,own_site,поиск: jevoyage.am Je Voyage Tour Operator,2026-09-30,2026-09-30
 https://www.linkedin.com/company/levon-travel-yerevan-ltd,Levon Travel Yerevan LTD,турагентство,Ереван,https://www.levontravel.am/,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/one-way-tour,One Way Tour,турагентство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/one-way-tour,One Way Tour,турагентство,,onewaytour.com,['https://www.facebook.com/onewaytour/'],own_site,поиск: onewaytour.com,2026-09-30,2026-09-30
 https://www.linkedin.com/company/phoenixtour---armenian-travel-company,Phoenix Tour Armenia,турагентство,,https://phoenixtour.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/princess-maneh-tours-armenia,Princess Maneh Tours,турагентство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/silk-road-armenia,Silk Road Armenia,турагентство,Ереван,https://silkroad.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/tatev-tour-&-travel-agency,Tatev Tour & Travel Agency,турагентство,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/princess-maneh-tours-armenia,Princess Maneh Tours,турагентство,,seearmenia.net,['https://www.facebook.com/seeArmenia.net/'],own_site,поиск: seearmenia.net Princess Maneh,2026-09-30,2026-09-30
+https://www.linkedin.com/company/silk-road-armenia,Silk Road Armenia,турагентство,Ереван,silkroadarmenia.am,['https://www.facebook.com/www.silkroadarmenia.am/'],own_site,поиск: silkroadarmenia.am,2026-09-30,2026-09-30
+https://www.linkedin.com/company/tatev-tour-&-travel-agency,Tatev Tour & Travel Agency,турагентство,,tatev.com,"['https://www.facebook.com/TatevTravelAgency/', 'https://www.instagram.com/tatev_travel_agency/']",own_site,"поиск: tatev.com Tatev Tour Agency (also tatev-travel.com, ambiguous)",2026-09-30,2026-09-30
 https://www.linkedin.com/company/travel2armenia,Travel2Armenia,турагентство,,https://travel2armenia.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/voyage-armenia,Voyage Armenia Tour Agency,турагентство,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/armenian-code-academy,Armenian Code Academy,учебный центр,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/bdg-trainings,Business Development Group (BDG trainings),учебный центр,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/esolarm-testing&training-center,ESOLARM Testing & Training Center,учебный центр,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/horizon-of-expectation,Horizon of Expectation,учебный центр,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/iab-international-academy-of-business,IAB International Academy of Business,учебный центр,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/yerevan-center-for-international-education,Yerevan Center for International Education,учебный центр,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/krav-maga-armenia,Krav Maga Armenia,фитнес,,https://kravmaga.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
+https://www.linkedin.com/company/voyage-armenia,Voyage Armenia Tour Agency,турагентство,Ереван,,['https://www.facebook.com/VoyageArmenia1/'],no_site,поиск: only facebook + petitfute listing,2026-09-30,2026-09-30
+https://www.linkedin.com/company/armenian-code-academy,Armenian Code Academy,учебный центр,Ереван,,['https://www.facebook.com/armcodeacademy/'],no_site,"поиск: facebook, staff.am, spyur, medium only",2026-09-30,2026-09-30
+https://www.linkedin.com/company/bdg-trainings,Business Development Group (BDG trainings),учебный центр,Ереван,bdg.am,"['https://www.facebook.com/bdg.trainings/', 'https://www.instagram.com/bdg.trainings/']",own_site,поиск: bdg.am Business Development Group,2026-09-30,2026-09-30
+https://www.linkedin.com/company/esolarm-testing&training-center,ESOLARM Testing & Training Center,учебный центр,,esolarm.org,['https://www.facebook.com/ESOLARM/'],own_site,поиск: esolarm.org Testing and Training Center,2026-09-30,2026-09-30
+https://www.linkedin.com/company/horizon-of-expectation,Horizon of Expectation,учебный центр,,horizonschool.am,['https://www.facebook.com/horizonschool.am/'],own_site,поиск: horizonschool.am Horizon of Expectation,2026-09-30,2026-09-30
+https://www.linkedin.com/company/iab-international-academy-of-business,IAB International Academy of Business,учебный центр,Ереван,,['https://www.facebook.com/IabCentrePage/'],no_site,поиск: spyur/pages.am/staff.am/fb; iab.academy unclear match,2026-09-30,2026-09-30
+https://www.linkedin.com/company/yerevan-center-for-international-education,Yerevan Center for International Education,учебный центр,Ереван,yerevancenter.org,"['https://www.facebook.com/yerevan.center.ycie/', 'https://www.instagram.com/yerevan_center_ycie/']",own_site,поиск: yerevancenter.org YCIE,2026-09-30,2026-09-30
+https://www.linkedin.com/company/krav-maga-armenia,Krav Maga Armenia,фитнес,,kravmaga.am,"['https://www.facebook.com/KravMagaArmenia/', 'https://www.instagram.com/kravmaga.armenia/']",own_site,поиск: kravmaga.am,2026-09-30,2026-09-30
 https://www.linkedin.com/company/multiwellnesscenter,Multi Wellness Center,фитнес,Ереван,multiwellnesscenter.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/orange-fitness-premium-club,Orange Premium Fitness Club,фитнес,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/reeboksportsclubarmenia,Reebok Sports Club Armenia,фитнес,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/zenith-photo-studio,Zenith Photo Studio,фотостудия,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/fymhospitality,FYM Hospitality Group,хостел,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/theatre-hostel-in-yerevan,Theatre Hostel in Yerevan,хостел,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/umbahostel,Umba Hostel,хостел,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/orange-fitness-premium-club,Orange Premium Fitness Club,фитнес,Ереван,orangefit.am,"['https://www.facebook.com/OrangeFitnessArmenia/', 'https://www.instagram.com/orangefityerevan/']",own_site,поиск: orangefit.am Orange Fitness app/site,2026-09-30,2026-09-30
+https://www.linkedin.com/company/reeboksportsclubarmenia,Reebok Sports Club Armenia,фитнес,Ереван,reeboksportsclub.com,['https://www.facebook.com/reeboksportsclub/'],own_site,поиск: reeboksportsclub.com,2026-09-30,2026-09-30
+https://www.linkedin.com/company/zenith-photo-studio,Zenith Photo Studio,фотостудия,,zenith.am,['https://www.facebook.com/ZENITHPHOTO/'],own_site,поиск: zenith.am Zenith Photo Studio,2026-09-30,2026-09-30
+https://www.linkedin.com/company/fymhospitality,FYM Hospitality Group,хостел,Ереван,fym.group,"['https://www.facebook.com/fymhospitality/', 'https://www.instagram.com/fym_hospitality/']",own_site,поиск: fym.group FYM Hospitality Group,2026-09-30,2026-09-30
+https://www.linkedin.com/company/theatre-hostel-in-yerevan,Theatre Hostel in Yerevan,хостел,Ереван,,,no_site,поиск: only tripadvisor/hostelworld/trip.com listings,2026-09-30,2026-09-30
+https://www.linkedin.com/company/umbahostel,Umba Hostel,хостел,Ереван,umbastay.com,['https://www.facebook.com/umbahostel/'],own_site,поиск: umbastay.com Umba Hostel,2026-09-30,2026-09-30
 https://www.linkedin.com/company/garun.am,Garun.am,цветы,,https://garun.am,,own_site,domain in company name (not search-verified),2026-09-30,
 https://www.linkedin.com/company/alexhome,Alex Home,электроника,,https://alexhome.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/eldorado-armenia,Eldorado Armenia,электроника,,eldorado.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/vlv-centre,VLV Centre,электроника,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/vlv-centre,VLV Centre,электроника,,vlv.am,,own_site,поиск: vlv.am VLV Centre,2026-09-30,2026-09-30
 https://www.linkedin.com/company/zigzag-ltd-,Zigzag,электроника,,zigzag.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/chronograph-armenia,Chronograph Armenia,ювелирка,Ереван,https://chronograph.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
 https://www.linkedin.com/company/timearmenia,TIMELESS LLC,ювелирка,,timeless.am,,own_site,нашёлся по домену,2026-09-30,2026-09-30
-https://www.linkedin.com/company/yerevan-jewellery-plant-1-gnomon-ojsc,Yerevan Jewellery Plant-1 Gnomon OJSC,ювелирка,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/a-k-a-lex-sportiva-law-office,A.K.A. Lex Sportiva Law Office,юристы,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/dmg-armenia,DMG Law Office,юристы,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/fidelis-law-firm,Fidelis Law Firm,юристы,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/grigoryan-law-group,Grigoryan Law Group (GLG),юристы,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/kp-law-office-llc,K&P Law Firm LLC,юристы,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/-legal-alliance-law-firm,Legal Alliance Law Firm,юристы,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/legelata-law-firm,Legelata Legal and Tax,юристы,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/ter-tachatyan-legal-and-business-consulting-cjsc,Ter-Tachatyan Advocates & Legal Counsel,юристы,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/vardanyan-&-partners,Vardanyan & Partners Law Firm,юристы,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/yeghiazaryan-partners-law-firm,Yeghiazaryan & Partners Law Firm,юристы,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/law-firm-in-armenia-your-jurisconsult-llc,Your Jurisconsult LLC,юристы,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/ilex-legal-office,iLex Law Firm,юристы,,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/educa-school,EDUCA Foreign Language Center,языковая школа,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/iclt,ICLT - International Center of Languages and Training,языковая школа,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/ils-armenia-international-language-school,ILS Armenia - International Language School,языковая школа,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/sonrise-language-school,SonRise Language School,языковая школа,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
-https://www.linkedin.com/company/specialized-english-school,Specialized English School,языковая школа,Ереван,,,unknown,поиск сайта не проводился,2026-09-30,2026-09-30
+https://www.linkedin.com/company/yerevan-jewellery-plant-1-gnomon-ojsc,Yerevan Jewellery Plant-1 Gnomon OJSC,ювелирка,Ереван,yerjewel.com,['https://www.facebook.com/Gnomonjewelry/'],own_site,поиск: yerjewel.com Yerevan Jewellery Plant Gnomon,2026-09-30,2026-09-30
+https://www.linkedin.com/company/a-k-a-lex-sportiva-law-office,A.K.A. Lex Sportiva Law Office,юристы,Ереван,akalexsportiva.org,['https://www.facebook.com/Lexsportiva.org/'],own_site,поиск: akalexsportiva.org,2026-09-30,2026-09-30
+https://www.linkedin.com/company/dmg-armenia,DMG Law Office,юристы,Ереван,,,unknown,поиск: no relevant result for DMG Law Office,2026-09-30,2026-09-30
+https://www.linkedin.com/company/fidelis-law-firm,Fidelis Law Firm,юристы,,fidelis.am,['https://www.facebook.com/FidelisLawFirm/'],own_site,поиск: fidelis.am Fidelis Law Firm,2026-09-30,2026-09-30
+https://www.linkedin.com/company/grigoryan-law-group,Grigoryan Law Group (GLG),юристы,,grigoryan.pro,['https://www.facebook.com/grigoryan.pro/'],own_site,поиск: grigoryan.pro Grigoryan Law Group,2026-09-30,2026-09-30
+https://www.linkedin.com/company/kp-law-office-llc,K&P Law Firm LLC,юристы,Ереван,armenialawoffice.com,,own_site,поиск: armenialawoffice.com K&P law firm,2026-09-30,2026-09-30
+https://www.linkedin.com/company/-legal-alliance-law-firm,Legal Alliance Law Firm,юристы,,,,unknown,"поиск: only rocketreach/zoominfo, no own site or social",2026-09-30,2026-09-30
+https://www.linkedin.com/company/legelata-law-firm,Legelata Legal and Tax,юристы,Ереван,legelata.am,,own_site,поиск: legelata.am LEGELATA Law Firm,2026-09-30,2026-09-30
+https://www.linkedin.com/company/ter-tachatyan-legal-and-business-consulting-cjsc,Ter-Tachatyan Advocates & Legal Counsel,юристы,Ереван,ter-tachatyan.am,,own_site,поиск: ter-tachatyan.am Advocates and Legal Counsel,2026-09-30,2026-09-30
+https://www.linkedin.com/company/vardanyan-&-partners,Vardanyan & Partners Law Firm,юристы,Ереван,armenian-lawyer.com,['https://www.facebook.com/vardanyanlaw/'],own_site,поиск: armenian-lawyer.com Vardanyan & Partners,2026-09-30,2026-09-30
+https://www.linkedin.com/company/yeghiazaryan-partners-law-firm,Yeghiazaryan & Partners Law Firm,юристы,,ypartners.am,['https://www.facebook.com/ypartners.am/'],own_site,поиск: ypartners.am Yeghiazaryan & Partners,2026-09-30,2026-09-30
+https://www.linkedin.com/company/law-firm-in-armenia-your-jurisconsult-llc,Your Jurisconsult LLC,юристы,,jurist.am,,own_site,поиск: jurist.am law firm site (likely Your Jurisconsult),2026-09-30,2026-09-30
+https://www.linkedin.com/company/ilex-legal-office,iLex Law Firm,юристы,,ilex.am,,own_site,поиск: ilex.am ILex Law Firm Armenia,2026-09-30,2026-09-30
+https://www.linkedin.com/company/educa-school,EDUCA Foreign Language Center,языковая школа,Ереван,educalanguageschool.com,"['https://www.facebook.com/EducaLanguageCenter/', 'https://www.instagram.com/educa_language_center/']",own_site,поиск: educalanguageschool.com Educa Language Center,2026-09-30,2026-09-30
+https://www.linkedin.com/company/iclt,ICLT - International Center of Languages and Training,языковая школа,Ереван,iclt.am,"['https://www.facebook.com/ICLT.Yerevan/', 'https://www.instagram.com/iclt.yerevan/']",own_site,поиск: iclt.am ICLT Yerevan,2026-09-30,2026-09-30
+https://www.linkedin.com/company/ils-armenia-international-language-school,ILS Armenia - International Language School,языковая школа,Ереван,,['https://www.facebook.com/ilsarmenia.international/'],no_site,поиск: only facebook page found,2026-09-30,2026-09-30
+https://www.linkedin.com/company/sonrise-language-school,SonRise Language School,языковая школа,Ереван,,,unknown,поиск: no relevant result,2026-09-30,2026-09-30
+https://www.linkedin.com/company/specialized-english-school,Specialized English School,языковая школа,Ереван,,['https://www.facebook.com/Specializedenglishschool.am/'],no_site,поиск: only facebook page found,2026-09-30,2026-09-30
