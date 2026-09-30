@@ -29,6 +29,10 @@ def norm(s):
 STOP = {"llc", "ltd", "cjsc", "ojsc", "the", "and", "armenia", "yerevan", "hotel", "restaurant", "cafe", "clinic", "center", "centre", "group", "company", "medical", "dental", "salon", "studio"}
 
 
+SKIP_CATEGORIES = {"маркетинг", "IT", "дизайн"}
+SKIP_WORDS = re.compile(r"\b(ai|a\.i\.|artificial intelligence|machine learning|ml|software|web|website|digital\w*|it|tech|code|coding|developers?|software development|web development|programming|smm|marketing|media|saas|hosting)\b", re.I)
+
+
 def guesses(c):
     """Возможные домены компании по slug LinkedIn и названию."""
     slug = c["linkedin"].rstrip("/").rsplit("/", 1)[-1].lower()
@@ -106,8 +110,8 @@ def main():
 
     leads = []
     for c in comp:
-        if c["category"] == "маркетинг":
-            continue  # агентства: не клиенты, а возможные партнёры (market/rassylki/partnery.md)
+        if c["category"] in SKIP_CATEGORIES or SKIP_WORDS.search(c["name"]):
+            continue  # сами сделают себе сайт (AI, IT, веб, маркетинг) — не клиенты
         b = osm.get(norm(c["name"]), {})
         row = {k: c[k] for k in ("name", "category", "city", "linkedin", "website", "socials")}
         row.update(phone=b.get("phone", ""), email=b.get("email", ""), instagram=b.get("instagram", ""))
