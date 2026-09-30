@@ -2,6 +2,7 @@ website,score,problems,final_url,checked
 akcern.am,,"сайт не пускает бота (HTTP 403), проверить вручную",https://akcern.am,2026-09-30
 arara.am,,"сайт не пускает бота (HTTP 403), проверить вручную",https://arara.am,2026-09-30
 best.am,,"сайт не пускает бота (HTTP 503), проверить вручную",https://best.am,2026-09-30
+besttravel.am,,"сайт не ответил серверу проверки (TimeoutError), проверить вручную",https://besttravel.am,2026-09-30
 carsharing.am,90,сертификат HTTPS сломан (браузер пугает посетителей),https://carsharing.am,2026-09-30
 central.am,,"сайт не пускает бота (HTTP 403), проверить вручную",https://central.am,2026-09-30
 city.am,,"сайт не пускает бота (HTTP 401), проверить вручную",https://city.am,2026-09-30
@@ -20,9 +21,11 @@ http://anitour.am/,80,"нет HTTPS (Chrome пишет «Не защищено»
 http://aragilrestaurant.am/,30,нет HTTPS (Chrome пишет «Не защищено»); грузится медленно (4.7 c),http://aragilrestaurant.am/,2026-09-28
 http://armenia-travel.com,45,нет HTTPS (Chrome пишет «Не защищено»); в подвале © 2018: сайт давно не обновляли; нет кликабельного телефона/мессенджера,http://armenia-travel.com,2026-09-30
 http://arqayadzor.am,100,домен не работает (не продлён или не настроен),http://arqayadzor.am,2026-09-28
+http://avantaclinics.am,45,"нет HTTPS (Chrome пишет «Не защищено»); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",http://avantaclinics.am,2026-09-30
 http://bastille.am,100,домен не работает (не продлён или не настроен),http://bastille.am,2026-09-28
 http://bellissimo.am/,65,"нет HTTPS (Chrome пишет «Не защищено»); не адаптирован под телефон (нет viewport); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",http://bellissimo.am/,2026-09-28
 http://berlin.com,70,"нет HTTPS (Chrome пишет «Не защищено»); не адаптирован под телефон (нет viewport); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",http://berlin.com,2026-09-30
+http://best-life.com,40,"нет HTTPS (Chrome пишет «Не защищено»); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",http://best-life.com,2026-09-30
 http://boulevardhotel.am,100,домен не работает (не продлён или не настроен),http://boulevardhotel.am,2026-09-28
 http://cito-lab.am,100,домен не работает (не продлён или не настроен),http://cito-lab.am,2026-09-28
 http://dargett.am,45,"нет HTTPS (Chrome пишет «Не защищено»); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",http://dargett.am,2026-09-30
@@ -36,6 +39,7 @@ http://fb.com/Shekinahhostel,100,"своего сайта нет, вместо �
 http://fb.me/ExpressTourllc,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",http://fb.me/ExpressTourllc,2026-09-28
 http://general.am,45,"нет HTTPS (Chrome пишет «Не защищено»); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",http://general.am,2026-09-30
 http://ghavurma.online/,100,домен не работает (не продлён или не настроен),http://ghavurma.online/,2026-09-28
+http://golden-palace.com,75,"нет HTTPS (Chrome пишет «Не защищено»); не адаптирован под телефон (нет viewport); старый jQuery 1.2; похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",http://golden-palace.com,2026-09-30
 http://goldenhouse.am,100,домен не работает (не продлён или не настроен),http://goldenhouse.am,2026-09-28
 http://goldenpalacehotel.am,0,,https://goldenpalacehotel.am/,2026-09-28
 http://goldentour.am/,40,"нет HTTPS (Chrome пишет «Не защищено»); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",http://goldentour.am/,2026-09-28
@@ -65,8 +69,10 @@ http://slavtravel.am/,100,домен не работает (не продлён 
 http://sportcomplexhotel.com/,10,"похоже, только один язык (туристы не поймут)",https://sportcenterhotel.com/,2026-09-28
 http://stay.am,45,"нет HTTPS (Chrome пишет «Не защищено»); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",http://stay.am,2026-09-30
 http://voskevaz.am/,,"сайт не ответил серверу проверки (TimeoutError), проверить вручную",http://voskevaz.am/,2026-09-28
+http://white-castle.com,45,"нет HTTPS (Chrome пишет «Не защищено»); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",http://white-castle.com,2026-09-30
 http://winetime.am,100,домен не работает (не продлён или не настроен),http://winetime.am,2026-09-28
 http://wineworks.am/cgi-sys/suspendedpage.cgi,45,"нет HTTPS (Chrome пишет «Не защищено»); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",http://wineworks.am/cgi-sys/suspendedpage.cgi,2026-09-30
+http://ww16.factoryproduction.com/?sub1=20260930-1051-4680-8148-6a152ca4f730,45,"нет HTTPS (Chrome пишет «Не защищено»); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",http://ww16.factoryproduction.com/?sub1=20260930-1051-4680-8148-6a152ca4f730,2026-09-30
 http://www.aladdinam,100,домен не работает (не продлён или не настроен),http://www.aladdinam,2026-09-28
 http://www.apaven.com/,35,нет HTTPS (Chrome пишет «Не защищено»); в подвале © 2010: сайт давно не обновляли,http://www.apaven.com/,2026-09-30
 http://www.arabkiravia.am/,0,,https://www.arabkiravia.am:443/,2026-09-28
@@ -134,6 +140,7 @@ http://xinkali.am/,20,нет HTTPS (Chrome пишет «Не защищено»)
 http://yerevanivory.com,30,нет HTTPS (Chrome пишет «Не защищено»); нет кликабельного телефона/мессенджера,http://yerevanivory.com/en/,2026-09-28
 http://your.am,40,"нет HTTPS (Chrome пишет «Не защищено»); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",http://your.am,2026-09-30
 http://youthhostel.am,100,домен не работает (не продлён или не настроен),http://youthhostel.am,2026-09-28
+http://zenith-photo.fr/,40,"нет HTTPS (Chrome пишет «Не защищено»); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",http://zenith-photo.fr/,2026-09-30
 http://zithopia.am,100,домен не работает (не продлён или не настроен),http://zithopia.am,2026-09-28
 https://202f.coffee/,100,домен не работает (не продлён или не настроен),https://202f.coffee/,2026-09-28
 https://3d-print.am,20,"похоже, только один язык (туристы не поймут); грузится медленно (4.2 c)",https://3d-print.am,2026-09-30
@@ -148,7 +155,9 @@ https://airbnb.com/rooms/1135569329484058355,100,"своего сайта нет
 https://airbnb.com/rooms/1379945964115851758,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://airbnb.com/rooms/1379945964115851758,2026-09-28
 https://airbnb.com/rooms/54359976,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://airbnb.com/rooms/54359976,2026-09-28
 https://airbnb.com/rooms/662942564280794225,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://airbnb.com/rooms/662942564280794225,2026-09-28
+https://alexhome.am,10,нет кликабельного телефона/мессенджера,https://alexhome.am,2026-09-30
 https://almorpheus.github.io/keghar/,10,"похоже, только один язык (туристы не поймут)",https://keghar.am/,2026-09-28
+https://alpha-accounting.com,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://alpha-accounting.com,2026-09-30
 https://alpha.am,50,"не адаптирован под телефон (нет viewport); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://alpha.am,2026-09-30
 https://altar.am/,0,,https://altar.am/,2026-09-28
 https://amcg.com,10,"похоже, только один язык (туристы не поймут)",https://amcg.com,2026-09-30
@@ -251,8 +260,11 @@ https://elva-archive.com/,45,"не адаптирован под телефон 
 https://elysium.in/,10,"похоже, только один язык (туристы не поймут)",https://elysium.in/,2026-09-30
 https://elysiumgalleryhotel.com/,0,,https://elysiumgalleryhotel.com/,2026-09-28
 https://emerte.am/,15,"старый jQuery 1.10; сделан на конструкторе (ограничения, нет своей админки)",https://emerte.am/,2026-09-28
+https://energy-motors.com,10,"похоже, только один язык (туристы не поймут)",https://energy-motors.com,2026-09-30
 https://energy.am,25,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://energy.am,2026-09-30
+https://energycar.am,10,нет кликабельного телефона/мессенджера,https://energycar.am,2026-09-30
 https://english.am,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://english.am,2026-09-30
+https://englishwithlaura.com,0,,https://englishwithlaura.com,2026-09-30
 https://erebunihotel.am/en,20,"похоже, только один язык (туристы не поймут); грузится медленно (4.3 c)",https://erebunihotel.am/en,2026-09-28
 https://erevan.ldc.ru,5,"сделан на конструкторе (ограничения, нет своей админки)",https://erevan.ldc.ru,2026-09-28
 https://escapes.am,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://escapes.am,2026-09-28
@@ -267,6 +279,8 @@ https://fairytour.am/,45,"не адаптирован под телефон (н�
 https://fidelis.am,0,,https://fidelis.am,2026-09-30
 https://figaro.am,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://figaro.am,2026-09-30
 https://florence-restaurant.business.site,100,"сайт на Google business.site, Google отключил такие сайты в 2024: ссылка ведёт в пустоту",https://florence-restaurant.business.site,2026-09-28
+https://food-republic.com,10,"похоже, только один язык (туристы не поймут)",https://food-republic.com,2026-09-30
+https://fooddepot.am,25,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://fooddepot.am,2026-09-30
 https://foodtime.am/,10,"похоже, только один язык (туристы не поймут)",https://foodtime.am/,2026-09-28
 https://frankmeat.am,25,"старый jQuery 1.10; сделан на конструкторе (ограничения, нет своей админки); похоже, только один язык (туристы не поймут)",https://frankmeat.am,2026-09-28
 https://fryday.am/,0,,https://fryday.am/,2026-09-28
@@ -292,6 +306,7 @@ https://haekshin.am,25,"похоже, только один язык (турис
 https://hamadam.restaurant,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://hamadam.restaurant,2026-09-28
 https://hamshen.am,0,,https://hamshen.am/hy/,2026-09-28
 https://harsupesa.am,10,нет кликабельного телефона/мессенджера,https://harsupesa.am,2026-09-30
+https://hayasahospitality.com,10,"похоже, только один язык (туристы не поймут)",https://hayasahospitality.com,2026-09-30
 https://hayasahotels.com,0,,https://hayasahotels.com,2026-09-28
 https://hayreniqtour.ru/,10,"похоже, только один язык (туристы не поймут)",https://hayreniqtour.ru/,2026-09-28
 https://helios.am/hy/,0,,https://helios.am/hy/,2026-09-30
@@ -311,13 +326,16 @@ https://hotelyeghevnut.com/,0,,https://hotelyeghevnut.com/,2026-09-28
 https://hotelzoracaghbyur.voodoo.pro,100,домен не работает (не продлён или не настроен),https://hotelzoracaghbyur.voodoo.pro,2026-09-28
 https://hover.am,0,,https://hover.am,2026-09-28
 https://iclt.am/en/,35,не адаптирован под телефон (нет viewport); старый jQuery 1.10,https://iclt.am/en/,2026-09-30
+https://ideal-team.com/de/,25,в подвале © 2018: сайт давно не обновляли; нет кликабельного телефона/мессенджера,https://ideal-team.com/de/,2026-09-30
 https://ikigai.kovzy.com/,20,нет кликабельного телефона/мессенджера; грузится медленно (8.8 c),https://ikigai.kovzy.com/,2026-09-28
 https://ilex.am/am/,25,в подвале © 2010: сайт давно не обновляли; нет кликабельного телефона/мессенджера,https://ilex.am/am/,2026-09-30
+https://ilexlawfirm.com,10,"похоже, только один язык (туристы не поймут)",https://ilexlawfirm.com,2026-09-30
 https://imex.am,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://imex.am,2026-09-30
 https://ingahotelyerevan.business.site,100,"сайт на Google business.site, Google отключил такие сайты в 2024: ссылка ведёт в пустоту",https://ingahotelyerevan.business.site,2026-09-28
 https://instagram.com/familish.am,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://instagram.com/familish.am,2026-09-28
 https://instagram.com/tsaghkadzorapartment?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://instagram.com/tsaghkadzorapartment?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr,2026-09-28
 https://international.expert/,10,"похоже, только один язык (туристы не поймут)",https://international.expert/,2026-09-30
+https://internationallogistics.com,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://internationallogistics.com,2026-09-30
 https://invino.am,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://invino.am,2026-09-28
 https://iq-chip.com/,,"сайт не ответил серверу проверки (TimeoutError), проверить вручную",https://iq-chip.com/,2026-09-28
 https://israelori.am/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://www.israelori.am/,2026-09-28
@@ -332,15 +350,18 @@ https://karas.am/,10,"похоже, только один язык (турист
 https://karcomauto.am/,90,сертификат HTTPS сломан (браузер пугает посетителей),https://karcomauto.am/,2026-09-28
 https://kayan.am,15,"похоже, только один язык (туристы не поймут); нет онлайн-брони/заказа",https://kayan.am,2026-09-28
 https://kentron.am,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://kentron.am,2026-09-30
+https://krav-maga.com,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://krav-maga.com,2026-09-30
 https://krav.com,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://krav.com,2026-09-30
 https://kuzov.am,100,домен не работает (не продлён или не настроен),https://kuzov.am,2026-09-28
 https://laguna.am/,,"сайт не ответил серверу проверки (OSError), проверить вручную",https://laguna.am/,2026-09-28
 https://latar.am/,0,,https://latar.am/,2026-09-28
+https://leadership-school.com,25,в подвале © 2020: сайт давно не обновляли; нет кликабельного телефона/мессенджера,https://leadership-school.com,2026-09-30
 https://lebanonshawarma.am/,100,домен не работает (не продлён или не настроен),https://lebanonshawarma.am/,2026-09-28
 https://legal.am,65,"не адаптирован под телефон (нет viewport); устаревшие теги (Flash/marquee/font/frames); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://legal.am,2026-09-30
 https://lettersandnumbers.am/,0,,https://lancoworking.am/,2026-09-28
 https://levon.com,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://levon.com,2026-09-30
 https://light.am,10,"похоже, только один язык (туристы не поймут)",https://light.am,2026-09-30
+https://lightaffect.am,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://lightaffect.am,2026-09-30
 https://littledragon.am/,25,"старый jQuery 1.10; сделан на конструкторе (ограничения, нет своей админки); похоже, только один язык (туристы не поймут)",https://littledragon.am/,2026-09-28
 https://livings.am,0,,https://livings.am,2026-09-30
 https://loft.am/,85,сайт выдаёт ошибку HTTP 500,https://loft.am/,2026-09-28
@@ -361,6 +382,7 @@ https://mbgroup.am/charden,35,"старый jQuery 1.10; сделан на ко�
 https://mbgroup.am/vostan,35,"старый jQuery 1.10; сделан на конструкторе (ограничения, нет своей админки); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://mbgroup.am/vostan,2026-09-28
 https://me-qr.com/ru/gg6w911L,40,не адаптирован под телефон (нет viewport); в подвале © 2018: сайт давно не обновляли,https://qr.me-qr.com/ru/gg6w911L,2026-09-28
 https://medesy.am,0,,https://medesy.am,2026-09-28
+https://media-unit.am,15,в подвале © 2022: сайт давно не обновляли,https://media-unit.am,2026-09-30
 https://meettal.com,10,"похоже, только один язык (туристы не поймут)",https://meettal.com,2026-09-30
 https://megafood.am,35,"в подвале © 1999: сайт давно не обновляли; похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://megafood.am,2026-09-30
 https://metropol.am/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://metropol.am/metropol,2026-09-28
@@ -388,6 +410,7 @@ https://om-shanti-yoga.com,20,"похоже, только один язык (т�
 https://onewaytour.com/,0,,https://onewaytour.com/,2026-09-30
 https://online.am,35,"не адаптирован под телефон (нет viewport); похоже, только один язык (туристы не поймут)",https://online.am,2026-09-30
 https://opera.am/hy,10,нет кликабельного телефона/мессенджера,https://opera.am/hy,2026-09-30
+https://operasuitehotel.com,0,,https://operasuitehotel.com,2026-09-30
 https://optimumclinic.am/,0,,https://optimumclinic.am/,2026-09-28
 https://orange.am,25,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://orange.am,2026-09-30
 https://organichouse.am/,100,домен не работает (не продлён или не настроен),https://organichouse.am/,2026-09-28
@@ -406,17 +429,21 @@ https://perfectsmile.am/,,"сайт не пускает бота (HTTP 403), п�
 https://petermarker.am,25,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://petermarker.am,2026-09-28
 https://pharaon.am/,50,не адаптирован под телефон (нет viewport); старый jQuery 1.10; нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа,https://pharaon.am/,2026-09-28
 https://phoenix.am/en/home/,0,,https://phoenix.am/en/home/,2026-09-30
+https://phoenixtour.am,10,нет кликабельного телефона/мессенджера,https://phoenixtour.am,2026-09-30
 https://pickupburgers.com/,100,домен не работает (не продлён или не настроен),https://pickupburgers.com/,2026-09-28
 https://pizza.am,25,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://pizza.am,2026-09-30
 https://place.com,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://place.com,2026-09-30
 https://polkovnik.am/hy/,0,,https://polkovnik.am/,2026-09-28
 https://port88.am/,0,,https://port88.am/,2026-09-28
+https://premier-foods.com,10,"похоже, только один язык (туристы не поймут)",https://premier-foods.com,2026-09-30
+https://premium-ingredients.com,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://premium-ingredients.com,2026-09-30
 https://prepa.am,0,,https://prepa.am,2026-09-28
 https://prepa.am/,0,,https://prepa.am/,2026-09-28
 https://presidenthotel.am/,0,,https://presidenthotel.am/,2026-09-28
 https://price.dilari.am/,15,"похоже, только один язык (туристы не поймут); нет онлайн-брони/заказа",https://price.dilari.am/,2026-09-28
 https://prime.am,25,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://prime.am,2026-09-30
 https://print.am,45,"не адаптирован под телефон (нет viewport); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://print.am,2026-09-30
+https://printcity.am,10,"похоже, только один язык (туристы не поймут)",https://printcity.am,2026-09-30
 https://printing.am,10,нет кликабельного телефона/мессенджера,https://printing.am,2026-09-30
 https://project.am,10,"похоже, только один язык (туристы не поймут)",https://project.am,2026-09-30
 https://qrmenu.orders.co/633eece5f313cb001dda41f3,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://qrmenu.orders.co/633eece5f313cb001dda41f3,2026-09-28
@@ -424,6 +451,7 @@ https://qwerty.am,10,нет кликабельного телефона/месс
 https://ramenten.am/,25,"старый jQuery 1.10; сделан на конструкторе (ограничения, нет своей админки); похоже, только один язык (туристы не поймут)",https://ramenten.am/,2026-09-28
 https://rby.am/,0,,https://rby.am/,2026-09-28
 https://reebok.am,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://reebok.am,2026-09-30
+https://reeboksportsclub.com,0,,https://reeboksportsclub.com,2026-09-30
 https://relocantbar.tilda.ws/,15,"сделан на конструкторе (ограничения, нет своей админки); похоже, только один язык (туристы не поймут)",https://relocantbar.tilda.ws/,2026-09-28
 https://republica.com/usa,10,"похоже, только один язык (туристы не поймут)",https://republica.com/usa,2026-09-30
 https://rooftopaparthotel.com/,0,,https://rooftopaparthotel.com/,2026-09-28
@@ -433,6 +461,7 @@ https://sandoyan.com,20,"похоже, только один язык (тури�
 https://sati.am,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://sati.am,2026-09-28
 https://sgh.am,100,домен не работает (не продлён или не настроен),https://sgh.am,2026-09-28
 https://shelby.am/,,"сайт не пускает бота (HTTP 403), проверить вручную",https://shelby.am/,2026-09-28
+https://silk-road.com,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://silk-road.com,2026-09-30
 https://simbapizza.am,100,домен не работает (не продлён или не настроен),https://simbapizza.am,2026-09-28
 https://skill.am,25,"старый jQuery 1.10; сделан на конструкторе (ограничения, нет своей админки); похоже, только один язык (туристы не поймут)",https://skill.am,2026-09-30
 https://skylinetourservice.com/,100,домен не работает (не продлён или не настроен),https://skylinetourservice.com/,2026-09-28
@@ -507,8 +536,10 @@ https://www.armeniatour.com/,25,"сделан на конструкторе (о�
 https://www.armeniatravel.am/,10,нет кликабельного телефона/мессенджера,https://www.armeniatravel.am/en,2026-09-28
 https://www.artashimot.am,10,нет кликабельного телефона/мессенджера,https://www.artashimot.am,2026-09-28
 https://www.arvestanoc.am/,100,домен не работает (не продлён или не настроен),https://www.arvestanoc.am/,2026-09-28
+https://www.asandcleanings.com/,20,"сделан на конструкторе (ограничения, нет своей админки); похоже, только один язык (туристы не поймут); тяжёлая страница (2929 КБ HTML)",https://www.asandcleanings.com/,2026-09-30
 https://www.autofan.am/,10,"похоже, только один язык (туристы не поймут)",https://autofan.am/am/,2026-09-28
 https://www.bellagio.am/,10,"похоже, только один язык (туристы не поймут)",https://www.bellagio.am/,2026-09-28
+https://www.berlin-art.com/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://www.berlin-art.com/,2026-09-30
 https://www.berlinarthotel.am/,30,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; грузится медленно (6.4 c)",https://berlinarthotel.am/,2026-09-28
 https://www.besthotel.am/,100,домен не работает (не продлён или не настроен),https://www.besthotel.am/,2026-09-28
 https://www.blackangus.am/,0,,https://www.blackangus.am/,2026-09-28
@@ -546,10 +577,12 @@ https://www.dolmama.am/,10,"похоже, только один язык (тур
 https://www.drive2.ru/users/garagepw/,,"сайт не пускает бота (HTTP 403), проверить вручную",https://www.drive2.ru/users/garagepw/,2026-09-28
 https://www.ecotour.am,100,домен не работает (не продлён или не настроен),https://www.ecotour.am,2026-09-28
 https://www.elskybar.am/,15,в подвале © 2019: сайт давно не обновляли,https://www.elskybar.am/,2026-09-28
+https://www.elysiumgallery.com/,10,нет кликабельного телефона/мессенджера,https://www.elysiumgallery.com/,2026-09-30
 https://www.endovision.org/,25,"сделан на конструкторе (ограничения, нет своей админки); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://www.endovision.org/,2026-09-30
 https://www.envoyhostel.com/,50,"не адаптирован под телефон (нет viewport); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://www.envoyhostel.com/,2026-09-28
 https://www.europehotel.am/,0,,https://europehotel.am/,2026-09-28
 https://www.eurostan.am/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://www.eurostan.am/,2026-09-28
+https://www.evomax-gmbh.de/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://www.evomax-gmbh.de/,2026-09-30
 https://www.facebook.com/Dr.GayaneOganesyan/,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://www.facebook.com/Dr.GayaneOganesyan/,2026-09-28
 https://www.facebook.com/LanjYerevan/,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://www.facebook.com/LanjYerevan/,2026-09-28
 https://www.facebook.com/LoftVanadzor/,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://www.facebook.com/LoftVanadzor/,2026-09-28
@@ -567,13 +600,16 @@ https://www.facebook.com/pages/Arevik-Lounge/312425418768379?fref=ts,100,"сво
 https://www.facebook.com/pages/Derian-Kebab/189507504575150,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://www.facebook.com/pages/Derian-Kebab/189507504575150,2026-09-28
 https://www.facebook.com/people/WHITE-HOTEL/100095178164643/,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://www.facebook.com/people/WHITE-HOTEL/100095178164643/,2026-09-28
 https://www.facebook.com/vulkanacum.B2/,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://www.facebook.com/vulkanacum.B2/,2026-09-28
+https://www.fidelislawfirm.com/,10,"похоже, только один язык (туристы не поймут)",https://www.fidelislawfirm.com/,2026-09-30
 https://www.findarmenia.ru/hostel/,50,"не адаптирован под телефон (нет viewport); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://www.findarmenia.ru/hostel/,2026-09-28
 https://www.food.com/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://www.food.com/,2026-09-30
 https://www.foodpark.am/en,10,"похоже, только один язык (туристы не поймут)",https://www.foodpark.am/en,2026-09-30
 https://www.forestburger.am/,0,,https://www.forestburger.am/,2026-09-28
 https://www.futuretour.am/,100,домен не работает (не продлён или не настроен),https://www.futuretour.am/,2026-09-28
 https://www.gabriels.am/,0,,https://www.gabriels.am/,2026-09-28
+https://www.gardenstreet.co.uk/,10,"похоже, только один язык (туристы не поймут)",https://www.gardenstreet.co.uk/,2026-09-30
 https://www.genacvale.am/,0,,https://genacvale.am/,2026-09-28
+https://www.global-logistics-llc.com/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://www.global-logistics-llc.com/,2026-09-30
 https://www.gotcha.am/,10,"похоже, только один язык (туристы не поймут)",https://www.gotcha.am/,2026-09-28
 https://www.grandhotelyerevan.com/,10,грузится медленно (4.1 c),https://www.grandhotelyerevan.com/,2026-09-28
 https://www.grandresortjermuk.com/,0,,https://grandresortjermuk.com/,2026-09-28
@@ -583,6 +619,7 @@ https://www.hayarmtour.am/,0,,https://hayarmtour.am/,2026-09-28
 https://www.helix.am/,10,"похоже, только один язык (туристы не поймут)",https://www.helix.am/,2026-09-30
 https://www.hilton.com/en/hotels/evnyedi-doubletree-yerevan-city-centre/,,"сайт не пускает бота (HTTP 403), проверить вручную",https://www.hilton.com/en/hotels/evnyedi-doubletree-yerevan-city-centre/,2026-09-28
 https://www.holidays.com/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://www.holidays.com/,2026-09-30
+https://www.holidaysdmc.com/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://www.holidaysdmc.com/,2026-09-30
 https://www.hostels.am,45,"нет HTTPS (Chrome пишет «Не защищено»); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",http://www.hostels.am,2026-09-28
 https://www.hotelalva.am/,100,домен не работает (не продлён или не настроен),https://www.hotelalva.am/,2026-09-28
 https://www.hotelartsakh.am/,,"сайт не пускает бота (HTTP 503), проверить вручную",https://www.hotelartsakh.am/,2026-09-28
@@ -617,14 +654,17 @@ https://www.kfc-armenia.com/,20,"похоже, только один язык (�
 https://www.khachikbb.com,50,не адаптирован под телефон (нет viewport); в подвале © 2017: сайт давно не обновляли; нет кликабельного телефона/мессенджера,https://www.khachikbb.com/en/,2026-09-28
 https://www.lavanda.am/hy,10,"похоже, только один язык (туристы не поймут)",https://www.lavanda.am/hy,2026-09-30
 https://www.legelata.am/,10,грузится медленно (4.1 c),https://www.legelata.am/,2026-09-30
+https://www.levontravel.am/,10,"похоже, только один язык (туристы не поймут)",https://www.levontravel.am/,2026-09-30
 https://www.limone.am/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://www.limone.am/,2026-09-28
 https://www.lumiere.am/,0,,https://www.lumiere.am/,2026-09-30
+https://www.magnus-hr.co/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://www.magnus-hr.co/,2026-09-30
 https://www.mare.am,,"сайт не пускает бота (HTTP 403), проверить вручную",https://www.mare.am,2026-09-28
 https://www.marriott.com/hotels/hotel-information/restaurant/evnmc-armenia-marriott-hotel-yerevan/,0,,https://www.marriott.com/en-us/hotels/evnmc-armenia-marriott-hotel-yerevan/dining/,2026-09-28
 https://www.marriott.com/hotels/travel/evnmc-armenia-marriott-hotel-yerevan,,"сайт не пускает бота (HTTP 403), проверить вручную",https://www.marriott.com/hotels/travel/evnmc-armenia-marriott-hotel-yerevan,2026-09-28
 https://www.matikyan.am/,25,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://matikyan.am/,2026-09-28
 https://www.medline.am/,10,"похоже, только один язык (туристы не поймут)",https://medlineclinic.am/,2026-09-28
 https://www.messier53.com/,45,"нет HTTPS (Chrome пишет «Не защищено»); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",http://ww16.messier53.com/?sub1=20260928-1215-084f-b000-02e01eec1e21,2026-09-28
+https://www.mim.am/,0,,https://www.mim.am/,2026-09-30
 https://www.mimino.info/,80,"сертификат HTTPS сломан (браузер пугает посетителей); нет HTTPS (Chrome пишет «Не защищено»); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; грузится медленно (7.7 c)",http://mimino.info/,2026-09-28
 https://www.monkhauscocktailbar.com/,100,домен не работает (не продлён или не настроен),https://www.monkhauscocktailbar.com/,2026-09-28
 https://www.monopatisserie.com/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://www.monopatisserie.com/,2026-09-28
@@ -657,6 +697,7 @@ https://www.sonrise.com/,40,"в подвале © 2019: сайт давно не
 https://www.sorriso.am/,5,"сделан на конструкторе (ограничения, нет своей админки)",https://www.sorriso.am/,2026-09-28
 https://www.spayka.am/en/maintenance.html,10,нет кликабельного телефона/мессенджера,https://www.spayka.am/en/maintenance.html,2026-09-28
 https://www.specialized.com/us/en,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://www.specialized.com/us/en,2026-09-30
+https://www.stepconsulting.am/,35,не адаптирован под телефон (нет viewport); нет кликабельного телефона/мессенджера,https://www.stepconsulting.am/,2026-09-30
 https://www.stopclub.am/,85,сайт выдаёт ошибку HTTP 530,https://www.stopclub.am/,2026-09-28
 https://www.syrovarnya.com/erevan,0,,https://www.syrovarnya.com/erevan,2026-09-28
 https://www.syrovarnya.com/restaurants/erevan,0,,https://www.syrovarnya.com/restaurants/erevan,2026-09-28
@@ -693,12 +734,16 @@ https://yerevan-city.am/,10,"похоже, только один язык (ту�
 https://yerevan.sushivesla.org/,25,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://yerevan.sushivesla.org/,2026-09-28
 https://yerevanplace.com/,0,,https://yerevanplace.com/,2026-09-28
 https://zxgarage.am/,25,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://zxgarage.am/am,2026-09-28
+imex.am,,"сайт не ответил серверу проверки (TimeoutError), проверить вручную",https://imex.am,2026-09-30
 leadership.am,,"сайт не ответил серверу проверки (OSError), проверить вручную",https://leadership.am,2026-09-30
+logist.am,,"сайт не ответил серверу проверки (TimeoutError), проверить вручную",https://logist.am,2026-09-30
 maoor.am,100,домен не работает (не продлён или не настроен),https://maoor.am,2026-09-28
 margaryan.am,,"сайт не ответил серверу проверки (TimeoutError), проверить вручную",https://margaryan.am,2026-09-30
 media.am,,"сайт не пускает бота (HTTP 403), проверить вручную",https://media.am,2026-09-30
+multiwellnesscenter.am,,"сайт не пускает бота (HTTP 403), проверить вручную",https://multiwellnesscenter.am,2026-09-30
 nairi.am,,"сайт не ответил серверу проверки (TimeoutError), проверить вручную",https://nairi.am,2026-09-30
 nurhotel.com,95,"сертификат HTTPS сломан (браузер пугает посетителей); нет HTTPS (Chrome пишет «Не защищено»); не адаптирован под телефон (нет viewport); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",http://nurhotel.com,2026-09-28
+onlinearmenianstore.am,,"сайт не пускает бота (HTTP 429), проверить вручную",https://onlinearmenianstore.am,2026-09-30
 pandokyerevan.am,,"сайт не ответил серверу проверки (TimeoutError), проверить вручную",https://pandokyerevan.am,2026-09-30
 panossianhotel.am,100,домен не работает (не продлён или не настроен),https://panossianhotel.am,2026-09-28
 timeless.am,90,сертификат HTTPS сломан (браузер пугает посетителей),https://timeless.am,2026-09-30
@@ -707,6 +752,7 @@ umba.am,0,,https://umba.am/am/,2026-09-30
 vayk.am,,"сайт не пускает бота (HTTP 403), проверить вручную",https://vayk.am,2026-09-30
 wedding.am,,"сайт не пускает бота (HTTP 403), проверить вручную",https://wedding.am,2026-09-30
 wine.am,,"сайт не пускает бота (HTTP 403), проверить вручную",https://wine.am,2026-09-30
+winerepublic.am,90,сертификат HTTPS сломан (браузер пугает посетителей),https://winerepublic.am,2026-09-30
 wintravel.am,100,домен не работает (не продлён или не настроен),https://wintravel.am,2026-09-28
 www.ecotour.am,100,домен не работает (не продлён или не настроен),https://www.ecotour.am,2026-09-28
 www.facebook.com/cascaderoyal/?fref=ts,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",www.facebook.com/cascaderoyal/?fref=ts,2026-09-28
