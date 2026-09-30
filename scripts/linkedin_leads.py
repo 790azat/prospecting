@@ -7,6 +7,7 @@ data/linkedin/companies.csv пополняет Claude: ищет страницы
 подтягивает телефон/почту из data/businesses.csv (OSM) по названию и пишет data/linkedin/leads.csv.
 """
 import csv, datetime, os, re, sys
+from urllib.parse import urlparse
 from concurrent.futures import ThreadPoolExecutor
 
 sys.path.insert(0, os.path.dirname(__file__))
@@ -34,7 +35,7 @@ def guesses(c):
     words = [w for w in re.findall(r"[a-z0-9]+", c["name"].lower()) if w not in STOP]
     bases = {slug, slug.replace("-", ""), "".join(words), "-".join(words)}
     bases = {b for b in bases if len(b) >= 4 and not b.isdigit()}
-    return [f"{b}.{tld}" for b in sorted(bases) for tld in ("am", "com")]
+    return [f"{b}.am" for b in sorted(bases)]  # .com по названию слишком часто чужой
 
 
 def find_site(c):
@@ -49,6 +50,8 @@ def find_site(c):
                     return host  # домен живой, но сервер проверки не открыл: пусть аудит решает, не считаем «сайта нет»
                 continue
             low = html.lower()
+            if host not in (urlparse(final).hostname or ""):
+                break  # увело на другой домен (парковка, продажа домена)
             if words and all(w in low for w in words) and not re.search(r"domain (is )?for sale|parked|buy this domain", low):
                 return final
             break
