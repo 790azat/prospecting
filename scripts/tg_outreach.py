@@ -155,7 +155,7 @@ async def spam_check(c):
         return False, f'SpamBot не ответил: {type(e).__name__}'
     low = ans.lower()
     free = any(w in low for w in ('no limits', 'free as a bird', 'свободен', 'нет ограничений', 'никаких ограничений'))
-    return free, ans[:400].replace('\n', ' ')
+    return free, ans[:1500].replace('\n', ' ')
 
 
 async def run():
@@ -186,6 +186,7 @@ async def run():
     print('SpamBot:', spam_ans)
     if not free:
         msg = f'EVNWEB рассылка {today}: не начата, у аккаунта ограничение Telegram. SpamBot: {spam_ans}'
+        st['pause_until'] = (t.date() + dt.timedelta(days=1)).isoformat(); save_state(st)  # завтра проверим снова
         print(msg); last_run(msg); await report(c, msg); await c.disconnect(); return
     sent, no_tg, had_chat, stop_reason = [], 0, 0, ''
     video, video_sent = Video(LANG), 0
