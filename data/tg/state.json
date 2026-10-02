@@ -3,6 +3,7 @@
  "days": {
   "2026-09-29": 10
  },
- "stopped": true,
- "stopped_reason": "2026-09-29: Telegram spam limit (only mutual contacts), stopped at Azat request"
+ "stopped": false,
+ "stopped_reason": "",
+ "resumed": "2026-10-02: Azat asked to restart Telegram outreach (short text + main video)"
 }

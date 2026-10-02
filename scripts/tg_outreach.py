@@ -141,6 +141,19 @@ async def report(c, text):
         print('Не удалось отправить отчёт:', e)
 
 
+async def spam_check(c):
+    """Спрашиваем @SpamBot, нет ли ограничения на сообщения незнакомым. Возвращает (ok, ответ)."""
+    try:
+        async with c.conversation('SpamBot', timeout=40) as conv:
+            await conv.send_message('/start')
+            ans = (await conv.get_response()).raw_text or ''
+    except Exception as e:
+        return False, f'SpamBot не ответил: {type(e).__name__}'
+    low = ans.lower()
+    free = any(w in low for w in ('no limits', 'free as a bird', 'свободен', 'нет ограничений', 'никаких ограничений'))
+    return free, ans[:400].replace('\n', ' ')
+
+
 async def run():
     st = load_state()
     t = now()
@@ -165,6 +178,11 @@ async def run():
 
     replies = await check_replies(c, rows)
     save_queue(rows)
+    free, spam_ans = await spam_check(c)
+    print('SpamBot:', spam_ans)
+    if not free:
+        msg = f'EVNWEB рассылка {today}: не начата, у аккаунта ограничение Telegram. SpamBot: {spam_ans}'
+        print(msg); await report(c, msg); await c.disconnect(); return
     sent, no_tg, had_chat, stop_reason = [], 0, 0, ''
     video, video_sent = Video(LANG), 0
     if not video.ok():   # текст ссылается на видео ниже, без него не отправляем
