@@ -3,7 +3,7 @@
  "days": {
   "2026-09-29": 10
  },
- "stopped": false,
- "stopped_reason": "",
+ "stopped": true,
+ "stopped_reason": "2026-10-02: Azat asked to stop; personal number limited, new number coming",
  "resumed": "2026-10-02: Azat asked to restart Telegram outreach (short text + main video)"
 }
