@@ -90,6 +90,27 @@ class Video:
             await c.send_file(user, self.media)
 
 
+ASK = {  # вариант «сначала вопрос»: видео уходит только тем, кто ответил
+    'Դիտեք կարճ տեսանյութը ներքևում՝ այսպես կարող է աշխատել ձեր կայքը։':
+        'Կարող եմ ուղարկել կարճ տեսանյութ, թե ինչպես կարող է աշխատել ձեր կայքը։',
+    'Посмотрите короткое видео ниже: так может работать ваш сайт.':
+        'Могу прислать короткое видео, как может работать ваш сайт.',
+}
+NO_WORDS = ('не надо', 'не нужно', 'не интерес', 'нет,', 'нет.', 'нет спасибо', 'не пишите', 'спам', 'ոչ', 'պետք չէ',
+            'չի հետաքրքրում', 'no thanks', 'not interested')
+
+
+def ask_text(t):
+    for a, b in ASK.items():
+        t = t.replace(a, b)
+    return t
+
+
+def is_no(ans):
+    a = ' ' + (ans or '').lower().strip() + ' '
+    return a.strip() in ('нет', 'ոչ', 'no') or any(w in a for w in NO_WORDS)
+
+
 def now():
     return dt.datetime.now(YEREVAN)
 
@@ -118,6 +139,21 @@ async def sign_in(code):
     st.pop('phone_code_hash', None); st['login'] = now().isoformat(); save_state(st)
     print('Вход выполнен:', me.first_name, '(id скрыт)')
     await c.disconnect()
+
+
+async def send_video_to_repliers(c, replies):
+    video, n = Video(LANG), 0
+    for r in replies:
+        if r.get('video') == 'da' or is_no(r['otvet']) or not video.ok():
+            continue
+        try:
+            async with c.action(int(r['tg_id']), 'video'):
+                await video.send(c, int(r['tg_id']))
+            r['video'] = 'da'; n += 1
+            await asyncio.sleep(random.uniform(20, 60))
+        except Exception as e:
+            print('Видео ответившему не отправлено:', type(e).__name__, e)
+    return n
 
 
 async def check_replies(c, rows):
@@ -182,6 +218,9 @@ async def run():
         sys.exit('Сессия не авторизована: нужен вход (send_code, затем sign_in).')
 
     replies = await check_replies(c, rows)
+    ask_first = st.get('video_after_reply', True)
+    if ask_first and replies:
+        print('Видео ответившим:', await send_video_to_repliers(c, replies))
     save_queue(rows)
     free, spam_ans = await spam_check(c)
     print('SpamBot:', spam_ans)
@@ -218,6 +257,8 @@ async def run():
                 r['status'], r['data'], r['tg_id'] = 'uzhe_byla_perepiska', today, str(user.id)
                 had_chat += 1; save_queue(rows); continue
             text = r['tekst_hy'] if LANG == 'hy' else r['tekst_ru']
+            if ask_first:
+                text = ask_text(text)
             async with c.action(user, 'typing'):
                 await asyncio.sleep(random.uniform(4, 9))
             await c.send_message(user, text)
@@ -225,7 +266,7 @@ async def run():
             sent.append(r)
             days[today] = days.get(today, 0) + 1
             save_queue(rows); save_state(st)
-            if video.ok():
+            if video.ok() and not ask_first:
                 await asyncio.sleep(random.uniform(3, 7))
                 try:
                     async with c.action(user, 'video'):
