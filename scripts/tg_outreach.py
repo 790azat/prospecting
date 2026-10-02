@@ -141,6 +141,10 @@ async def report(c, text):
         print('Не удалось отправить отчёт:', e)
 
 
+def last_run(msg):
+    (ROOT / 'last_run.txt').write_text(f'{now().isoformat()}\n{msg}\n')
+
+
 async def spam_check(c):
     """Спрашиваем @SpamBot, нет ли ограничения на сообщения незнакомым. Возвращает (ok, ответ)."""
     try:
@@ -182,7 +186,7 @@ async def run():
     print('SpamBot:', spam_ans)
     if not free:
         msg = f'EVNWEB рассылка {today}: не начата, у аккаунта ограничение Telegram. SpamBot: {spam_ans}'
-        print(msg); await report(c, msg); await c.disconnect(); return
+        print(msg); last_run(msg); await report(c, msg); await c.disconnect(); return
     sent, no_tg, had_chat, stop_reason = [], 0, 0, ''
     video, video_sent = Video(LANG), 0
     if not video.ok():   # текст ссылается на видео ниже, без него не отправляем
@@ -255,7 +259,7 @@ async def run():
     if stop_reason: lines.append('Остановлено: ' + stop_reason)
     lines.append(f'В очереди осталось {left}. Завтра лимит {min(limit_for(day_no + 1), MAX_PER_DAY)}.')
     msg = '\n'.join(lines)
-    print(msg)
+    print(msg); last_run(msg)
     await report(c, msg)
     await c.disconnect()
 
