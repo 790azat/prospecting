@@ -5,5 +5,5 @@
  },
  "stopped": false,
  "resumed": "2026-10-03: Azat asked for a small test (manual runs with limit)",
- "video_after_reply": true
+ "video_after_reply": false
 }

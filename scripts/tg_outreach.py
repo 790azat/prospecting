@@ -24,7 +24,7 @@ PHONE = os.environ.get('TG_PHONE') or '+37493401179'
 LANG = os.environ.get('TG_LANG') or 'hy'          # язык первого сообщения: hy или ru
 YEREVAN = dt.timezone(dt.timedelta(hours=4))
 MAX_PER_DAY = 25
-PAUSE_MIN, PAUSE_MAX = 4 * 60, 10 * 60
+PAUSE_MIN, PAUSE_MAX = 10 * 60, 20 * 60   # текст+видео сразу: паузы длиннее
 
 
 def limit_for(day_no):
