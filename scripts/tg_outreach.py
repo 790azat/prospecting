@@ -210,6 +210,8 @@ async def run():
     days = st.setdefault('days', {})
     day_no = len([d for d in days if d != today]) + 1
     limit = min(limit_for(day_no), MAX_PER_DAY) - days.get(today, 0)
+    if os.environ.get('TG_LIMIT', '').isdigit():   # ручной тестовый запуск: не больше N сообщений
+        limit = min(limit, int(os.environ['TG_LIMIT']))
     if days.get(today) and limit <= 0:
         print('Сегодняшний лимит уже отправлен'); return
 
@@ -313,7 +315,11 @@ async def status():
     print(json.dumps({k: v for k, v in load_state().items() if k != 'phone_code_hash'}, ensure_ascii=False))
     if SESSION.exists():
         c = client(load_session()); await c.connect()
-        print('Сессия авторизована:', await c.is_user_authorized())
+        auth = await c.is_user_authorized()
+        print('Сессия авторизована:', auth)
+        if auth:
+            free, ans = await spam_check(c)
+            last_run(f'status {now().isoformat()}: ограничений нет={free}. SpamBot: {ans}')
         await c.disconnect()
 
 

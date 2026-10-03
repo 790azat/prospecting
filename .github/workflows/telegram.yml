@@ -1,8 +1,7 @@
 name: telegram-outreach
 
 on:
-  # Остановлено 2026-10-02 по просьбе Азата: личный номер ограничен Telegram.
-  # Дальше рассылка пойдёт с нового номера (send_code/sign_in с TG_PHONE). Без его слова не запускать.
+  # 2026-10-03: Азат попросил тест на нескольких людях. Расписания нет, запуск только вручную с limit.
   workflow_dispatch:
     inputs:
       mode:
@@ -10,6 +9,9 @@ on:
         default: status
       code:
         description: "Код входа из Telegram (для sign_in)"
+        default: ""
+      limit:
+        description: "Максимум сообщений в этот запуск (пусто = дневной лимит)"
         default: ""
 
 permissions:
@@ -41,6 +43,7 @@ jobs:
         env:
           MODE: ${{ github.event.inputs.mode || 'run' }}
           CODE: ${{ github.event.inputs.code }}
+          TG_LIMIT: ${{ github.event.inputs.limit }}
         run: |
           [ -n "$CODE" ] && echo "::add-mask::$CODE"
           case "$MODE" in
