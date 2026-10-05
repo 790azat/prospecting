@@ -1,9 +1,13 @@
 {
  "login": "2026-09-28T20:04:17.352257+04:00",
  "days": {
-  "2026-09-29": 10
+  "2026-09-29": 10,
+  "2026-10-05": 3
  },
  "stopped": false,
  "resumed": "2026-10-03: Azat asked for a small test (manual runs with limit)",
- "video_after_reply": false
+ "video_after_reply": false,
+ "tries": {
+  "2026-10-05": 7
+ }
 }
