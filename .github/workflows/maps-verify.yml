@@ -1,0 +1,72 @@
+name: maps-verify
+
+# Перепроверка лидов Яндекса через Google Карты (сайт мог быть указан только там).
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [maps-leads]
+    types: [completed]
+  push:
+    branches: [main]
+    paths: [".github/workflows/maps-verify.yml", "scripts/maps_verify.py"]
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 170
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    env:
+      PYTHONUNBUFFERED: "1"
+      MAPS_SHARD: ${{ matrix.shard }}
+      MAPS_SHARDS: "10"
+      MAPS_OUT: out/verify-${{ matrix.shard }}.csv
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          pip install playwright
+          python3 -m playwright install --with-deps chromium
+          python3 scripts/maps_verify.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verify-${{ matrix.shard }}
+          path: out/
+          if-no-files-found: ignore
+
+  commit:
+    needs: verify
+    if: always()
+    runs-on: ubuntu-latest
+    concurrency:
+      group: data-commit
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: art
+      - run: |
+          mkdir -p data/maps
+          python3 - <<'PY'
+          import csv, glob
+          rows = [r for p in sorted(glob.glob("art/verify-*/*.csv")) for r in csv.DictReader(open(p, encoding="utf-8"))]
+          if rows:
+              with open("data/maps/verify.csv", "w", newline="", encoding="utf-8") as fh:
+                  w = csv.DictWriter(fh, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
+          print(len(rows))
+          PY
+          git config user.name "prospecting-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/maps
+          git diff --cached --quiet || git commit -m "data: maps verify $(date -u +%F)"
+          git pull --rebase
+          git push
