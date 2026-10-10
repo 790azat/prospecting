@@ -20,8 +20,8 @@ NICHES = {
     "florist": "цветы", "veterinarian": "ветклиника", "language school": "учебный центр",
     "furniture maker": "мебель", "clothing store": "магазин одежды", "photo studio": "фотостудия",
 }
-AREAS = ["Kentron", "Arabkir", "Ajapnyak", "Avan", "Davtashen", "Erebuni", "Kanaker-Zeytun",
-         "Malatia-Sebastia", "Nor Nork", "Nork-Marash", "Shengavit", "Nubarashen"]
+# один поиск отдаёт до 120 мест вокруг района, поэтому 6 районов покрывают почти весь город
+AREAS = ["Kentron", "Arabkir", "Nor Nork", "Shengavit", "Malatia-Sebastia", "Erebuni"]
 FIELDS = ["google_id", "name", "category", "niche", "city", "address", "phone", "website", "instagram",
           "facebook", "telegram", "whatsapp", "viber", "other_social", "rating", "reviews", "status",
           "hours", "lat", "lon", "link", "query"]

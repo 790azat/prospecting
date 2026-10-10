@@ -15,7 +15,7 @@ permissions:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 170
     strategy:
       fail-fast: false
       matrix:
@@ -24,10 +24,14 @@ jobs:
           - {src: yandex, part: 2, niches: "гостиница,гостевой дом,хостел,стоматология,медицинский центр,ветеринарная клиника"}
           - {src: yandex, part: 3, niches: "салон красоты,парикмахерская,ногтевая студия,фитнес-клуб,фотостудия"}
           - {src: yandex, part: 4, niches: "автосервис,цветы,учебный центр,мебель на заказ,магазин одежды"}
-          - {src: google, part: 1, niches: "restaurant,cafe,coffee shop,bar,bakery,pastry shop"}
-          - {src: google, part: 2, niches: "hotel,guest house,hostel,dentist,medical clinic,veterinarian"}
-          - {src: google, part: 3, niches: "beauty salon,barber shop,nail salon,gym,photo studio"}
-          - {src: google, part: 4, niches: "car repair,florist,language school,furniture maker,clothing store"}
+          - {src: google, part: 1, niches: "restaurant,bar,pastry shop"}
+          - {src: google, part: 2, niches: "cafe,coffee shop,bakery"}
+          - {src: google, part: 3, niches: "hotel,guest house,hostel"}
+          - {src: google, part: 4, niches: "dentist,medical clinic,veterinarian"}
+          - {src: google, part: 5, niches: "beauty salon,nail salon,barber shop"}
+          - {src: google, part: 6, niches: "gym,photo studio,language school"}
+          - {src: google, part: 7, niches: "car repair,florist"}
+          - {src: google, part: 8, niches: "furniture maker,clothing store"}
     env:
       PYTHONUNBUFFERED: "1"
       MAPS_NICHES: ${{ matrix.niches }}
