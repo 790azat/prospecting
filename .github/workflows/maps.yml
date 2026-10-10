@@ -1,0 +1,93 @@
+name: maps-leads
+
+# Бизнесы без сайта из Яндекс Карт и Google Карт (Ереван). Запуск вручную или раз в 2 недели.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/maps.yml"]
+  schedule:
+    - cron: "0 2 1,15 * *"
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {src: yandex, part: 1, niches: "ресторан,кафе,кофейня,бар,пекарня,кондитерская"}
+          - {src: yandex, part: 2, niches: "гостиница,гостевой дом,хостел,стоматология,медицинский центр,ветеринарная клиника"}
+          - {src: yandex, part: 3, niches: "салон красоты,парикмахерская,ногтевая студия,фитнес-клуб,фотостудия"}
+          - {src: yandex, part: 4, niches: "автосервис,цветы,учебный центр,мебель на заказ,магазин одежды"}
+          - {src: google, part: 1, niches: "restaurant,cafe,coffee shop,bar,bakery,pastry shop"}
+          - {src: google, part: 2, niches: "hotel,guest house,hostel,dentist,medical clinic,veterinarian"}
+          - {src: google, part: 3, niches: "beauty salon,barber shop,nail salon,gym,photo studio"}
+          - {src: google, part: 4, niches: "car repair,florist,language school,furniture maker,clothing store"}
+    env:
+      PYTHONUNBUFFERED: "1"
+      MAPS_NICHES: ${{ matrix.niches }}
+      MAPS_OUT: out/${{ matrix.src }}-${{ matrix.part }}.csv
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Yandex Maps
+        if: matrix.src == 'yandex'
+        run: python3 scripts/maps_yandex.py
+      - name: Google Maps
+        if: matrix.src == 'google'
+        run: |
+          pip install playwright
+          python3 -m playwright install --with-deps chromium
+          python3 scripts/maps_google.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.src }}-${{ matrix.part }}
+          path: out/
+          if-no-files-found: ignore
+
+  commit:
+    needs: collect
+    if: always()
+    runs-on: ubuntu-latest
+    concurrency:
+      group: data-commit
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: art
+      - name: Merge parts
+        run: |
+          mkdir -p data/maps
+          python3 - <<'PY'
+          import csv, glob, os
+          for src, key in (("yandex", "yandex_id"), ("google", "google_id")):
+              rows = {}
+              for p in sorted(glob.glob(f"art/{src}-*/*.csv")):
+                  for r in csv.DictReader(open(p, encoding="utf-8")):
+                      rows.setdefault(r[key], r)
+              if not rows:
+                  continue
+              fields = list(next(iter(rows.values())).keys())
+              with open(f"data/maps/{src}.csv", "w", newline="", encoding="utf-8") as fh:
+                  w = csv.DictWriter(fh, fieldnames=fields); w.writeheader()
+                  w.writerows(sorted(rows.values(), key=lambda r: (r["niche"], r["name"])))
+              print(src, len(rows))
+          PY
+      - name: Commit
+        run: |
+          git config user.name "prospecting-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/maps
+          git diff --cached --quiet || git commit -m "data: maps leads $(date -u +%F)"
+          git pull --rebase
+          git push
