@@ -134,6 +134,9 @@ async def main():
                     if d["website"]:
                         with_site.add(pid)
                         continue
+                    m = re.search(r"(\d[.,]\d)\s*\(([\d,]+)\)", c["text"])
+                    if m and not d["reviews"]:
+                        d["rating"], d["reviews"] = m.group(1), m.group(2).replace(",", "")
                     lat, lon = coords(c["href"])
                     found[pid] = {"google_id": pid, "name": c["name"], "niche": NICHES.get(q, q), "city": "Ереван",
                                   "lat": lat, "lon": lon, "link": c["href"].split("?")[0], "query": query, **d}
