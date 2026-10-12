@@ -25,6 +25,11 @@ LANG = os.environ.get('TG_LANG') or 'hy'          # язык первого со
 YEREVAN = dt.timezone(dt.timedelta(hours=4))
 MAX_PER_DAY = 25
 PAUSE_MIN, PAUSE_MAX = 10 * 60, 20 * 60   # текст+видео сразу: паузы длиннее
+PARTNERS_PER_DAY = 3   # SMM-партнёры (kategoriya «SMM-партнёр…») идут в общем дневном лимите, не больше 3 в день
+
+
+def is_partner(r):
+    return r['kategoriya'].startswith('SMM-партнёр')
 
 
 def limit_for(day_no):
@@ -241,6 +246,8 @@ async def run():
     for r in todo:
         if len(sent) >= limit or tries >= day_cap:
             break
+        if is_partner(r) and sum(map(is_partner, sent)) >= PARTNERS_PER_DAY:
+            continue
         if now().time() > dt.time(18, 30):
             stop_reason = 'закончилось рабочее время'; break
         tries += 1; tries_day[today] = tries
