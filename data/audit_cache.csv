@@ -156,6 +156,7 @@ http://www.ciaobambino.am,100,домен не работает (не продл�
 http://www.citycentre.am,65,нет HTTPS (Chrome пишет «Не защищено»); не адаптирован под телефон (нет viewport); старый jQuery 1.6; нет кликабельного телефона/мессенджера,http://citycentre.am/,2026-09-28
 http://www.crumbs.am/,,"сайт не пускает бота (HTTP 429), проверить вручную",http://www.crumbs.am/,2026-09-28
 http://www.diamondtravel.am/,70,"нет HTTPS (Chrome пишет «Не защищено»); в подвале © 2016: сайт давно не обновляли; устаревшие теги (Flash/marquee/font/frames); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",http://www.diamondtravel.am/,2026-09-28
+http://www.dilijanitun.am/,0,,https://dilijanitun.am/en/,2026-10-13
 http://www.eurotour.am,,"сервер проверки не смог открыть сайт, проверить вручную",http://www.eurotour.am,2026-09-28
 http://www.facebook.com/KFC.Armenia,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",http://www.facebook.com/KFC.Armenia,2026-09-28
 http://www.facebook.com/MananaBeautySalon,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",http://www.facebook.com/MananaBeautySalon,2026-09-28
@@ -246,6 +247,7 @@ https://artuyt.com/,0,,https://artuyt.com/,2026-09-30
 https://asparboutiquehotel.am/,0,,https://asparboutiquehotel.am/,2026-09-28
 https://atlantistour.am,50,"не адаптирован под телефон (нет viewport); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://atlantistour.am,2026-09-28
 https://aureliahotel.am,0,,https://aureliahotel.am,2026-09-28
+https://aureliahotel.am/,0,,https://aureliahotel.am/,2026-10-13
 https://autofan.am,10,"похоже, только один язык (туристы не поймут)",https://autofan.am,2026-09-30
 https://avanta.am,10,"похоже, только один язык (туристы не поймут)",https://avanta.am,2026-09-30
 https://avanta.am/,10,"похоже, только один язык (туристы не поймут)",https://avanta.am/,2026-09-28
@@ -271,6 +273,7 @@ https://business.facebook.com/jermukbaghaberdrestaurant/,100,"своего са�
 https://cafecoconatali.bonee.net/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://cafecoconatali.bonee.net/,2026-09-28
 https://cafelantern24.business.site/,100,"сайт на Google business.site, Google отключил такие сайты в 2024: ссылка ведёт в пустоту",https://cafelantern24.business.site/,2026-09-28
 https://caffeine.am,10,нет кликабельного телефона/мессенджера,https://caffeine.am,2026-09-28
+https://caffeine.am/,10,нет кликабельного телефона/мессенджера,https://caffeine.am/,2026-10-13
 https://canapea.am,25,не адаптирован под телефон (нет viewport),https://canapea.am,2026-09-30
 https://capitalhotel.am/,0,,https://capitalhotel.am/,2026-09-28
 https://care.am,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://care.am,2026-09-30
@@ -305,6 +308,7 @@ https://dilijan.rest,20,"похоже, только один язык (тури�
 https://dilijanadventures.am,10,"похоже, только один язык (туристы не поймут)",https://dilijanadventures.am,2026-09-28
 https://dilijaninn.am,20,нет кликабельного телефона/мессенджера; грузится медленно (8.6 c),https://dilijaninn.am,2026-09-28
 https://dilijaninn.am/en/restaurant-en/,20,нет кликабельного телефона/мессенджера; грузится медленно (6.3 c),https://dilijaninn.am/en/restaurant-en/,2026-09-28
+https://dilijaninn.am/en/we/,10,нет кликабельного телефона/мессенджера,https://dilijaninn.am/en/we/,2026-10-13
 https://dilijanitun.am,10,грузится медленно (4.9 c),https://dilijanitun.am/en/,2026-09-28
 https://dilitown.am,10,"похоже, только один язык (туристы не поймут)",https://dilitown.am,2026-09-28
 https://dobrotsen.ru,50,"не адаптирован под телефон (нет viewport); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://dobrotsen.ru,2026-09-28
@@ -318,6 +322,7 @@ https://drakht.am,100,домен не работает (не продлён ил
 https://dudes.am/en/,85,сайт выдаёт ошибку HTTP 404,https://dudes.am/en/,2026-09-28
 https://eachbase.com,25,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://eachbase.com,2026-09-30
 https://ecokayan.com,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://www.ecokayan.com/,2026-09-28
+https://ecokayan.com/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://www.ecokayan.com/,2026-10-13
 https://ecomotors.am,0,,https://www.ecomotors.am/,2026-09-30
 https://ecospace.am/,5,"сделан на конструкторе (ограничения, нет своей админки)",https://ecospace.am/,2026-09-28
 https://elina.am,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://elina.am,2026-09-30
@@ -334,6 +339,7 @@ https://englishwithlaura.com,0,,https://englishwithlaura.com,2026-09-30
 https://erebunihotel.am/en,20,"похоже, только один язык (туристы не поймут); грузится медленно (4.3 c)",https://erebunihotel.am/en,2026-09-28
 https://erevan.ldc.ru,5,"сделан на конструкторе (ограничения, нет своей админки)",https://erevan.ldc.ru,2026-09-28
 https://escapes.am,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://escapes.am,2026-09-28
+https://escapes.am/,100,домен не работает (не продлён или не настроен),https://escapes.am/,2026-10-13
 https://estate.am,,"сайт не пускает бота (HTTP 403), проверить вручную",https://estate.am,2026-09-30
 https://estheticjoysembassy.com/,15,"сделан на конструкторе (ограничения, нет своей админки); похоже, только один язык (туристы не поймут)",https://estheticjoysembassy.com/,2026-09-28
 https://evndiner.com,35,"в подвале © 2015: сайт давно не обновляли; похоже, только один язык (туристы не поймут); грузится медленно (15.4 c)",https://evndiner.com,2026-09-28
@@ -370,6 +376,7 @@ https://gurmenia.am,10,"похоже, только один язык (турис
 https://gyumri.bar,100,домен не работает (не продлён или не настроен),https://gyumri.bar,2026-09-28
 https://haekshin.am,25,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://haekshin.am,2026-09-30
 https://hamadam.restaurant,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://hamadam.restaurant,2026-09-28
+https://hamadam.restaurant/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://hamadam.restaurant/,2026-10-13
 https://hamshen.am,0,,https://hamshen.am/hy/,2026-09-28
 https://harsupesa.am,10,нет кликабельного телефона/мессенджера,https://harsupesa.am,2026-09-30
 https://hayasahospitality.com,10,"похоже, только один язык (туристы не поймут)",https://hayasahospitality.com,2026-09-30
@@ -391,6 +398,7 @@ https://hotelnational.am/,0,,https://hotelnational.am/,2026-09-28
 https://hotelyeghevnut.com/,0,,https://hotelyeghevnut.com/,2026-09-28
 https://hotelzoracaghbyur.voodoo.pro,100,домен не работает (не продлён или не настроен),https://hotelzoracaghbyur.voodoo.pro,2026-09-28
 https://hover.am,0,,https://hover.am,2026-09-28
+https://hover.am/,0,,https://hover.am/,2026-10-13
 https://iclt.am/en/,35,не адаптирован под телефон (нет viewport); старый jQuery 1.10,https://iclt.am/en/,2026-09-30
 https://ideal-team.com/de/,25,в подвале © 2018: сайт давно не обновляли; нет кликабельного телефона/мессенджера,https://ideal-team.com/de/,2026-09-30
 https://idealteam.am,10,"похоже, только один язык (туристы не поймут)",https://idealteam.am,2026-09-30
@@ -457,6 +465,7 @@ https://megafood.am,35,"в подвале © 1999: сайт давно не об
 https://metropol.am/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://metropol.am/metropol,2026-09-28
 https://modern.am,20,старый jQuery 1.11; нет кликабельного телефона/мессенджера,https://modern.am,2026-09-30
 https://motivesinn.am,0,,https://motivesinn.am,2026-09-28
+https://motivesinn.am/,0,,https://motivesinn.am/,2026-10-13
 https://movrestaurant.com,50,"не адаптирован под телефон (нет viewport); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://movrestaurant.com,2026-09-28
 https://mrbyte.am/Meat_&_Beat/menu/19,25,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://mrbyte.am/Meat_&_Beat/menu/19,2026-09-28
 https://mrgyros.am/,15,в подвале © 2020: сайт давно не обновляли,https://www.mrgyros.am/,2026-09-28
@@ -540,7 +549,9 @@ https://skill.am,25,"старый jQuery 1.10; сделан на констру�
 https://skylinetourservice.com/,100,домен не работает (не продлён или не настроен),https://skylinetourservice.com/,2026-09-28
 https://slavyanka.am/,15,"сделан на конструкторе (ограничения, нет своей админки); похоже, только один язык (туристы не поймут)",https://slavyanka.am/,2026-09-28
 https://smartresort.am,0,,https://smartresort.am,2026-09-28
+https://smartresort.am/,0,,https://smartresort.am/,2026-10-13
 https://sochiguesthouse.com,50,"не адаптирован под телефон (нет viewport); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://sochiguesthouse.com,2026-09-28
+https://sochiguesthouse.com/,50,"не адаптирован под телефон (нет viewport); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://sochiguesthouse.com/,2026-10-13
 https://sorrisogelato.com/,5,"сделан на конструкторе (ограничения, нет своей админки)",https://www.sorrisogelato.com/,2026-09-28
 https://sportcenterhotel.com,10,"похоже, только один язык (туристы не поймут)",https://sportcenterhotel.com,2026-09-30
 https://srhotelarmenia.com/,0,,https://srhotelarmenia.com/en/,2026-09-28
@@ -556,6 +567,7 @@ https://t.me/Leninakan_electrician,100,"своего сайта нет, вмес
 https://t.me/the_spot_dilijan,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://t.me/the_spot_dilijan,2026-09-28
 https://tanger.am,25,"в подвале © 2020: сайт давно не обновляли; похоже, только один язык (туристы не поймут)",https://tanger.am,2026-09-30
 https://taniqinncottages.taniqinn.am,0,,https://taniqinncottages.taniqinn.am,2026-09-28
+https://taniqinncottages.taniqinn.am/,0,,https://taniqinncottages.taniqinn.am/,2026-10-13
 https://taplink.cc/44lounge,25,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",https://taplink.cc/44lounge,2026-09-28
 https://taplink.cc/bombolonidonuts,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://taplink.cc/bombolonidonuts,2026-09-28
 https://tashirpizza.am/,,"сайт не пускает бота (HTTP 403), проверить вручную",https://tashirpizza.am/,2026-09-28
@@ -583,6 +595,7 @@ https://vardo-menu.tilda.ws/,25,"сделан на конструкторе (о�
 https://vgrecruiting.am,10,"похоже, только один язык (туристы не поймут)",https://vgrecruiting.am,2026-09-30
 https://vincent-hostel-by-hotelier.business.site/,100,"сайт на Google business.site, Google отключил такие сайты в 2024: ссылка ведёт в пустоту",https://vincent-hostel-by-hotelier.business.site/,2026-09-28
 https://vpeaks.ru,15,"сделан на конструкторе (ограничения, нет своей админки); похоже, только один язык (туристы не поймут)",https://vpeaks.ru,2026-09-28
+https://vpeaks.ru/,15,"сделан на конструкторе (ограничения, нет своей админки); похоже, только один язык (туристы не поймут)",https://vpeaks.ru/,2026-10-13
 https://wedo.com,10,нет кликабельного телефона/мессенджера,https://wedo.com,2026-09-30
 https://welcomeinnhotel.am,20,"старый jQuery 1.4; похоже, только один язык (туристы не поймут)",https://welcomeinnhotel.am,2026-09-28
 https://weprodigi.com/,20,"похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера",https://weprodigi.com/,2026-09-30
@@ -649,6 +662,7 @@ https://www.deluxehotel.am/,20,старый jQuery 1.11; грузится мед
 https://www.dilijanhikershostel.com,10,"похоже, только один язык (туристы не поймут)",https://www.dilijanhikershostel.com,2026-09-28
 https://www.dilijanpizza.com/,5,"сделан на конструкторе (ограничения, нет своей админки)",https://www.dilijanpizza.com/,2026-09-28
 https://www.dilivilla.com,,"сайт не ответил серверу проверки (ConnectionRefusedError), проверить вручную",https://www.dilivilla.com,2026-09-28
+https://www.dilivilla.com/,70,"нет HTTPS (Chrome пишет «Не защищено»); не адаптирован под телефон (нет viewport); похоже, только один язык (туристы не поймут); нет кликабельного телефона/мессенджера; нет онлайн-брони/заказа",http://www.dilivilla.com/,2026-10-13
 https://www.dolmama.am/,10,"похоже, только один язык (туристы не поймут)",https://dolmama.am/,2026-09-28
 https://www.drive2.ru/users/garagepw/,,"сайт не пускает бота (HTTP 403), проверить вручную",https://www.drive2.ru/users/garagepw/,2026-09-28
 https://www.ecotour.am,100,домен не работает (не продлён или не настроен),https://www.ecotour.am,2026-09-28
@@ -724,6 +738,7 @@ https://www.instagram.com/louvrehomesevan,100,"своего сайта нет, �
 https://www.instagram.com/louvrehomesevan?igsh=cHRkbjE2aDc5cnpl&utm_source=qr,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://www.instagram.com/louvrehomesevan?igsh=cHRkbjE2aDc5cnpl&utm_source=qr,2026-09-28
 https://www.instagram.com/mangocafeyerevan/,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://www.instagram.com/mangocafeyerevan/,2026-09-28
 https://www.instagram.com/mayis.evn/,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://www.instagram.com/mayis.evn/,2026-09-28
+https://www.instagram.com/sovats_vozni/,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://www.instagram.com/sovats_vozni/,2026-10-13
 https://www.instagram.com/the_boo_cafe/,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://www.instagram.com/the_boo_cafe/,2026-10-01
 https://www.instagram.com/tokyo_gyumri,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://www.instagram.com/tokyo_gyumri,2026-09-28
 https://www.instagram.com/tolmatavern/,100,"своего сайта нет, вместо него ссылка на соцсеть/агрегатор",https://www.instagram.com/tolmatavern/,2026-09-28
