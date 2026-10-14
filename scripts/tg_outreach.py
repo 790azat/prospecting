@@ -429,17 +429,23 @@ async def inbox():
     """Выгрузить переписки с теми, кто ответил, в data/tg/inbox.json (последние 10 сообщений)."""
     rows = load_queue()
     ids = {r['tg_id']: r for r in rows if r.get('tg_id')}
+    names = {r['nazvanie'][:60].strip(): r for r in rows if not r.get('tg_id')}
     c = client(load_session()); await c.connect()
     out = []
     async for d in c.iter_dialogs(limit=400):
-        r = ids.get(str(d.id))
+        r = ids.get(str(d.id)) or names.get((d.name or '').strip())
         if not r: continue
         msgs = [m async for m in c.iter_messages(d.entity, limit=10)]
+        if not r.get('tg_id'):   # отправлено, но состояние не сохранилось (прерванный запуск)
+            if not msgs or not msgs[-1].out: continue
+            r['tg_id'], r['status'], r['data'] = str(d.id), 'otpravleno', msgs[-1].date.astimezone(YEREVAN).date().isoformat()
+            print('Восстановлено:', r['nazvanie'])
         if not any(not m.out for m in msgs): continue
         out.append({'name': r['nazvanie'], 'tg_id': r['tg_id'], 'status': r['status'],
                     'msgs': [{'out': m.out, 'date': m.date.isoformat(), 'text': (m.message or '[медиа]')[:600]}
                              for m in reversed(msgs)]})
     INBOX.write_text(json.dumps(out, ensure_ascii=False, indent=1))
+    save_queue(rows)
     print('Переписок с ответами:', len(out))
     await c.disconnect()
 
