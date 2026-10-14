@@ -5,6 +5,8 @@
   sign_in CODE     - войти по коду (и облачному паролю из TG_2FA, если есть)
   run              - дневная порция: проверить ответы, отправить N сообщений с паузами, отчёт в «Избранное»
   status           - проверить сессию и вывести счётчики без отправки
+  day              - run, затем до 20:00 слушать ответы: простые («да», «сколько стоит») отвечаем сами, остальное Азату в «Избранное»
+  inbox / say      - выгрузить переписки в inbox.json / ответить одному (TG_TO, TG_TEXT)
 
 Безопасность аккаунта: лимит по дням (10/15/20, не больше 25), только пн-сб 10:30-18:30 по Еревану,
 паузы 4-10 минут, текст и следом основное видео (data/tg/video), без повторов. При PeerFlood/FloodWait рассылка встаёт на 3 дня.
@@ -328,9 +330,147 @@ async def status():
         await c.disconnect()
 
 
+# ---------- ответы на рассылку ----------
+INBOX = ROOT / 'inbox.json'
+LISTEN_UNTIL = dt.time(20, 0)        # слушаем ответы до 20:00 по Еревану
+LISTEN_EVERY = 10 * 60
+PRICE_WORDS = ('сколько', 'цена', 'цену', 'стоимост', 'прайс', 'стоит', 'ինչքան', 'գին', 'արժե', 'price', 'cost')
+YES_WORDS = ('да', 'интерес', 'хорош', 'давайте', 'можно', 'расскаж', 'подробн', 'покажите', 'ок', 'okay', 'ok', 'yes',
+             'այո', 'հա', 'հետաքրք', 'լավ', 'իհարկե', 'ուղարկեք', 'մանրամասն')
+AUTO = {  # без цен в тексте (правило Азата 05.10)
+    ('yes', 'ru'): 'Отлично! Напишите коротко, что для вас важно на сайте: меню, онлайн-бронь, оплата, несколько языков? '
+                   'И удобно ли созвониться минут на 10, в любое удобное вам время?',
+    ('yes', 'hy'): 'Շատ լավ։ Կարճ գրեք, խնդրում եմ, ինչն է ձեզ համար կարևոր կայքում՝ մենյու, առցանց ամրագրում, վճարում, '
+                   'մի քանի լեզու։ Հարմա՞ր է 10 րոպեով զանգահարել՝ ձեզ հարմար ժամին։',
+    ('price', 'ru'): 'Цена зависит от того, что нужно именно вам. Напишите коротко, какие функции важны (меню, бронь, оплата, '
+                     'языки), и я назову точную сумму. Можно и созвониться минут на 10.',
+    ('price', 'hy'): 'Գինը կախված է նրանից, թե ինչ է պետք հենց ձեզ։ Կարճ գրեք, թե ինչ գործառույթներ են կարևոր (մենյու, '
+                     'ամրագրում, վճարում, լեզուներ), և ես կասեմ ճշգրիտ գինը։ Կարող ենք նաև 10 րոպեով զանգահարել։',
+    ('yes_p', 'ru'): 'Отлично! Условия простые: если вы приводите клиента, которому нужен сайт, 50% от суммы заказа ваши. '
+                     'Удобно созвониться минут на 10 и обсудить детали?',
+    ('yes_p', 'hy'): 'Շատ լավ։ Պայմանները պարզ են՝ եթե բերում եք հաճախորդ, որին կայք է պետք, պատվերի գումարի 50%-ը ձերն է։ '
+                     'Հարմա՞ր է 10 րոպեով զանգահարել և քննարկել մանրամասները։',
+}
+
+
+def lang_of(text):
+    if re.search('[԰-֏]', text or ''): return 'hy'
+    return 'ru' if re.search('[а-яА-ЯёЁ]', text or '') else LANG
+
+
+OTHER_WORDS = ('уже есть', 'есть сайт', 'не нужен', ' но ', 'ունենք', 'բայց', 'already')
+
+
+def classify(text):
+    a = (text or '').lower()
+    toks = re.sub(r'[^\w\s]', ' ', a).split()
+    hit = lambda words: any(t == w or (len(w) > 3 and t.startswith(w)) for t in toks for w in words)
+    if is_no(text): return 'no'
+    if any(w in ' ' + re.sub(r'[^\w\s]', ' ', a) + ' ' for w in OTHER_WORDS): return 'other'
+    if hit(PRICE_WORDS): return 'price'
+    if len(a) <= 90 and hit(YES_WORDS): return 'yes'
+    return 'other'
+
+
+async def handle_replies(c, rows, st):
+    """Новые входящие от тех, кому писали: простые ответы отвечаем сами (один раз), всё остальное пересылаем Азату."""
+    ids = {r['tg_id']: r for r in rows if r.get('tg_id') and r['status'] in ('otpravleno', 'otvetil')}
+    seen = st.setdefault('seen', {})
+    first = st.setdefault('seen_init', False) is False
+    done = []
+    async for d in c.iter_dialogs(limit=400):
+        r = ids.get(str(d.id))
+        if not r or not d.message: continue
+        last = seen.get(r['tg_id'], 0)
+        if first or d.message.id <= last:
+            seen[r['tg_id']] = max(last, d.message.id); continue
+        new = [m async for m in c.iter_messages(d.entity, min_id=last, limit=20) if not m.out]
+        seen[r['tg_id']] = d.message.id
+        if not new: continue
+        text = ' '.join(reversed([m.message or '[медиа]' for m in new]))
+        r['status'], r['otvet'] = 'otvetil', text[:300].replace('\n', ' ')
+        kind = classify(text) if r.get('avto') != 'da' else 'other'
+        note = ''
+        if kind in ('yes', 'price'):
+            async with c.action(d.entity, 'typing'):
+                await asyncio.sleep(random.uniform(5, 12))
+            key = 'yes_p' if is_partner(r) else kind
+            await c.send_message(d.entity, AUTO[(key, lang_of(text))])
+            r['avto'] = 'da'; seen[r['tg_id']] = (await c.get_messages(d.entity, limit=1))[0].id
+            note = 'Я ответил автоматически, без цены. Дальше лучше вести разговор тебе.'
+        if kind != 'no':
+            await report(c, f'🔔 Ответ на рассылку: {r["nazvanie"]} ({r["kategoriya"]}, {r["nomer"]})\n«{text[:800]}»\n{note}'.strip())
+        done.append((r['nazvanie'], kind))
+    st['seen_init'] = True
+    save_queue(rows); save_state(st)
+    return done
+
+
+async def listen():
+    """Слушаем ответы до 20:00 по Еревану (и не дольше 5,5 часа на запуск)."""
+    st, t0 = load_state(), now()
+    if t0.weekday() == 6 or not (dt.time(10, 0) <= t0.time() <= LISTEN_UNTIL): return
+    rows = load_queue()
+    c = client(load_session()); await c.connect()
+    if not await c.is_user_authorized(): return
+    end = min(dt.datetime.combine(t0.date(), LISTEN_UNTIL, YEREVAN), t0 + dt.timedelta(minutes=330))
+    while True:
+        try:
+            for name, kind in await handle_replies(c, rows, st):
+                print('Ответ:', name, kind)
+        except (errors.PeerFloodError, errors.FloodWaitError) as e:
+            print('Ограничение при автоответе:', type(e).__name__); break
+        if now() + dt.timedelta(seconds=LISTEN_EVERY) > end: break
+        await asyncio.sleep(LISTEN_EVERY)
+    await c.disconnect()
+
+
+async def inbox():
+    """Выгрузить переписки с теми, кто ответил, в data/tg/inbox.json (последние 10 сообщений)."""
+    rows = load_queue()
+    ids = {r['tg_id']: r for r in rows if r.get('tg_id')}
+    c = client(load_session()); await c.connect()
+    out = []
+    async for d in c.iter_dialogs(limit=400):
+        r = ids.get(str(d.id))
+        if not r: continue
+        msgs = [m async for m in c.iter_messages(d.entity, limit=10)]
+        if not any(not m.out for m in msgs): continue
+        out.append({'name': r['nazvanie'], 'tg_id': r['tg_id'], 'status': r['status'],
+                    'msgs': [{'out': m.out, 'date': m.date.isoformat(), 'text': (m.message or '[медиа]')[:600]}
+                             for m in reversed(msgs)]})
+    INBOX.write_text(json.dumps(out, ensure_ascii=False, indent=1))
+    print('Переписок с ответами:', len(out))
+    await c.disconnect()
+
+
+async def say(to, text):
+    """Ответить одному человеку из рассылки (to = tg_id)."""
+    c = client(load_session()); await c.connect()
+    async for d in c.iter_dialogs(limit=400):
+        if str(d.id) == str(to):
+            async with c.action(d.entity, 'typing'):
+                await asyncio.sleep(random.uniform(4, 8))
+            await c.send_message(d.entity, text)
+            st = load_state(); st.setdefault('seen', {})[str(to)] = (await c.get_messages(d.entity, limit=1))[0].id
+            save_state(st); print('Отправлено'); break
+    else:
+        print('Диалог не найден')
+    await c.disconnect()
+
+
+async def day():
+    await run()
+    await listen()
+
+
 if __name__ == '__main__':
     mode = sys.argv[1] if len(sys.argv) > 1 else 'status'
     if mode == 'send_code': asyncio.run(send_code())
     elif mode == 'sign_in': asyncio.run(sign_in(sys.argv[2]))
     elif mode == 'run': asyncio.run(run())
+    elif mode == 'day': asyncio.run(day())
+    elif mode == 'listen': asyncio.run(listen())
+    elif mode == 'inbox': asyncio.run(inbox())
+    elif mode == 'say': asyncio.run(say(os.environ['TG_TO'], os.environ['TG_TEXT']))
     else: asyncio.run(status())
