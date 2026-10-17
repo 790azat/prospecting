@@ -4,7 +4,7 @@
 Плюс похожие профили (related) в data/magaziny/ig_related.txt для следующего прохода.
 Работает только на раннере GitHub Actions (из песочницы Instagram недоступен).
 """
-import csv, json, random, re, sys, time, urllib.request, urllib.error
+import csv, json, os, random, re, sys, time, urllib.request, urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -29,6 +29,11 @@ def phones(*texts):
     return list(dict.fromkeys(out))
 
 
+SESSION = os.environ.get('IG_SESSIONID', '').strip()   # cookie sessionid запасного аккаунта (секрет)
+if SESSION:
+    HEAD['Cookie'] = f'sessionid={SESSION}'
+
+
 def fetch(user):
     for u in URLS:
         req = urllib.request.Request(u.format(user), headers=HEAD)
@@ -43,6 +48,7 @@ def fetch(user):
 
 
 def main():
+    print('С аккаунтом' if SESSION else 'Без аккаунта (Instagram обычно отвечает 429)')
     rows = list(csv.DictReader(open(ROOT / 'instagram.csv', encoding='utf-8')))
     users = [r['username'].strip().lstrip('@') for r in rows if r.get('username')]
     extra = ROOT / 'ig_more.txt'   # дополнительные username по одному в строке
@@ -76,7 +82,7 @@ def main():
                     'posledniy_post': datetime.fromtimestamp(last, timezone.utc).date().isoformat() if last else '',
                     'bio': bio.replace('\n', ' | '), 'oshibka': ''})
         print(user, '|', ph, '|', link, flush=True)
-        time.sleep(random.uniform(4, 9))
+        time.sleep(random.uniform(8, 15) if SESSION else random.uniform(4, 9))
     f = ['username', 'imya', 'telefon', 'email', 'ssylka', 'podpischiki', 'kategoriya_ig', 'posledniy_post', 'bio', 'oshibka']
     with open(ROOT / 'ig_bio.csv', 'w', newline='', encoding='utf-8') as fh:
         w = csv.DictWriter(fh, fieldnames=f); w.writeheader(); w.writerows(out)

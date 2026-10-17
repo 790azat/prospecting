@@ -22,6 +22,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: python3 scripts/ig_bio.py
+        env:
+          IG_SESSIONID: ${{ secrets.IG_SESSIONID }}
       - name: Save
         run: |
           git config user.name "github-actions[bot]"
