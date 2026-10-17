@@ -3,6 +3,8 @@ name: ig-bio
 # Телефоны и ссылки из bio Instagram-магазинов (data/magaziny).
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "30 9 * * *"   # каждый день порция 40 профилей
   push:
     branches: [main]
     paths: [".github/workflows/ig-bio.yml", "scripts/ig_bio.py", "data/magaziny/instagram.csv", "data/magaziny/ig_more.txt"]

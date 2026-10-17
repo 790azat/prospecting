@@ -48,14 +48,23 @@ def fetch(user):
 
 
 def main():
-    print('С аккаунтом' if SESSION else 'Без аккаунта (Instagram обычно отвечает 429)')
+    if not SESSION:
+        sys.exit('Нет секрета IG_SESSIONID: без входа Instagram отвечает 429, ничего не читаю.')
     rows = list(csv.DictReader(open(ROOT / 'instagram.csv', encoding='utf-8')))
     users = [r['username'].strip().lstrip('@') for r in rows if r.get('username')]
     extra = ROOT / 'ig_more.txt'   # дополнительные username по одному в строке
     if extra.exists():
         users += [l.strip().lstrip('@') for l in extra.read_text().split() if l.strip()]
     users = list(dict.fromkeys(users))
-    out, related, fails = [], set(), 0
+    done = {}
+    if (ROOT / 'ig_bio.csv').exists():   # уже прочитанные не трогаем, читаем порциями
+        done = {r['username']: r for r in csv.DictReader(open(ROOT / 'ig_bio.csv', encoding='utf-8')) if not r.get('oshibka')}
+    limit = int(os.environ.get('IG_LIMIT') or 40)
+    todo = [u for u in users if u not in done][:limit]
+    old_rel = set((ROOT / 'ig_related.txt').read_text().split()) if (ROOT / 'ig_related.txt').exists() else set()
+    print(f'Уже прочитано {len(done)}, сейчас читаю {len(todo)}')
+    users = todo
+    out, related, fails = [], set(old_rel), 0
     for i, user in enumerate(users):
         u, code = fetch(user)
         if not u:
@@ -82,11 +91,11 @@ def main():
                     'posledniy_post': datetime.fromtimestamp(last, timezone.utc).date().isoformat() if last else '',
                     'bio': bio.replace('\n', ' | '), 'oshibka': ''})
         print(user, '|', ph, '|', link, flush=True)
-        time.sleep(random.uniform(8, 15) if SESSION else random.uniform(4, 9))
+        time.sleep(random.uniform(20, 40) if SESSION else random.uniform(4, 9))
     f = ['username', 'imya', 'telefon', 'email', 'ssylka', 'podpischiki', 'kategoriya_ig', 'posledniy_post', 'bio', 'oshibka']
     with open(ROOT / 'ig_bio.csv', 'w', newline='', encoding='utf-8') as fh:
-        w = csv.DictWriter(fh, fieldnames=f); w.writeheader(); w.writerows(out)
-    (ROOT / 'ig_related.txt').write_text('\n'.join(sorted(related - set(users))))
+        w = csv.DictWriter(fh, fieldnames=f); w.writeheader(); w.writerows(list(done.values()) + out)
+    (ROOT / 'ig_related.txt').write_text('\n'.join(sorted(related - set(users) - set(done))))
     ok = sum(1 for r in out if not r['oshibka'])
     print(f'Прочитано {ok} из {len(users)}, с телефоном {sum(1 for r in out if r.get("telefon"))}, похожих {len(related)}')
 
