@@ -1,13 +1,9 @@
 name: ig-bio
 
 # Телефоны и ссылки из bio Instagram-магазинов (data/magaziny).
+# Только ручной запуск: 17.10 Instagram ответил 429 серверам GitHub даже с входом в аккаунт.
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "30 9 * * *"   # каждый день порция 40 профилей
-  push:
-    branches: [main]
-    paths: [".github/workflows/ig-bio.yml", "scripts/ig_bio.py", "data/magaziny/instagram.csv", "data/magaziny/ig_more.txt"]
 
 permissions:
   contents: write
