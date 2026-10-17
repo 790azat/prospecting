@@ -70,6 +70,16 @@ async def make_mockup(r):
     return out if p.returncode == 0 and out.exists() else None
 
 
+async def make_offer(r):
+    """PDF-предложение (scripts/offer.py) для того, кто ответил с интересом; лежит в data/tg/offers/."""
+    slug = re.sub(r'[^\w]+', '-', r['nazvanie'].lower()).strip('-')[:40] or r['nomer']
+    out = ROOT / 'offers' / f'{slug}-{r["nomer"][-4:]}.pdf'
+    p = await asyncio.create_subprocess_exec(sys.executable, str(Path(__file__).with_name('offer.py')),
+                                             r['nazvanie'], r['kategoriya'], str(out))
+    await p.wait()
+    return out if p.returncode == 0 and out.exists() else None
+
+
 def limit_for(day_no):
     # с 05.10 растём по одному человеку в день (3, 4, 5, 6 ...), не больше 10
     return min(10, day_no + 1)
@@ -103,7 +113,9 @@ def load_queue():
 
 def save_queue(rows):
     with QUEUE.open('w', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0]))
+        cols = list(rows[0])
+        cols += [k for k in dict.fromkeys(k for r in rows for k in r) if k not in cols]   # новые колонки (avto, kp)
+        w = csv.DictWriter(f, fieldnames=cols, restval='')
         w.writeheader(); w.writerows(rows)
 
 
@@ -460,6 +472,14 @@ async def handle_replies(c, rows, st):
             note = 'Я ответил автоматически, без цены. Дальше лучше вести разговор тебе.'
         if kind != 'no':
             await report(c, f'🔔 Ответ на рассылку: {r["nazvanie"]} ({r["kategoriya"]}, {r["nomer"]})\n«{text[:800]}»\n{note}'.strip())
+            if not is_partner(r) and r.get('kp') != 'da':   # интерес: сразу готовим КП в PDF для Азата (Azat 10-17)
+                pdf = await make_offer(r)
+                if pdf:
+                    try:
+                        await c.send_file('me', str(pdf), caption=f'📄 Предложение для {r["nazvanie"]} (на армянском). Можно переслать клиенту.')
+                        r['kp'] = 'da'
+                    except Exception as e:
+                        print('Не удалось отправить КП:', e)
         done.append((r['nazvanie'], kind))
     st['seen_init'] = True
     save_queue(rows); save_state(st)
