@@ -620,8 +620,8 @@ async def day():
     start = dt.datetime.combine(t.date(), dt.time(10, 31), YEREVAN)
     if t.weekday() != 6 and t < start:
         await asyncio.sleep((start - t).total_seconds())
+    await followup()   # Азат 17.10: сначала картинки тем, кто не ответил, потом новые
     await run()
-    await followup()
     await listen()
 
 
