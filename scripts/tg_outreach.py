@@ -6,6 +6,7 @@
   run              - дневная порция: проверить ответы, отправить N сообщений с паузами, отчёт в «Избранное»
   status           - проверить сессию и вывести счётчики без отправки
   day              - run, затем до 20:00 слушать ответы: простые («да», «сколько стоит») отвечаем сами, остальное Азату в «Избранное»
+  nicks            - найти в Telegram ники Instagram-магазинов и поставить в очередь (без отправки)
   inbox / say      - выгрузить переписки в inbox.json / ответить одному (TG_TO, TG_TEXT)
 
 Безопасность аккаунта: лимит по дням (10/15/20, не больше 25), только пн-сб 10:30-18:30 по Еревану,
@@ -280,8 +281,17 @@ async def run():
             stop_reason = 'закончилось рабочее время'; break
         tries += 1; tries_day[today] = tries
         try:
-            res = await c(functions.contacts.ImportContactsRequest([types.InputPhoneContact(
-                client_id=random.randrange(1 << 62), phone=r['nomer'], first_name=r['nazvanie'][:60], last_name='')]))
+            if r['nomer'].startswith('@'):   # ник Telegram (магазины из Instagram с тем же ником)
+                res = types.contacts.ImportedContacts(imported=[], popular_invites=[], retry_contacts=[], users=[])
+                try:
+                    ent = await c.get_entity(r['nomer'])
+                    if isinstance(ent, types.User):
+                        res.users.append(ent)
+                except (ValueError, errors.UsernameInvalidError, errors.UsernameNotOccupiedError):
+                    pass
+            else:
+                res = await c(functions.contacts.ImportContactsRequest([types.InputPhoneContact(
+                    client_id=random.randrange(1 << 62), phone=r['nomer'], first_name=r['nazvanie'][:60], last_name='')]))
             if not res.users:
                 r['status'], r['data'] = 'net_tg', today; no_tg += 1; save_queue(rows)
                 await asyncio.sleep(random.uniform(20, 60)); continue
@@ -536,6 +546,75 @@ async def followup(max_n=FOLLOWUPS_PER_DAY):
         with (ROOT / 'last_run.txt').open('a') as f: f.write(f'Досылка картинок сайта {t.date()}: {n}\n')
 
 
+NICKS_MAX = 150   # проверок ников за запуск (ResolveUsername ограничен Telegram)
+
+
+def nick_variants(u):
+    u = u.strip().lstrip('@').lower()
+    out = [u.replace('.', '_'), u.replace('.', '')] if '.' in u else [u]
+    return [v for v in dict.fromkeys(out) if re.fullmatch(r'[a-z][a-z0-9_]{3,31}', v)]
+
+
+def words(t):
+    return {w for w in re.findall(r'[a-zа-яա-ֆ0-9]{3,}', (t or '').lower())}
+
+
+async def nicks():
+    """Ищет в Telegram ники Instagram-магазинов (data/magaziny/instagram.csv) и ставит найденных в очередь.
+    Ничего не отправляет. Похожесть: совпало слово из имени или ник длиной от 10 символов."""
+    src = Path(__file__).resolve().parent.parent / 'data' / 'magaziny' / 'instagram.csv'
+    shops = list(csv.DictReader(src.open(encoding='utf-8')))
+    out_p = ROOT / 'nicks.csv'
+    done = {r['ig'] for r in csv.DictReader(out_p.open(encoding='utf-8'))} if out_p.exists() else set()
+    rows = load_queue()
+    have = {r['nomer'].lower() for r in rows}
+    c = client(load_session()); await c.connect()
+    if not await c.is_user_authorized():
+        sys.exit('Сессия не авторизована.')
+    found, checks, res = 0, 0, []
+    for sh in shops:
+        ig = sh['username'].strip().lstrip('@')
+        if ig in done or (sh.get('has_site') or '').startswith('yes'):
+            continue
+        hit = None
+        for v in nick_variants(ig):
+            if checks >= NICKS_MAX:
+                break
+            checks += 1
+            try:
+                ent = await c.get_entity(v)
+            except errors.FloodWaitError as e:
+                print('FloodWait', e.seconds); checks = NICKS_MAX; break
+            except Exception:
+                ent = None
+            await asyncio.sleep(random.uniform(3, 7))
+            if isinstance(ent, types.User) and not ent.bot and not ent.deleted:
+                hit = (v, ent); break
+        if checks >= NICKS_MAX and not hit:
+            break
+        name_tg = ' '.join(x for x in [hit[1].first_name, hit[1].last_name] if x) if hit else ''
+        sure = bool(hit) and (bool(words(name_tg) & (words(sh['name']) | words(ig.replace('.', ' ').replace('_', ' ')))) or len(hit[0]) >= 10)
+        res.append({'ig': ig, 'tg': '@' + hit[0] if hit else '', 'tg_imya': name_tg, 'uveren': 'da' if sure else ('net' if hit else '')})
+        if sure and '@' + hit[0] not in have:
+            n = sh['name'] or ig
+            rows.append({k: '' for k in rows[0]} | {
+                'den': '0', 'prioritet': '0', 'nazvanie': n, 'kategoriya': 'интернет-магазин (Instagram)',
+                'gorod': 'Ереван', 'nomer': '@' + hit[0],
+                'tekst_hy': f'Բարև Ձեզ։ Տեսա ձեր Instagram էջը (@{ig})․ պատվերները direct-ով եք ընդունում, իսկ կայք չկա։ Կարող եմ պատրաստել ձեր առցանց խանութը՝ զամբյուղով, առցանց վճարումով և ադմինով, որտեղ ինքներդ եք ապրանքներ ավելացնում։ Ներքևի տեսանյութում ցույց եմ տալիս, թե ինչ եմ անում։ Հետաքրքի՞ր է։',
+                'tekst_ru': f'Здравствуйте! Увидел ваш Instagram (@{ig}): заказы в директ, а сайта нет. Могу сделать вам интернет-магазин с корзиной, онлайн-оплатой и админкой, где вы сами добавляете товары. В видео ниже показываю, что делаю. Интересно?'})
+            found += 1
+        print(ig, '->', res[-1]['tg'] or '-', name_tg, res[-1]['uveren'], flush=True)
+    await c.disconnect()
+    new = not out_p.exists()
+    with out_p.open('a', newline='', encoding='utf-8') as f:
+        w = csv.DictWriter(f, fieldnames=['ig', 'tg', 'tg_imya', 'uveren'])
+        if new: w.writeheader()
+        w.writerows(res)
+    save_queue(rows)
+    msg = f'Ники Instagram в Telegram: проверено {len(res)}, найдено {sum(1 for r in res if r["tg"])}, в очередь {found}.'
+    print(msg); last_run(msg)
+
+
 async def day():
     t = now()   # ранний запуск (cron в 10:00): ждём начала рабочего окна, иначе listen займёт весь день
     start = dt.datetime.combine(t.date(), dt.time(10, 31), YEREVAN)
@@ -555,5 +634,6 @@ if __name__ == '__main__':
     elif mode == 'followup': asyncio.run(followup())
     elif mode == 'listen': asyncio.run(listen())
     elif mode == 'inbox': asyncio.run(inbox())
+    elif mode == 'nicks': asyncio.run(nicks())
     elif mode == 'say': asyncio.run(say(os.environ['TG_TO'], os.environ['TG_TEXT']))
     else: asyncio.run(status())

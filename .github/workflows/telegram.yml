@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "send_code / sign_in / run / day / listen / inbox / say / status"
+        description: "send_code / sign_in / run / day / listen / inbox / say / status / nicks"
         default: status
       code:
         description: "Код входа из Telegram (для sign_in)"
@@ -63,7 +63,7 @@ jobs:
           [ -n "$CODE" ] && echo "::add-mask::$CODE"
           case "$MODE" in
             sign_in) python scripts/tg_outreach.py sign_in "$CODE" ;;
-            send_code|run|day|listen|inbox|say|followup|status) python scripts/tg_outreach.py "$MODE" ;;
+            send_code|run|day|listen|inbox|say|followup|status|nicks) python scripts/tg_outreach.py "$MODE" ;;
             *) echo "unknown mode $MODE"; exit 1 ;;
           esac
       - name: Save state
