@@ -40,13 +40,24 @@ def has_site(r):
     return 'устарел' in r['tekst_ru']
 
 
+# SMM-партнёрам: кроме 50% предлагаем сайт для их собственных SMM-услуг (Azat 10-17)
+SMM_SITE = {'hy': 'Իսկ ձեզ համար էլ կարող եմ պատրաստել կայք ձեր SMM ծառայությունների համար՝ պորտֆոլիոյով և հայտերի ձևով։',
+            'ru': 'А ещё могу сделать сайт для ваших SMM-услуг: с портфолио и формой заявок.'}
+VIDEO_LEAD = {'hy': 'Ներքևի տեսանյութում', 'ru': 'В видео ниже'}
+
+
+def partner_text(text):
+    if SMM_SITE[LANG] in text:
+        return text
+    if VIDEO_LEAD[LANG] in text:
+        return text.replace(VIDEO_LEAD[LANG], SMM_SITE[LANG] + ' ' + VIDEO_LEAD[LANG], 1)
+    return text.replace('Интересно?', SMM_SITE[LANG] + ' Интересно?').replace('Հետաքրքի՞ր է։', SMM_SITE[LANG] + ' Հետաքրքի՞ր է։')
+
+
 def wants_mockup(r):
     return not is_partner(r) and not has_site(r)
 
 
-MOCKUP_CAPTION = {'hy': 'Իսկ սա՝ ձեր ապագա կայքի օրինակը։', 'ru': 'А это пример вашего будущего сайта.'}
-FOLLOWUP_TEXT = {'hy': 'Բարև Ձեզ։ Պատրաստեցի, թե ինչպես կարող է տեսք ունենալ {name}-ի կայքը։ Ինչպե՞ս է ձեզ դուր գալիս։',
-                 'ru': 'Здравствуйте! Набросал, как мог бы выглядеть сайт {name}. Как вам?'}
 FOLLOWUPS_PER_DAY = 10
 
 
@@ -302,6 +313,8 @@ async def run():
                 r['status'], r['data'], r['tg_id'] = 'uzhe_byla_perepiska', today, str(user.id)
                 had_chat += 1; save_queue(rows); continue
             text = r['tekst_hy'] if LANG == 'hy' else r['tekst_ru']
+            if is_partner(r):
+                text = partner_text(text)
             if ask_first:
                 text = ask_text(text)
             async with c.action(user, 'typing'):
@@ -326,7 +339,7 @@ async def run():
                 if img:
                     await asyncio.sleep(random.uniform(4, 9))
                     async with c.action(user, 'photo'):
-                        await c.send_file(user, str(img), caption=MOCKUP_CAPTION[LANG])
+                        await c.send_file(user, str(img))   # без подписи (Azat 10-17)
                     r['video'] = (r.get('video') or '') + '+maket'; save_queue(rows)
                 else:
                     print('Картинка сайта не получилась:', r['nazvanie'])
@@ -392,8 +405,10 @@ AUTO = {  # без цен в тексте (правило Азата 05.10)
     ('price', 'hy'): 'Գինը կախված է նրանից, թե ինչ է պետք հենց ձեզ։ Կարճ գրեք, թե ինչ գործառույթներ են կարևոր (մենյու, '
                      'ամրագրում, վճարում, լեզուներ), և ես կասեմ ճշգրիտ գինը։ Կարող ենք նաև 10 րոպեով զանգահարել։',
     ('yes_p', 'ru'): 'Отлично! Условия простые: если вы приводите клиента, которому нужен сайт, 50% от суммы заказа ваши. '
+                     'А для ваших SMM-услуг могу сделать отдельный сайт с портфолио и заявками. '
                      'Удобно созвониться минут на 10 и обсудить детали?',
     ('yes_p', 'hy'): 'Շատ լավ։ Պայմանները պարզ են՝ եթե բերում եք հաճախորդ, որին կայք է պետք, պատվերի գումարի 50%-ը ձերն է։ '
+                     'Իսկ ձեր SMM ծառայությունների համար կարող եմ պատրաստել առանձին կայք՝ պորտֆոլիոյով և հայտերով։ '
                      'Հարմա՞ր է 10 րոպեով զանգահարել և քննարկել մանրամասները։',
 }
 
@@ -533,7 +548,7 @@ async def followup(max_n=FOLLOWUPS_PER_DAY):
         try:
             async with c.action(d.entity, 'photo'):
                 await asyncio.sleep(random.uniform(4, 8))
-                await c.send_file(d.entity, str(img), caption=FOLLOWUP_TEXT[LANG].format(name=r['nazvanie']))
+                await c.send_file(d.entity, str(img))   # без подписи (Azat 10-17)
         except (errors.PeerFloodError, errors.FloodWaitError) as e:
             print('Ограничение при досылке:', type(e).__name__); break
         except Exception as e:

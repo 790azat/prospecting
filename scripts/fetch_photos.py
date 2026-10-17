@@ -22,6 +22,7 @@ Q = {
     'market': ['grocery store shelves', 'supermarket fruit vegetables', 'grocery shopping basket'],
     'apartment': ['apartment living room interior', 'modern apartment kitchen', 'apartment bedroom'],
     'shop': ['clothing store rack', 'fashion boutique', 'jeans denim folded'],
+    'auto2': ['car service center workshop', 'tire change wheel', 'car diagnostics mechanic', 'auto repair shop interior'],
     'yerevan': ['yerevan city', 'yerevan cascade', 'mount ararat'],
 }
 UA = {'User-Agent': 'evnweb-mockups/1.0 (vip.azatazat@gmail.com)'}
@@ -45,6 +46,7 @@ def main():
             except Exception as e:
                 print('search fail', q, e); continue
             for r in res:
+                if 'rawpixel' in (r.get('foreign_landing_url') or ''): continue   # у rawpixel водяные знаки
                 try:
                     im = Image.open(io.BytesIO(get(r['url']))).convert('RGB')
                 except Exception as e:
