@@ -184,7 +184,7 @@ body{{width:1080px;height:1350px;overflow:hidden;font-family:'Noto Sans Armenian
 .bb i{{width:13px;height:13px;border-radius:50%;background:#ff5f57}}.bb i:nth-child(2){{background:#febc2e}}.bb i:nth-child(3){{background:#28c840}}
 .url{{margin-left:22px;background:#fff;border-radius:9px;padding:6px 18px;font-size:16px;color:#666;width:420px;font-family:'Noto Sans'}}
 .nav{{height:80px;display:flex;align-items:center;justify-content:space-between;padding:0 60px}}
-.logo{{font-family:'Montserrat';font-weight:800;font-size:28px;max-width:520px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
+.logo{{font-family:'Montserrat','Noto Sans Armenian';font-weight:800;font-size:28px;max-width:520px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
 .logo:before{{content:'';display:inline-block;width:14px;height:14px;border-radius:50%;background:#e0283a;margin-right:12px;vertical-align:2px}}
 .nav .m{{display:flex;align-items:center;gap:34px;font-size:18px;color:#444}}
 .nb{{background:#1d1d22;color:#fff;padding:12px 24px;border-radius:30px;font-weight:700;font-size:17px}}
@@ -217,7 +217,7 @@ body{{width:1080px;height:1350px;overflow:hidden;font-family:'Noto Sans Armenian
 .ps{{width:100%;height:100%;border-radius:39px;overflow:hidden;background:#fff;position:relative}}
 .notch{{position:absolute;top:10px;left:50%;width:96px;height:26px;margin-left:-48px;background:#111114;border-radius:16px;z-index:5}}
 .mob{{width:390px;height:772px;transform:scale(.7538);transform-origin:0 0}}
-.mtop{{height:96px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 22px 14px;font-family:'Montserrat';font-weight:800;font-size:21px}}
+.mtop{{height:96px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 22px 14px;font-family:'Montserrat','Noto Sans Armenian';font-weight:800;font-size:21px}}
 .mtop span{{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:290px}}
 .mh{{margin:0 16px;height:300px;border-radius:24px;background-size:cover;background-position:center;position:relative;overflow:hidden}}
 .mh:after{{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.78))}}
