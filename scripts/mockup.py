@@ -118,7 +118,9 @@ def _b64(p):
 
 def _photos(niche, seed):
     folder, alt = N[niche][0], N[niche][1]
-    fs = sorted((PHOTOS / folder).glob('*.jpg')) or sorted((PHOTOS / alt).glob('*.jpg'))
+    fs = sorted((PHOTOS / folder).glob('*.jpg'))
+    if len(fs) < 8 and alt != folder:   # мало своих фото: добавляем из соседней ниши
+        fs += sorted((PHOTOS / alt).glob('*.jpg'))
     if not fs:
         raise FileNotFoundError(f'нет фото для ниши {niche}')
     h = int(hashlib.md5(seed.encode()).hexdigest(), 16)
