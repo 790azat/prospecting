@@ -6,7 +6,7 @@ on:
     inputs:
       limit:
         description: "Лидов на шард (0 = все)"
-        default: "10"
+        default: "0"
       sgai:
         description: "1 = с ScrapeGraphAI, 0 = только Google Карты"
         default: "1"
@@ -20,16 +20,16 @@ permissions:
 jobs:
   enrich:
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    timeout-minutes: 340
     strategy:
       fail-fast: false
       matrix:
-        shard: [0, 1, 2, 3]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
     env:
       PYTHONUNBUFFERED: "1"
       ENRICH_SHARD: ${{ matrix.shard }}
-      ENRICH_SHARDS: "4"
-      ENRICH_LIMIT: ${{ inputs.limit || '10' }}
+      ENRICH_SHARDS: "8"
+      ENRICH_LIMIT: ${{ inputs.limit || '0' }}
       ENRICH_SGAI: ${{ inputs.sgai || '1' }}
       ENRICH_OUT: out/enrich-${{ matrix.shard }}.csv
     steps:
