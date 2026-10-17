@@ -1,0 +1,31 @@
+name: mockup-photos
+
+on:
+  workflow_dispatch:
+    inputs:
+      niches:
+        description: "Ниши через пробел (пусто = все)"
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q pillow
+      - run: python scripts/fetch_photos.py ${{ github.event.inputs.niches }}
+      - name: Save
+        run: |
+          git config user.name "prospecting-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/tg/photos
+          git diff --cached --quiet && exit 0
+          git commit -m "photos: mockup photos by niche"
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
