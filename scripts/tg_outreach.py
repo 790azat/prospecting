@@ -44,9 +44,6 @@ def wants_mockup(r):
     return not is_partner(r) and not has_site(r)
 
 
-MOCKUP_CAPTION = {'hy': 'Իսկ սա՝ ձեր ապագա կայքի օրինակը։', 'ru': 'А это пример вашего будущего сайта.'}
-FOLLOWUP_TEXT = {'hy': 'Բարև Ձեզ։ Պատրաստեցի, թե ինչպես կարող է տեսք ունենալ {name}-ի կայքը։ Ինչպե՞ս է ձեզ դուր գալիս։',
-                 'ru': 'Здравствуйте! Набросал, как мог бы выглядеть сайт {name}. Как вам?'}
 FOLLOWUPS_PER_DAY = 10
 
 
@@ -326,7 +323,7 @@ async def run():
                 if img:
                     await asyncio.sleep(random.uniform(4, 9))
                     async with c.action(user, 'photo'):
-                        await c.send_file(user, str(img), caption=MOCKUP_CAPTION[LANG])
+                        await c.send_file(user, str(img))   # без подписи (Azat 10-17)
                     r['video'] = (r.get('video') or '') + '+maket'; save_queue(rows)
                 else:
                     print('Картинка сайта не получилась:', r['nazvanie'])
@@ -533,7 +530,7 @@ async def followup(max_n=FOLLOWUPS_PER_DAY):
         try:
             async with c.action(d.entity, 'photo'):
                 await asyncio.sleep(random.uniform(4, 8))
-                await c.send_file(d.entity, str(img), caption=FOLLOWUP_TEXT[LANG].format(name=r['nazvanie']))
+                await c.send_file(d.entity, str(img))   # без подписи (Azat 10-17)
         except (errors.PeerFloodError, errors.FloodWaitError) as e:
             print('Ограничение при досылке:', type(e).__name__); break
         except Exception as e:
