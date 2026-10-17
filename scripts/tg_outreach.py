@@ -34,6 +34,30 @@ def is_partner(r):
     return r['kategoriya'].startswith('SMM-партнёр')
 
 
+def has_site(r):
+    """С 17.10 (Азат) пишем только тем, у кого сайта нет совсем: устаревший рабочий сайт пропускаем."""
+    return 'устарел' in r['tekst_ru']
+
+
+def wants_mockup(r):
+    return not is_partner(r) and not has_site(r)
+
+
+MOCKUP_CAPTION = {'hy': 'Իսկ սա՝ ձեր ապագա կայքի օրինակը։', 'ru': 'А это пример вашего будущего сайта.'}
+FOLLOWUP_TEXT = {'hy': 'Բարև Ձեզ։ Պատրաստեցի, թե ինչպես կարող է տեսք ունենալ {name}-ի կայքը։ Ինչպե՞ս է ձեզ դուր գալիս։',
+                 'ru': 'Здравствуйте! Набросал, как мог бы выглядеть сайт {name}. Как вам?'}
+FOLLOWUPS_PER_DAY = 10
+
+
+async def make_mockup(r):
+    """Рисуем картинку сайта отдельным процессом (playwright sync нельзя внутри asyncio)."""
+    out = ROOT / 'mockup' / 'out' / f'{hashlib.md5((r["nomer"] + LANG).encode()).hexdigest()[:12]}.jpg'
+    p = await asyncio.create_subprocess_exec(sys.executable, str(Path(__file__).with_name('mockup.py')),
+                                             r['nazvanie'], r['kategoriya'], LANG, str(out))
+    await p.wait()
+    return out if p.returncode == 0 and out.exists() else None
+
+
 def limit_for(day_no):
     # с 05.10 растём по одному человеку в день (3, 4, 5, 6 ...), не больше 10
     return min(10, day_no + 1)
@@ -250,6 +274,8 @@ async def run():
             break
         if is_partner(r) and sum(map(is_partner, sent)) >= PARTNERS_PER_DAY:
             continue
+        if has_site(r):
+            r['status'] = 'propusk_est_sajt'; continue
         if now().time() > dt.time(18, 30):
             stop_reason = 'закончилось рабочее время'; break
         tries += 1; tries_day[today] = tries
@@ -285,6 +311,15 @@ async def run():
                     raise
                 except Exception as e:
                     print('Видео не отправлено:', type(e).__name__, e)
+            if wants_mockup(r):
+                img = await make_mockup(r)
+                if img:
+                    await asyncio.sleep(random.uniform(4, 9))
+                    async with c.action(user, 'photo'):
+                        await c.send_file(user, str(img), caption=MOCKUP_CAPTION[LANG])
+                    r['video'] = (r.get('video') or '') + '+maket'; save_queue(rows)
+                else:
+                    print('Картинка сайта не получилась:', r['nazvanie'])
             print(f'{len(sent)}/{limit} отправлено: {r["nazvanie"]} ({r["kategoriya"]})')
         except (errors.PeerFloodError, errors.FloodWaitError) as e:
             wait = getattr(e, 'seconds', 0)
@@ -465,8 +500,49 @@ async def say(to, text):
     await c.disconnect()
 
 
+async def followup(max_n=FOLLOWUPS_PER_DAY):
+    """Тем, кому уже писали и кто не ответил (и у кого нет сайта), досылаем картинку их будущего сайта."""
+    st, t = load_state(), now()
+    if t.weekday() == 6 or not (dt.time(10, 30) <= t.time() <= dt.time(18, 30)) or st.get('stopped'): return
+    if st.get('pause_until') and t.date().isoformat() < st['pause_until']: return
+    rows = load_queue()
+    todo = [r for r in rows if r['status'] == 'otpravleno' and r.get('tg_id') and wants_mockup(r)
+            and 'maket' not in (r.get('video') or '')]
+    if not todo: return
+    c = client(load_session()); await c.connect()
+    want = {r['tg_id']: r for r in todo}
+    n = 0
+    async for d in c.iter_dialogs(limit=400):
+        r = want.get(str(d.id))
+        if not r or not d.message: continue
+        if n >= max_n or now().time() > dt.time(18, 30): break
+        if not d.message.out:          # человек ответил: досылать не надо
+            r['status'] = 'otvetil'; save_queue(rows); continue
+        img = await make_mockup(r)
+        if not img: continue
+        try:
+            async with c.action(d.entity, 'photo'):
+                await asyncio.sleep(random.uniform(4, 8))
+                await c.send_file(d.entity, str(img), caption=FOLLOWUP_TEXT[LANG].format(name=r['nazvanie']))
+        except (errors.PeerFloodError, errors.FloodWaitError) as e:
+            print('Ограничение при досылке:', type(e).__name__); break
+        except Exception as e:
+            print('Досылка не удалась:', r['nazvanie'], type(e).__name__); continue
+        r['video'] = (r.get('video') or '') + '+maket'; save_queue(rows); n += 1
+        print('Досылка картинки:', r['nazvanie'])
+        await asyncio.sleep(random.uniform(4 * 60, 8 * 60))
+    await c.disconnect()
+    if n:
+        with (ROOT / 'last_run.txt').open('a') as f: f.write(f'Досылка картинок сайта {t.date()}: {n}\n')
+
+
 async def day():
+    t = now()   # ранний запуск (cron в 10:00): ждём начала рабочего окна, иначе listen займёт весь день
+    start = dt.datetime.combine(t.date(), dt.time(10, 31), YEREVAN)
+    if t.weekday() != 6 and t < start:
+        await asyncio.sleep((start - t).total_seconds())
     await run()
+    await followup()
     await listen()
 
 
@@ -476,6 +552,7 @@ if __name__ == '__main__':
     elif mode == 'sign_in': asyncio.run(sign_in(sys.argv[2]))
     elif mode == 'run': asyncio.run(run())
     elif mode == 'day': asyncio.run(day())
+    elif mode == 'followup': asyncio.run(followup())
     elif mode == 'listen': asyncio.run(listen())
     elif mode == 'inbox': asyncio.run(inbox())
     elif mode == 'say': asyncio.run(say(os.environ['TG_TO'], os.environ['TG_TEXT']))

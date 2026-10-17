@@ -48,7 +48,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -q telethon==1.* cryptography hachoir
+      - run: pip install -q telethon==1.* cryptography hachoir playwright && python -m playwright install --with-deps chromium > /dev/null
       - name: Check secrets
         run: |
           [ -n "$TG_API_ID" ] && [ -n "$TG_API_HASH" ] || { echo "::error::Добавьте секреты TG_API_ID и TG_API_HASH"; exit 1; }
@@ -63,7 +63,7 @@ jobs:
           [ -n "$CODE" ] && echo "::add-mask::$CODE"
           case "$MODE" in
             sign_in) python scripts/tg_outreach.py sign_in "$CODE" ;;
-            send_code|run|day|listen|inbox|say|status) python scripts/tg_outreach.py "$MODE" ;;
+            send_code|run|day|listen|inbox|say|followup|status) python scripts/tg_outreach.py "$MODE" ;;
             *) echo "unknown mode $MODE"; exit 1 ;;
           esac
       - name: Save state
