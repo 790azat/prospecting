@@ -17,6 +17,7 @@
 import csv, json, os, re, signal, sys, time, urllib.parse
 
 INP = "data/enrich/input.csv"
+DONE = "data/enrich/results.csv"  # уже проверенные (название + город) повторно не проверяем
 OUT = os.environ.get("ENRICH_OUT", "out/enrich.csv")
 MODEL = os.environ.get("ENRICH_MODEL", "qwen2.5:3b")
 CITY = {"Ереван": "Yerevan", "Гюмри": "Gyumri", "Ванадзор": "Vanadzor", "Дилижан": "Dilijan",
@@ -30,6 +31,10 @@ FIELDS = ["n", "nazvanie", "nisha", "gorod",
           "regex_phone", "regex_website", "google_name", "google_link", "card_sec",
           "name_ok", "site_alive",
           "sg_web_phone", "sg_web_raw", "sg_web_sources", "sg_web_sec"]
+
+
+def key(r):
+    return (r["nazvanie"].strip().lower(), r["gorod"].strip().lower())
 
 
 def phones(text):
@@ -159,7 +164,7 @@ def _alarm(*_):
     raise Timeout()
 
 
-def stage_sgai(rows, cards):
+def stage_sgai(rows, cards, save):
     from scrapegraphai.graphs import SearchGraph
     signal.signal(signal.SIGALRM, _alarm)
     llm = {"model": f"ollama/{MODEL}", "model_tokens": 8192, "format": "json", "temperature": 0,
@@ -192,6 +197,7 @@ def stage_sgai(rows, cards):
                     break
         d["sg_web_sec"] = round(time.time() - t, 1)
         out[r["n"]] = d
+        save(out)  # пишем после каждого лида: если шард упрётся в лимит времени, готовое не пропадёт
         print(f"sgai {i}/{len(todo)} {r['nazvanie']}: {d.get('sg_web_phone') or '-'} ({d['sg_web_sec']} с)", flush=True)
     return out
 
@@ -199,19 +205,28 @@ def stage_sgai(rows, cards):
 def main():
     shard, shards = int(os.environ.get("ENRICH_SHARD", "0")), int(os.environ.get("ENRICH_SHARDS", "1"))
     limit = int(os.environ.get("ENRICH_LIMIT", "0"))
-    rows = [r for i, r in enumerate(csv.DictReader(open(INP, encoding="utf-8"))) if i % shards == shard]
+    done = set()
+    if os.path.exists(DONE) and os.environ.get("ENRICH_REDO") != "1":
+        done = {key(r) for r in csv.DictReader(open(DONE, encoding="utf-8"))}
+    rows = [r for r in csv.DictReader(open(INP, encoding="utf-8")) if key(r) not in done]
+    rows = [r for i, r in enumerate(rows) if i % shards == shard]
     if limit:
         rows = rows[:limit]
     print("лидов", len(rows), flush=True)
-    cards = stage_cards(rows)
-    sg = stage_sgai(rows, cards) if os.environ.get("ENRICH_SGAI", "1") == "1" else {}
     os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
-    with open(OUT, "w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, FIELDS, extrasaction="ignore")
-        w.writeheader()
-        for r in rows:
-            w.writerow({**r, **cards.get(r["n"], {}), **sg.get(r["n"], {})})
 
+    def save(sg):
+        with open(OUT + ".tmp", "w", newline="", encoding="utf-8") as fh:
+            w = csv.DictWriter(fh, FIELDS, extrasaction="ignore")
+            w.writeheader()
+            for r in rows:
+                w.writerow({**r, **cards.get(r["n"], {}), **sg.get(r["n"], {})})
+        os.replace(OUT + ".tmp", OUT)
+
+    cards = stage_cards(rows)
+    save({})
+    if os.environ.get("ENRICH_SGAI", "1") == "1":
+        stage_sgai(rows, cards, save)
 
 if __name__ == "__main__":
     main()

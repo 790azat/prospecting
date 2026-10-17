@@ -7,15 +7,22 @@ on:
       limit:
         description: "Лидов на шард (0 = все)"
         default: "0"
+      redo:
+        description: "1 = проверить заново и уже проверенных"
+        default: "0"
       sgai:
         description: "1 = с ScrapeGraphAI, 0 = только Google Карты"
         default: "1"
   push:
     branches: [main, "sgai-*"]
-    paths: [".github/workflows/sgai-enrich.yml", "scripts/sgai_enrich.py"]
+    paths: [".github/workflows/sgai-enrich.yml", "scripts/sgai_enrich.py", "data/enrich/input.csv"]
 
 permissions:
   contents: write
+
+concurrency:
+  group: sgai-enrich-${{ github.ref_name }}
+  cancel-in-progress: true
 
 jobs:
   enrich:
@@ -31,6 +38,7 @@ jobs:
       ENRICH_SHARDS: "8"
       ENRICH_LIMIT: ${{ inputs.limit || '0' }}
       ENRICH_SGAI: ${{ inputs.sgai || '1' }}
+      ENRICH_REDO: ${{ inputs.redo || '0' }}
       ENRICH_OUT: out/enrich-${{ matrix.shard }}.csv
     steps:
       - uses: actions/checkout@v4
@@ -44,7 +52,8 @@ jobs:
           (ollama serve > ollama.log 2>&1 &)
           sleep 5
           ollama pull qwen2.5:3b
-      - run: |
+      - timeout-minutes: 320
+        run: |
           pip install playwright scrapegraphai ddgs requests
           python3 -m playwright install --with-deps chromium
           python3 scripts/sgai_enrich.py
@@ -71,9 +80,17 @@ jobs:
           python3 - <<'PY'
           import csv, glob
           rows = [r for p in sorted(glob.glob("art/enrich-*/*.csv")) for r in csv.DictReader(open(p, encoding="utf-8"))]
+          key = lambda r: (r["nazvanie"].strip().lower(), r["gorod"].strip().lower())
+          new = {key(r) for r in rows}
+          try:
+              old = [r for r in csv.DictReader(open("data/enrich/results.csv", encoding="utf-8")) if key(r) not in new]
+          except FileNotFoundError:
+              old = []
+          rows = old + rows
           if rows:
               with open("data/enrich/results.csv", "w", newline="", encoding="utf-8") as fh:
-                  w = csv.DictWriter(fh, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
+                  w = csv.DictWriter(fh, fieldnames=list(dict.fromkeys(k for r in rows for k in r)), restval="")
+                  w.writeheader(); w.writerows(rows)
           print(len(rows))
           PY
           git config user.name "prospecting-bot"
