@@ -62,10 +62,11 @@ FOLLOWUPS_PER_DAY = 10
 
 
 async def make_mockup(r):
-    """Рисуем картинку сайта отдельным процессом (playwright sync нельзя внутри asyncio)."""
-    out = ROOT / 'mockup' / 'out' / f'{hashlib.md5((r["nomer"] + LANG).encode()).hexdigest()[:12]}.jpg'
-    p = await asyncio.create_subprocess_exec(sys.executable, str(Path(__file__).with_name('mockup.py')),
-                                             r['nazvanie'], r['kategoriya'], LANG, str(out))
+    """Уникальный дизайн главной страницы с их логотипом (scripts/design.py, Azat 10-23); отдельным процессом,
+    потому что playwright sync нельзя внутри asyncio. Без готовой картинки фото не отправляем."""
+    out = ROOT / 'design' / 'out' / f'{hashlib.md5(r["nomer"].encode()).hexdigest()[:12]}.jpg'
+    p = await asyncio.create_subprocess_exec(sys.executable, str(Path(__file__).with_name('design.py')),
+                                             r['nazvanie'], r['kategoriya'], str(out), r.get('gorod', ''))
     await p.wait()
     return out if p.returncode == 0 and out.exists() else None
 
