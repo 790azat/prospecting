@@ -185,7 +185,7 @@ nav{{display:flex;gap:36px;font-size:17px;color:{mut};font-weight:500}}
 h1{{font-family:{disp};font-size:{h1}px;line-height:1.02;font-weight:700;letter-spacing:-1px;margin-bottom:24px;overflow-wrap:break-word}}
 h2{{font-family:{disp};font-size:52px;line-height:1.1;font-weight:700;margin-bottom:22px}}
 .c{{text-align:center;margin-left:auto;margin-right:auto}}
-.hero.full{{padding:0;height:860px;background-size:cover;background-position:center;color:#fff;position:relative}}
+.hero.full{{padding:0;height:900px;background-size:cover;background-position:center;color:#fff;position:relative}}
 .hero.full .hc{{position:absolute;left:80px;bottom:110px;max-width:860px}} .hero.full .kick{{color:#fff;opacity:.85}}
 .hero.full p{{font-size:24px;margin-bottom:36px;opacity:.92;max-width:640px}}
 .hero.split{{display:grid;grid-template-columns:1fr 1fr;gap:60px;padding:50px 80px 90px;align-items:center}}
@@ -243,7 +243,7 @@ class Designs:
         out = Path(out); out.parent.mkdir(parents=True, exist_ok=True)
         self.pg.set_content(page(name, category, city), wait_until='load')
         self.pg.evaluate('document.fonts.ready')
-        png = self.pg.screenshot(full_page=True, type='png')
+        png = self.pg.screenshot(full_page=False, type='png')   # только первый экран (Azat 10-25)
         im = Image.open(io.BytesIO(png)).convert('RGB')
         im = im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
         im.save(out, quality=86, optimize=True, progressive=True)
