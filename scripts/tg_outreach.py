@@ -82,8 +82,8 @@ async def make_offer(r):
 
 
 def limit_for(day_no):
-    # с 05.10 растём по одному человеку в день (3, 4, 5, 6 ...), не больше 10
-    return min(10, day_no + 1)
+    # с 05.10 росли по одному в день до 10; после двух PeerFlood подряд (19.10 и 22.10) не больше 3 в день
+    return min(3, day_no + 1)
 
 
 def fernet():
