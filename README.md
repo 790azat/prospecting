@@ -37,3 +37,10 @@ Workflow **maps-leads** (1 и 15 числа месяца и по кнопке) �
 
 После него сам запускается **maps-verify** (`scripts/maps_verify.py`): каждую карточку Яндекса без сайта ищет в Google Картах, найденные там сайты → `data/maps/verify.csv`.
 Отбор лидов и сверка с общим списком: папка проекта `market/karty/otbor.py`.
+
+## Телефоны для лидов без телефона (ScrapeGraphAI)
+
+Workflow **sgai-enrich** (`scripts/sgai_enrich.py`) берёт `data/enrich/input.csv` (его пишет `market/master/sborka.py`),
+открывает карточку каждого лида в Google Картах (телефон, сайт), а где телефона нет, ищет его в интернете через
+ScrapeGraphAI с бесплатной моделью Ollama прямо в раннере. Итог копится в `data/enrich/results.csv`, уже проверенные
+повторно не проверяются (`redo=1` в ручном запуске проверит всех). `sborka.py` подмешивает телефоны в общий список.

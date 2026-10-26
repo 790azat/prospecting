@@ -1,0 +1,100 @@
+name: sgai-enrich
+
+# Телефоны для лидов без телефона: Google Карты + ScrapeGraphAI с локальной моделью Ollama (ключи не нужны).
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Лидов на шард (0 = все)"
+        default: "0"
+      redo:
+        description: "1 = проверить заново и уже проверенных"
+        default: "0"
+      sgai:
+        description: "1 = с ScrapeGraphAI, 0 = только Google Карты"
+        default: "1"
+  push:
+    branches: [main, "sgai-*"]
+    paths: [".github/workflows/sgai-enrich.yml", "scripts/sgai_enrich.py", "data/enrich/input.csv"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sgai-enrich-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    env:
+      PYTHONUNBUFFERED: "1"
+      ENRICH_SHARD: ${{ matrix.shard }}
+      ENRICH_SHARDS: "8"
+      ENRICH_LIMIT: ${{ inputs.limit || '0' }}
+      ENRICH_SGAI: ${{ inputs.sgai || '1' }}
+      ENRICH_REDO: ${{ inputs.redo || '0' }}
+      ENRICH_OUT: out/enrich-${{ matrix.shard }}.csv
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Ollama
+        if: env.ENRICH_SGAI == '1'
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          (ollama serve > ollama.log 2>&1 &)
+          sleep 5
+          ollama pull qwen2.5:3b
+      - timeout-minutes: 320
+        run: |
+          pip install playwright scrapegraphai ddgs requests
+          python3 -m playwright install --with-deps chromium
+          python3 scripts/sgai_enrich.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrich-${{ matrix.shard }}
+          path: out/
+          if-no-files-found: ignore
+
+  commit:
+    needs: enrich
+    if: always()
+    runs-on: ubuntu-latest
+    concurrency:
+      group: data-commit
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: art
+      - run: |
+          python3 - <<'PY'
+          import csv, glob
+          rows = [r for p in sorted(glob.glob("art/enrich-*/*.csv")) for r in csv.DictReader(open(p, encoding="utf-8"))]
+          key = lambda r: (r["nazvanie"].strip().lower(), r["gorod"].strip().lower())
+          new = {key(r) for r in rows}
+          try:
+              old = [r for r in csv.DictReader(open("data/enrich/results.csv", encoding="utf-8")) if key(r) not in new]
+          except FileNotFoundError:
+              old = []
+          rows = old + rows
+          if rows:
+              with open("data/enrich/results.csv", "w", newline="", encoding="utf-8") as fh:
+                  w = csv.DictWriter(fh, fieldnames=list(dict.fromkeys(k for r in rows for k in r)), restval="")
+                  w.writeheader(); w.writerows(rows)
+          print(len(rows))
+          PY
+          git config user.name "prospecting-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/enrich
+          git diff --cached --quiet || git commit -m "data: sgai enrich $(date -u +%F)"
+          for i in 1 2 3; do git pull --rebase -X theirs origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break; sleep 5; done
